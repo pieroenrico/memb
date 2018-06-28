@@ -20,6 +20,7 @@ Route::get('/feed', 'FeedController@index')->name('feed');
 Route::get('/upload/picture', 'UploadController@index')->name('upload.picture');
 Route::get('/upload/location', 'UploadController@location')->name('upload.location');
 Route::get('/upload/text', 'UploadController@text')->name('upload.text');
+Route::get('/upload/tags', 'UploadController@tags')->name('upload.tags');
 
 
 Auth::routes();

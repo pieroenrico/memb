@@ -10,6 +10,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
 
     <!-- Styles -->
     <link href="/assets/css/core.min.css" rel="stylesheet">
@@ -36,17 +37,17 @@
 </div>
 
 <!-- Topbar -->
-<header class="topbar topbar-expand-lg">
+<header class="topbar topbar-expand-lg bg-dark">
     <div class="topbar-left">
         <span class="topbar-btn topbar-menu-toggler"><i>&#9776;</i></span>
         <span class="topbar-brand">
-            <img src="/assets/img/logo.svg" alt="" style="width: 50px;">
+            <img src="/img/logo.svg" alt="" style="width: 50px;">
         </span>
 
         <div class="topbar-divider d-none d-xl-block"></div>
 
         <nav class="topbar-navigation">
-            <ul class="menu">
+            <ul class="menu text-center">
 
                 <li class="menu-item">
                     <a class="menu-link" href="../index.html">
@@ -81,9 +82,10 @@
 
     <div class="topbar-right">
 
-        {{--<ul class="topbar-btns">
+        <ul class="topbar-btns">
+
             <li class="dropdown">
-                <span class="topbar-btn" data-toggle="dropdown"><img class="avatar" src="../assets/img/avatar/1.jpg" alt="..."></span>
+                <span class="topbar-btn" data-toggle="dropdown"><img class="avatar" src="/uploads/a.jpg" alt="..."></span>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="#"><i class="ti-user"></i> Profile</a>
                     <a class="dropdown-item" href="#">
@@ -101,7 +103,7 @@
             </li>
 
             <!-- Notifications -->
-            <li class="dropdown d-none d-md-block">
+            {{--<li class="dropdown d-none d-md-block">
                 <span class="topbar-btn has-new" data-toggle="dropdown"><i class="ti-bell"></i></span>
                 <div class="dropdown-menu dropdown-menu-right">
 
@@ -152,11 +154,11 @@
                     </div>
 
                 </div>
-            </li>
+            </li>--}}
             <!-- END Notifications -->
 
             <!-- Messages -->
-            <li class="dropdown d-none d-md-block">
+            {{--<li class="dropdown d-none d-md-block">
                 <span class="topbar-btn" data-toggle="dropdown"><i class="ti-email"></i></span>
                 <div class="dropdown-menu dropdown-menu-right">
 
@@ -238,15 +240,15 @@
                     </div>
 
                 </div>
-            </li>
+            </li>--}}
             <!-- END Messages -->
-        </ul>--}}
+        </ul>
 
         {{--<div class="topbar-divider d-none d-md-block"></div>--}}
 
-        <form class="lookup lookup-circle lookup-right" target="index.html">
+        {{--<form class="lookup lookup-circle lookup-right" target="index.html">
             <input type="text" name="s">
-        </form>
+        </form>--}}
 
     </div>
 </header>
@@ -257,7 +259,7 @@
 
 
 <!-- Main container -->
-<main class="main-container">
+<main class="main-container pt-40">
 
     {{--<header class="header">
         <div class="header-info">

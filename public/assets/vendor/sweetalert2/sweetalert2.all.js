@@ -1,5 +1,5 @@
 /*!
- * sweetalert2 v7.6.0
+ * sweetalert2 v6.11.4
  * Released under the MIT License.
  */
 (function (global, factory) {
@@ -8,7 +8,7 @@
 	(global.Sweetalert2 = factory());
 }(this, (function () { 'use strict';
 
-var styles = "body.swal2-toast-shown.swal2-has-input > .swal2-container > .swal2-toast {\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column; }\n  body.swal2-toast-shown.swal2-has-input > .swal2-container > .swal2-toast .swal2-actions {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    -ms-flex-item-align: stretch;\n        align-self: stretch;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end; }\n  body.swal2-toast-shown.swal2-has-input > .swal2-container > .swal2-toast .swal2-loading {\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n  body.swal2-toast-shown.swal2-has-input > .swal2-container > .swal2-toast .swal2-input {\n    height: 32px;\n    font-size: 14px;\n    margin: 5px auto; }\n\nbody.swal2-toast-shown > .swal2-container {\n  position: fixed;\n  background-color: transparent; }\n  body.swal2-toast-shown > .swal2-container.swal2-shown {\n    background-color: transparent; }\n  body.swal2-toast-shown > .swal2-container.swal2-top {\n    top: 0;\n    left: 50%;\n    bottom: auto;\n    right: auto;\n    -webkit-transform: translateX(-50%);\n            transform: translateX(-50%); }\n  body.swal2-toast-shown > .swal2-container.swal2-top-end, body.swal2-toast-shown > .swal2-container.swal2-top-right {\n    top: 0;\n    left: auto;\n    bottom: auto;\n    right: 0; }\n  body.swal2-toast-shown > .swal2-container.swal2-top-start, body.swal2-toast-shown > .swal2-container.swal2-top-left {\n    top: 0;\n    left: 0;\n    bottom: auto;\n    right: auto; }\n  body.swal2-toast-shown > .swal2-container.swal2-center-start, body.swal2-toast-shown > .swal2-container.swal2-center-left {\n    top: 50%;\n    left: 0;\n    bottom: auto;\n    right: auto;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%); }\n  body.swal2-toast-shown > .swal2-container.swal2-center {\n    top: 50%;\n    left: 50%;\n    bottom: auto;\n    right: auto;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%); }\n  body.swal2-toast-shown > .swal2-container.swal2-center-end, body.swal2-toast-shown > .swal2-container.swal2-center-right {\n    top: 50%;\n    left: auto;\n    bottom: auto;\n    right: 0;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%); }\n  body.swal2-toast-shown > .swal2-container.swal2-bottom-start, body.swal2-toast-shown > .swal2-container.swal2-bottom-left {\n    top: auto;\n    left: 0;\n    bottom: 0;\n    right: auto; }\n  body.swal2-toast-shown > .swal2-container.swal2-bottom {\n    top: auto;\n    left: 50%;\n    bottom: 0;\n    right: auto;\n    -webkit-transform: translateX(-50%);\n            transform: translateX(-50%); }\n  body.swal2-toast-shown > .swal2-container.swal2-bottom-end, body.swal2-toast-shown > .swal2-container.swal2-bottom-right {\n    top: auto;\n    left: auto;\n    bottom: 0;\n    right: 0; }\n\n.swal2-popup.swal2-toast {\n  width: auto;\n  padding: 0.625em;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  overflow-y: hidden;\n  -webkit-box-shadow: 0 0 10px #d9d9d9;\n          box-shadow: 0 0 10px #d9d9d9; }\n  .swal2-popup.swal2-toast .swal2-header {\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: row;\n            flex-direction: row; }\n  .swal2-popup.swal2-toast .swal2-title {\n    font-size: 16px;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n    margin: 0 .6em; }\n  .swal2-popup.swal2-toast .swal2-close {\n    position: initial; }\n  .swal2-popup.swal2-toast .swal2-content {\n    font-size: 14px;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start; }\n  .swal2-popup.swal2-toast .swal2-icon {\n    width: 32px;\n    min-width: 32px;\n    height: 32px;\n    margin: 0; }\n    .swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring {\n      width: 32px;\n      height: 32px; }\n    .swal2-popup.swal2-toast .swal2-icon.swal2-info, .swal2-popup.swal2-toast .swal2-icon.swal2-warning, .swal2-popup.swal2-toast .swal2-icon.swal2-question {\n      font-size: 26px;\n      line-height: 32px; }\n    .swal2-popup.swal2-toast .swal2-icon.swal2-error [class^='swal2-x-mark-line'] {\n      top: 14px;\n      width: 22px; }\n      .swal2-popup.swal2-toast .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='left'] {\n        left: 5px; }\n      .swal2-popup.swal2-toast .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='right'] {\n        right: 5px; }\n  .swal2-popup.swal2-toast .swal2-actions {\n    margin: 0 0 0 5px; }\n  .swal2-popup.swal2-toast .swal2-styled {\n    margin: 0 0 0 5px;\n    padding: 5px 10px; }\n    .swal2-popup.swal2-toast .swal2-styled:focus {\n      -webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 2px rgba(50, 100, 150, 0.4);\n              box-shadow: 0 0 0 1px #fff, 0 0 0 2px rgba(50, 100, 150, 0.4); }\n  .swal2-popup.swal2-toast .swal2-success {\n    border-color: #a5dc86; }\n    .swal2-popup.swal2-toast .swal2-success [class^='swal2-success-circular-line'] {\n      border-radius: 50%;\n      position: absolute;\n      width: 32px;\n      height: 45px;\n      -webkit-transform: rotate(45deg);\n              transform: rotate(45deg); }\n      .swal2-popup.swal2-toast .swal2-success [class^='swal2-success-circular-line'][class$='left'] {\n        border-radius: 64px 0 0 64px;\n        top: -4px;\n        left: -15px;\n        -webkit-transform: rotate(-45deg);\n                transform: rotate(-45deg);\n        -webkit-transform-origin: 32px 32px;\n                transform-origin: 32px 32px; }\n      .swal2-popup.swal2-toast .swal2-success [class^='swal2-success-circular-line'][class$='right'] {\n        border-radius: 0 64px 64px 0;\n        top: -5px;\n        left: 14px;\n        -webkit-transform-origin: 0 32px;\n                transform-origin: 0 32px; }\n    .swal2-popup.swal2-toast .swal2-success .swal2-success-ring {\n      width: 32px;\n      height: 32px; }\n    .swal2-popup.swal2-toast .swal2-success .swal2-success-fix {\n      width: 7px;\n      height: 43px;\n      left: 7px;\n      top: 0; }\n    .swal2-popup.swal2-toast .swal2-success [class^='swal2-success-line'] {\n      height: 5px; }\n      .swal2-popup.swal2-toast .swal2-success [class^='swal2-success-line'][class$='tip'] {\n        width: 12px;\n        left: 3px;\n        top: 18px; }\n      .swal2-popup.swal2-toast .swal2-success [class^='swal2-success-line'][class$='long'] {\n        width: 22px;\n        right: 3px;\n        top: 15px; }\n  .swal2-popup.swal2-toast .swal2-show {\n    -webkit-animation: showSweetToast .5s;\n            animation: showSweetToast .5s; }\n  .swal2-popup.swal2-toast .swal2-hide {\n    -webkit-animation: hideSweetToast .2s forwards;\n            animation: hideSweetToast .2s forwards; }\n  .swal2-popup.swal2-toast .swal2-animate-success-line-tip {\n    -webkit-animation: animate-toast-success-tip .75s;\n            animation: animate-toast-success-tip .75s; }\n  .swal2-popup.swal2-toast .swal2-animate-success-line-long {\n    -webkit-animation: animate-toast-success-long .75s;\n            animation: animate-toast-success-long .75s; }\n\n@-webkit-keyframes showSweetToast {\n  0% {\n    -webkit-transform: translateY(-10px) rotateZ(2deg);\n            transform: translateY(-10px) rotateZ(2deg);\n    opacity: 0; }\n  33% {\n    -webkit-transform: translateY(0) rotateZ(-2deg);\n            transform: translateY(0) rotateZ(-2deg);\n    opacity: .5; }\n  66% {\n    -webkit-transform: translateY(5px) rotateZ(2deg);\n            transform: translateY(5px) rotateZ(2deg);\n    opacity: .7; }\n  100% {\n    -webkit-transform: translateY(0) rotateZ(0);\n            transform: translateY(0) rotateZ(0);\n    opacity: 1; } }\n\n@keyframes showSweetToast {\n  0% {\n    -webkit-transform: translateY(-10px) rotateZ(2deg);\n            transform: translateY(-10px) rotateZ(2deg);\n    opacity: 0; }\n  33% {\n    -webkit-transform: translateY(0) rotateZ(-2deg);\n            transform: translateY(0) rotateZ(-2deg);\n    opacity: .5; }\n  66% {\n    -webkit-transform: translateY(5px) rotateZ(2deg);\n            transform: translateY(5px) rotateZ(2deg);\n    opacity: .7; }\n  100% {\n    -webkit-transform: translateY(0) rotateZ(0);\n            transform: translateY(0) rotateZ(0);\n    opacity: 1; } }\n\n@-webkit-keyframes hideSweetToast {\n  0% {\n    opacity: 1; }\n  33% {\n    opacity: .5; }\n  100% {\n    -webkit-transform: rotateZ(1deg);\n            transform: rotateZ(1deg);\n    opacity: 0; } }\n\n@keyframes hideSweetToast {\n  0% {\n    opacity: 1; }\n  33% {\n    opacity: .5; }\n  100% {\n    -webkit-transform: rotateZ(1deg);\n            transform: rotateZ(1deg);\n    opacity: 0; } }\n\n@-webkit-keyframes animate-toast-success-tip {\n  0% {\n    width: 0;\n    left: 1px;\n    top: 9px; }\n  54% {\n    width: 0;\n    left: 2px;\n    top: 2px; }\n  70% {\n    width: 26px;\n    left: -4px;\n    top: 10px; }\n  84% {\n    width: 8px;\n    left: 12px;\n    top: 17px; }\n  100% {\n    width: 12px;\n    left: 3px;\n    top: 18px; } }\n\n@keyframes animate-toast-success-tip {\n  0% {\n    width: 0;\n    left: 1px;\n    top: 9px; }\n  54% {\n    width: 0;\n    left: 2px;\n    top: 2px; }\n  70% {\n    width: 26px;\n    left: -4px;\n    top: 10px; }\n  84% {\n    width: 8px;\n    left: 12px;\n    top: 17px; }\n  100% {\n    width: 12px;\n    left: 3px;\n    top: 18px; } }\n\n@-webkit-keyframes animate-toast-success-long {\n  0% {\n    width: 0;\n    right: 22px;\n    top: 26px; }\n  65% {\n    width: 0;\n    right: 15px;\n    top: 20px; }\n  84% {\n    width: 18px;\n    right: 0;\n    top: 15px; }\n  100% {\n    width: 22px;\n    right: 3px;\n    top: 15px; } }\n\n@keyframes animate-toast-success-long {\n  0% {\n    width: 0;\n    right: 22px;\n    top: 26px; }\n  65% {\n    width: 0;\n    right: 15px;\n    top: 20px; }\n  84% {\n    width: 18px;\n    right: 0;\n    top: 15px; }\n  100% {\n    width: 22px;\n    right: 3px;\n    top: 15px; } }\n\nhtml.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown),\nbody.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {\n  overflow-y: hidden;\n  height: auto; }\n\nbody.swal2-iosfix {\n  position: fixed;\n  left: 0;\n  right: 0; }\n\nbody.swal2-no-backdrop .swal2-shown {\n  top: auto;\n  bottom: auto;\n  left: auto;\n  right: auto;\n  background-color: transparent; }\n  body.swal2-no-backdrop .swal2-shown > .swal2-modal {\n    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);\n            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }\n  body.swal2-no-backdrop .swal2-shown.swal2-top {\n    top: 0;\n    left: 50%;\n    -webkit-transform: translateX(-50%);\n            transform: translateX(-50%); }\n  body.swal2-no-backdrop .swal2-shown.swal2-top-start, body.swal2-no-backdrop .swal2-shown.swal2-top-left {\n    top: 0;\n    left: 0; }\n  body.swal2-no-backdrop .swal2-shown.swal2-top-end, body.swal2-no-backdrop .swal2-shown.swal2-top-right {\n    top: 0;\n    right: 0; }\n  body.swal2-no-backdrop .swal2-shown.swal2-center {\n    top: 50%;\n    left: 50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%); }\n  body.swal2-no-backdrop .swal2-shown.swal2-center-start, body.swal2-no-backdrop .swal2-shown.swal2-center-left {\n    top: 50%;\n    left: 0;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%); }\n  body.swal2-no-backdrop .swal2-shown.swal2-center-end, body.swal2-no-backdrop .swal2-shown.swal2-center-right {\n    top: 50%;\n    right: 0;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%); }\n  body.swal2-no-backdrop .swal2-shown.swal2-bottom {\n    bottom: 0;\n    left: 50%;\n    -webkit-transform: translateX(-50%);\n            transform: translateX(-50%); }\n  body.swal2-no-backdrop .swal2-shown.swal2-bottom-start, body.swal2-no-backdrop .swal2-shown.swal2-bottom-left {\n    bottom: 0;\n    left: 0; }\n  body.swal2-no-backdrop .swal2-shown.swal2-bottom-end, body.swal2-no-backdrop .swal2-shown.swal2-bottom-right {\n    bottom: 0;\n    right: 0; }\n\n.swal2-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  position: fixed;\n  padding: 10px;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: transparent;\n  z-index: 1060; }\n  .swal2-container.swal2-top {\n    -webkit-box-align: start;\n        -ms-flex-align: start;\n            align-items: flex-start; }\n  .swal2-container.swal2-top-start, .swal2-container.swal2-top-left {\n    -webkit-box-align: start;\n        -ms-flex-align: start;\n            align-items: flex-start;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start; }\n  .swal2-container.swal2-top-end, .swal2-container.swal2-top-right {\n    -webkit-box-align: start;\n        -ms-flex-align: start;\n            align-items: flex-start;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end; }\n  .swal2-container.swal2-center {\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n  .swal2-container.swal2-center-start, .swal2-container.swal2-center-left {\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start; }\n  .swal2-container.swal2-center-end, .swal2-container.swal2-center-right {\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end; }\n  .swal2-container.swal2-bottom {\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end; }\n  .swal2-container.swal2-bottom-start, .swal2-container.swal2-bottom-left {\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start; }\n  .swal2-container.swal2-bottom-end, .swal2-container.swal2-bottom-right {\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end; }\n  .swal2-container.swal2-grow-fullscreen > .swal2-modal {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    -ms-flex-item-align: stretch;\n        align-self: stretch;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n  .swal2-container.swal2-grow-row > .swal2-modal {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    -ms-flex-line-pack: center;\n        align-content: center;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n  .swal2-container.swal2-grow-column {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column; }\n    .swal2-container.swal2-grow-column.swal2-top, .swal2-container.swal2-grow-column.swal2-center, .swal2-container.swal2-grow-column.swal2-bottom {\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center; }\n    .swal2-container.swal2-grow-column.swal2-top-start, .swal2-container.swal2-grow-column.swal2-center-start, .swal2-container.swal2-grow-column.swal2-bottom-start, .swal2-container.swal2-grow-column.swal2-top-left, .swal2-container.swal2-grow-column.swal2-center-left, .swal2-container.swal2-grow-column.swal2-bottom-left {\n      -webkit-box-align: start;\n          -ms-flex-align: start;\n              align-items: flex-start; }\n    .swal2-container.swal2-grow-column.swal2-top-end, .swal2-container.swal2-grow-column.swal2-center-end, .swal2-container.swal2-grow-column.swal2-bottom-end, .swal2-container.swal2-grow-column.swal2-top-right, .swal2-container.swal2-grow-column.swal2-center-right, .swal2-container.swal2-grow-column.swal2-bottom-right {\n      -webkit-box-align: end;\n          -ms-flex-align: end;\n              align-items: flex-end; }\n    .swal2-container.swal2-grow-column > .swal2-modal {\n      display: -webkit-box !important;\n      display: -ms-flexbox !important;\n      display: flex !important;\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      -ms-flex-line-pack: center;\n          align-content: center;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center; }\n  .swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right) > .swal2-modal {\n    margin: auto; }\n  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {\n    .swal2-container .swal2-modal {\n      margin: 0 !important; } }\n  .swal2-container.swal2-fade {\n    -webkit-transition: background-color .1s;\n    transition: background-color .1s; }\n  .swal2-container.swal2-shown {\n    background-color: rgba(0, 0, 0, 0.4); }\n\n.swal2-popup {\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  background-color: #fff;\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-size: 1rem;\n  padding: 1.25em;\n  border-radius: .3125em;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  overflow-x: hidden;\n  overflow-y: auto;\n  display: none;\n  position: relative;\n  width: 32em;\n  max-width: 100%; }\n  .swal2-popup:focus {\n    outline: none; }\n  .swal2-popup.swal2-loading {\n    overflow-y: hidden; }\n  .swal2-popup .swal2-header {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n  .swal2-popup .swal2-title {\n    color: #595959;\n    font-size: 1.875em;\n    text-align: center;\n    font-weight: 600;\n    text-transform: none;\n    position: relative;\n    margin: 0 0 .4em;\n    padding: 0;\n    display: block;\n    word-wrap: break-word; }\n  .swal2-popup .swal2-actions {\n    height: 4em;\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n    .swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled[disabled] {\n      opacity: .4;\n      cursor: no-drop; }\n    .swal2-popup .swal2-actions.swal2-loading .swal2-styled.swal2-confirm {\n      -webkit-box-sizing: border-box;\n              box-sizing: border-box;\n      border: .25em solid transparent;\n      border-color: transparent;\n      width: 2.5em;\n      height: 2.5em;\n      padding: 0;\n      margin: .46875em;\n      background-color: transparent !important;\n      color: transparent;\n      cursor: default;\n      border-radius: 100%;\n      -webkit-animation: rotate-loading 1.5s linear 0s infinite normal;\n              animation: rotate-loading 1.5s linear 0s infinite normal;\n      -webkit-user-select: none;\n         -moz-user-select: none;\n          -ms-user-select: none;\n              user-select: none; }\n    .swal2-popup .swal2-actions.swal2-loading .swal2-styled.swal2-cancel {\n      margin-left: 30px;\n      margin-right: 30px; }\n    .swal2-popup .swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after {\n      display: inline-block;\n      content: '';\n      margin-left: 5px;\n      height: 15px;\n      width: 15px;\n      border: 3px solid #999999;\n      -webkit-box-shadow: 1px 1px 1px #fff;\n              box-shadow: 1px 1px 1px #fff;\n      border-right-color: transparent;\n      border-radius: 50%;\n      -webkit-animation: rotate-loading 1.5s linear 0s infinite normal;\n              animation: rotate-loading 1.5s linear 0s infinite normal; }\n  .swal2-popup .swal2-styled {\n    border: 0;\n    border-radius: .25em;\n    -webkit-box-shadow: none;\n            box-shadow: none;\n    color: #fff;\n    cursor: pointer;\n    font-size: 1.0625em;\n    font-weight: 500;\n    margin: 0 .3125em;\n    padding: .625em 2em; }\n    .swal2-popup .swal2-styled:focus {\n      outline: none;\n      -webkit-box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(50, 100, 150, 0.4);\n              box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(50, 100, 150, 0.4); }\n  .swal2-popup .swal2-image {\n    margin: 1.25em auto;\n    max-width: 100%; }\n  .swal2-popup .swal2-close {\n    background: transparent;\n    border: 0;\n    margin: 0;\n    padding: 0;\n    width: 2.5em;\n    height: 2.5em;\n    font-size: calc(2.5em - 0.25em);\n    line-height: 2.5em;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    font-family: serif;\n    position: absolute;\n    top: 5px;\n    right: 8px;\n    cursor: pointer;\n    color: #cccccc;\n    -webkit-transition: color .1s ease;\n    transition: color .1s ease; }\n    .swal2-popup .swal2-close:hover {\n      color: #d55; }\n  .swal2-popup > .swal2-input,\n  .swal2-popup > .swal2-file,\n  .swal2-popup > .swal2-textarea,\n  .swal2-popup > .swal2-select,\n  .swal2-popup > .swal2-radio,\n  .swal2-popup > .swal2-checkbox {\n    display: none; }\n  .swal2-popup .swal2-content {\n    font-size: 1.125em;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    font-weight: 300;\n    margin: 0;\n    padding: 0;\n    line-height: normal;\n    color: #545454;\n    word-wrap: break-word; }\n  .swal2-popup #swal2-content {\n    text-align: center; }\n  .swal2-popup .swal2-input,\n  .swal2-popup .swal2-file,\n  .swal2-popup .swal2-textarea,\n  .swal2-popup .swal2-select,\n  .swal2-popup .swal2-radio,\n  .swal2-popup .swal2-checkbox {\n    margin: 1.25em auto; }\n  .swal2-popup .swal2-input,\n  .swal2-popup .swal2-file,\n  .swal2-popup .swal2-textarea {\n    width: 100%;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    font-size: 1.125em;\n    border-radius: 3px;\n    border: 1px solid #d9d9d9;\n    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06);\n            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06);\n    -webkit-transition: border-color .3s, -webkit-box-shadow .3s;\n    transition: border-color .3s, -webkit-box-shadow .3s;\n    transition: border-color .3s, box-shadow .3s;\n    transition: border-color .3s, box-shadow .3s, -webkit-box-shadow .3s; }\n    .swal2-popup .swal2-input.swal2-inputerror,\n    .swal2-popup .swal2-file.swal2-inputerror,\n    .swal2-popup .swal2-textarea.swal2-inputerror {\n      border-color: #f27474 !important;\n      -webkit-box-shadow: 0 0 2px #f27474 !important;\n              box-shadow: 0 0 2px #f27474 !important; }\n    .swal2-popup .swal2-input:focus,\n    .swal2-popup .swal2-file:focus,\n    .swal2-popup .swal2-textarea:focus {\n      outline: none;\n      border: 1px solid #b4dbed;\n      -webkit-box-shadow: 0 0 3px #c4e6f5;\n              box-shadow: 0 0 3px #c4e6f5; }\n    .swal2-popup .swal2-input::-webkit-input-placeholder,\n    .swal2-popup .swal2-file::-webkit-input-placeholder,\n    .swal2-popup .swal2-textarea::-webkit-input-placeholder {\n      color: #cccccc; }\n    .swal2-popup .swal2-input:-ms-input-placeholder,\n    .swal2-popup .swal2-file:-ms-input-placeholder,\n    .swal2-popup .swal2-textarea:-ms-input-placeholder {\n      color: #cccccc; }\n    .swal2-popup .swal2-input::-ms-input-placeholder,\n    .swal2-popup .swal2-file::-ms-input-placeholder,\n    .swal2-popup .swal2-textarea::-ms-input-placeholder {\n      color: #cccccc; }\n    .swal2-popup .swal2-input::placeholder,\n    .swal2-popup .swal2-file::placeholder,\n    .swal2-popup .swal2-textarea::placeholder {\n      color: #cccccc; }\n  .swal2-popup .swal2-range input {\n    width: 80%; }\n  .swal2-popup .swal2-range output {\n    width: 20%;\n    font-size: 1.125em;\n    font-weight: 600;\n    text-align: center; }\n  .swal2-popup .swal2-range input,\n  .swal2-popup .swal2-range output {\n    height: 2.625em;\n    line-height: 2.625em;\n    margin: 1.25em auto;\n    padding: 0; }\n  .swal2-popup .swal2-input {\n    height: 2.625em;\n    padding: 0 .75em; }\n    .swal2-popup .swal2-input[type='number'] {\n      max-width: 10em; }\n  .swal2-popup .swal2-file {\n    font-size: 1.125em; }\n  .swal2-popup .swal2-textarea {\n    height: 6.75em;\n    padding: .75em; }\n  .swal2-popup .swal2-select {\n    color: #545454;\n    font-size: 1.125em;\n    padding: .375em .625em;\n    min-width: 50%;\n    max-width: 100%; }\n  .swal2-popup .swal2-radio,\n  .swal2-popup .swal2-checkbox {\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n    .swal2-popup .swal2-radio label,\n    .swal2-popup .swal2-checkbox label {\n      font-size: 1.125em;\n      margin: 0 .6em; }\n    .swal2-popup .swal2-radio input,\n    .swal2-popup .swal2-checkbox input {\n      margin: 0 .4em; }\n  .swal2-popup .swal2-validationerror {\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    background-color: #f0f0f0;\n    overflow: hidden;\n    padding: .625em;\n    color: gray;\n    font-size: 1em;\n    font-weight: 300;\n    display: none; }\n    .swal2-popup .swal2-validationerror::before {\n      content: '!';\n      display: inline-block;\n      width: 1.5em;\n      height: 1.5em;\n      border-radius: 50%;\n      background-color: #ea7d7d;\n      color: #fff;\n      line-height: 1.5em;\n      font-weight: 600;\n      text-align: center;\n      margin: 0 .625em; }\n\n@supports (-ms-accelerator: true) {\n  .swal2-range input {\n    width: 100% !important; }\n  .swal2-range output {\n    display: none; } }\n\n@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {\n  .swal2-range input {\n    width: 100% !important; }\n  .swal2-range output {\n    display: none; } }\n\n.swal2-icon {\n  width: 80px;\n  height: 80px;\n  line-height: 80px;\n  border: 4px solid transparent;\n  border-radius: 50%;\n  margin: 1.25em auto 1.875em;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  position: relative;\n  -webkit-box-sizing: content-box;\n          box-sizing: content-box;\n  cursor: default;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none; }\n  .swal2-icon.swal2-error {\n    border-color: #f27474; }\n    .swal2-icon.swal2-error .swal2-x-mark {\n      position: relative;\n      -webkit-box-flex: 1;\n          -ms-flex-positive: 1;\n              flex-grow: 1; }\n    .swal2-icon.swal2-error [class^='swal2-x-mark-line'] {\n      position: absolute;\n      height: 5px;\n      width: 47px;\n      background-color: #f27474;\n      display: block;\n      top: 37px;\n      border-radius: 2px; }\n      .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='left'] {\n        -webkit-transform: rotate(45deg);\n                transform: rotate(45deg);\n        left: 17px; }\n      .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='right'] {\n        -webkit-transform: rotate(-45deg);\n                transform: rotate(-45deg);\n        right: 16px; }\n  .swal2-icon.swal2-warning, .swal2-icon.swal2-info, .swal2-icon.swal2-question {\n    font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n    font-size: 3.75em;\n    margin: .333333em auto .5em; }\n  .swal2-icon.swal2-warning {\n    color: #f8bb86;\n    border-color: #facea8; }\n  .swal2-icon.swal2-info {\n    color: #3fc3ee;\n    border-color: #9de0f6; }\n  .swal2-icon.swal2-question {\n    color: #87adbd;\n    border-color: #c9dae1; }\n  .swal2-icon.swal2-success {\n    border-color: #a5dc86; }\n    .swal2-icon.swal2-success [class^='swal2-success-circular-line'] {\n      border-radius: 50%;\n      position: absolute;\n      width: 60px;\n      height: 120px;\n      -webkit-transform: rotate(45deg);\n              transform: rotate(45deg); }\n      .swal2-icon.swal2-success [class^='swal2-success-circular-line'][class$='left'] {\n        border-radius: 120px 0 0 120px;\n        top: -7px;\n        left: -33px;\n        -webkit-transform: rotate(-45deg);\n                transform: rotate(-45deg);\n        -webkit-transform-origin: 60px 60px;\n                transform-origin: 60px 60px; }\n      .swal2-icon.swal2-success [class^='swal2-success-circular-line'][class$='right'] {\n        border-radius: 0 120px 120px 0;\n        top: -11px;\n        left: 30px;\n        -webkit-transform: rotate(-45deg);\n                transform: rotate(-45deg);\n        -webkit-transform-origin: 0 60px;\n                transform-origin: 0 60px; }\n    .swal2-icon.swal2-success .swal2-success-ring {\n      width: 80px;\n      height: 80px;\n      border: 4px solid rgba(165, 220, 134, 0.2);\n      border-radius: 50%;\n      -webkit-box-sizing: content-box;\n              box-sizing: content-box;\n      position: absolute;\n      left: -4px;\n      top: -4px;\n      z-index: 2; }\n    .swal2-icon.swal2-success .swal2-success-fix {\n      width: 7px;\n      height: 90px;\n      position: absolute;\n      left: 26px;\n      top: 8px;\n      z-index: 1;\n      -webkit-transform: rotate(-45deg);\n              transform: rotate(-45deg); }\n    .swal2-icon.swal2-success [class^='swal2-success-line'] {\n      height: 5px;\n      background-color: #a5dc86;\n      display: block;\n      border-radius: 2px;\n      position: absolute;\n      z-index: 2; }\n      .swal2-icon.swal2-success [class^='swal2-success-line'][class$='tip'] {\n        width: 25px;\n        left: 14px;\n        top: 46px;\n        -webkit-transform: rotate(45deg);\n                transform: rotate(45deg); }\n      .swal2-icon.swal2-success [class^='swal2-success-line'][class$='long'] {\n        width: 47px;\n        right: 8px;\n        top: 38px;\n        -webkit-transform: rotate(-45deg);\n                transform: rotate(-45deg); }\n\n.swal2-progresssteps {\n  font-weight: 600;\n  padding: 0;\n  margin: 0 0 1.25em;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n  .swal2-progresssteps li {\n    display: inline-block;\n    position: relative; }\n  .swal2-progresssteps .swal2-progresscircle {\n    background: #3085d6;\n    border-radius: 2em;\n    color: #fff;\n    height: 2em;\n    line-height: 2em;\n    text-align: center;\n    width: 2em;\n    z-index: 20; }\n    .swal2-progresssteps .swal2-progresscircle:first-child {\n      margin-left: 0; }\n    .swal2-progresssteps .swal2-progresscircle:last-child {\n      margin-right: 0; }\n    .swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep {\n      background: #3085d6; }\n      .swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep ~ .swal2-progresscircle {\n        background: #add8e6; }\n      .swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep ~ .swal2-progressline {\n        background: #add8e6; }\n  .swal2-progresssteps .swal2-progressline {\n    background: #3085d6;\n    height: .4em;\n    width: 2.5em;\n    margin: 0 -1px;\n    z-index: 10; }\n\n[class^='swal2'] {\n  -webkit-tap-highlight-color: transparent; }\n\n@-webkit-keyframes showSweetAlert {\n  0% {\n    -webkit-transform: scale(0.7);\n            transform: scale(0.7); }\n  45% {\n    -webkit-transform: scale(1.05);\n            transform: scale(1.05); }\n  80% {\n    -webkit-transform: scale(0.95);\n            transform: scale(0.95); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n@keyframes showSweetAlert {\n  0% {\n    -webkit-transform: scale(0.7);\n            transform: scale(0.7); }\n  45% {\n    -webkit-transform: scale(1.05);\n            transform: scale(1.05); }\n  80% {\n    -webkit-transform: scale(0.95);\n            transform: scale(0.95); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n@-webkit-keyframes hideSweetAlert {\n  0% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n    opacity: 1; }\n  100% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n    opacity: 0; } }\n\n@keyframes hideSweetAlert {\n  0% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n    opacity: 1; }\n  100% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n    opacity: 0; } }\n\n.swal2-show {\n  -webkit-animation: showSweetAlert .3s;\n          animation: showSweetAlert .3s; }\n  .swal2-show.swal2-noanimation {\n    -webkit-animation: none;\n            animation: none; }\n\n.swal2-hide {\n  -webkit-animation: hideSweetAlert .15s forwards;\n          animation: hideSweetAlert .15s forwards; }\n  .swal2-hide.swal2-noanimation {\n    -webkit-animation: none;\n            animation: none; }\n\n[dir='rtl'] .swal2-close {\n  left: 8px;\n  right: auto; }\n\n@-webkit-keyframes animate-success-tip {\n  0% {\n    width: 0;\n    left: 1px;\n    top: 19px; }\n  54% {\n    width: 0;\n    left: 2px;\n    top: 17px; }\n  70% {\n    width: 50px;\n    left: -6px;\n    top: 35px; }\n  84% {\n    width: 17px;\n    left: 21px;\n    top: 48px; }\n  100% {\n    width: 25px;\n    left: 14px;\n    top: 45px; } }\n\n@keyframes animate-success-tip {\n  0% {\n    width: 0;\n    left: 1px;\n    top: 19px; }\n  54% {\n    width: 0;\n    left: 2px;\n    top: 17px; }\n  70% {\n    width: 50px;\n    left: -6px;\n    top: 35px; }\n  84% {\n    width: 17px;\n    left: 21px;\n    top: 48px; }\n  100% {\n    width: 25px;\n    left: 14px;\n    top: 45px; } }\n\n@-webkit-keyframes animate-success-long {\n  0% {\n    width: 0;\n    right: 46px;\n    top: 54px; }\n  65% {\n    width: 0;\n    right: 46px;\n    top: 54px; }\n  84% {\n    width: 55px;\n    right: 0;\n    top: 35px; }\n  100% {\n    width: 47px;\n    right: 8px;\n    top: 38px; } }\n\n@keyframes animate-success-long {\n  0% {\n    width: 0;\n    right: 46px;\n    top: 54px; }\n  65% {\n    width: 0;\n    right: 46px;\n    top: 54px; }\n  84% {\n    width: 55px;\n    right: 0;\n    top: 35px; }\n  100% {\n    width: 47px;\n    right: 8px;\n    top: 38px; } }\n\n@-webkit-keyframes rotatePlaceholder {\n  0% {\n    -webkit-transform: rotate(-45deg);\n            transform: rotate(-45deg); }\n  5% {\n    -webkit-transform: rotate(-45deg);\n            transform: rotate(-45deg); }\n  12% {\n    -webkit-transform: rotate(-405deg);\n            transform: rotate(-405deg); }\n  100% {\n    -webkit-transform: rotate(-405deg);\n            transform: rotate(-405deg); } }\n\n@keyframes rotatePlaceholder {\n  0% {\n    -webkit-transform: rotate(-45deg);\n            transform: rotate(-45deg); }\n  5% {\n    -webkit-transform: rotate(-45deg);\n            transform: rotate(-45deg); }\n  12% {\n    -webkit-transform: rotate(-405deg);\n            transform: rotate(-405deg); }\n  100% {\n    -webkit-transform: rotate(-405deg);\n            transform: rotate(-405deg); } }\n\n.swal2-animate-success-line-tip {\n  -webkit-animation: animate-success-tip .75s;\n          animation: animate-success-tip .75s; }\n\n.swal2-animate-success-line-long {\n  -webkit-animation: animate-success-long .75s;\n          animation: animate-success-long .75s; }\n\n.swal2-success.swal2-animate-success-icon .swal2-success-circular-line-right {\n  -webkit-animation: rotatePlaceholder 4.25s ease-in;\n          animation: rotatePlaceholder 4.25s ease-in; }\n\n@-webkit-keyframes animate-error-icon {\n  0% {\n    -webkit-transform: rotateX(100deg);\n            transform: rotateX(100deg);\n    opacity: 0; }\n  100% {\n    -webkit-transform: rotateX(0deg);\n            transform: rotateX(0deg);\n    opacity: 1; } }\n\n@keyframes animate-error-icon {\n  0% {\n    -webkit-transform: rotateX(100deg);\n            transform: rotateX(100deg);\n    opacity: 0; }\n  100% {\n    -webkit-transform: rotateX(0deg);\n            transform: rotateX(0deg);\n    opacity: 1; } }\n\n.swal2-animate-error-icon {\n  -webkit-animation: animate-error-icon .5s;\n          animation: animate-error-icon .5s; }\n\n@-webkit-keyframes animate-x-mark {\n  0% {\n    -webkit-transform: scale(0.4);\n            transform: scale(0.4);\n    margin-top: 26px;\n    opacity: 0; }\n  50% {\n    -webkit-transform: scale(0.4);\n            transform: scale(0.4);\n    margin-top: 26px;\n    opacity: 0; }\n  80% {\n    -webkit-transform: scale(1.15);\n            transform: scale(1.15);\n    margin-top: -6px; }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n    margin-top: 0;\n    opacity: 1; } }\n\n@keyframes animate-x-mark {\n  0% {\n    -webkit-transform: scale(0.4);\n            transform: scale(0.4);\n    margin-top: 26px;\n    opacity: 0; }\n  50% {\n    -webkit-transform: scale(0.4);\n            transform: scale(0.4);\n    margin-top: 26px;\n    opacity: 0; }\n  80% {\n    -webkit-transform: scale(1.15);\n            transform: scale(1.15);\n    margin-top: -6px; }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n    margin-top: 0;\n    opacity: 1; } }\n\n.swal2-animate-x-mark {\n  -webkit-animation: animate-x-mark .5s;\n          animation: animate-x-mark .5s; }\n\n@-webkit-keyframes rotate-loading {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n\n@keyframes rotate-loading {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n";
+var styles = "body.swal2-shown {\n  overflow-y: hidden; }\n\nbody.swal2-iosfix {\n  position: fixed;\n  left: 0;\n  right: 0; }\n\n.swal2-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  padding: 10px;\n  background-color: transparent;\n  z-index: 1060; }\n  .swal2-container.swal2-top {\n    -webkit-box-align: start;\n        -ms-flex-align: start;\n            align-items: flex-start; }\n  .swal2-container.swal2-top-left {\n    -webkit-box-align: start;\n        -ms-flex-align: start;\n            align-items: flex-start;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start; }\n  .swal2-container.swal2-top-right {\n    -webkit-box-align: start;\n        -ms-flex-align: start;\n            align-items: flex-start;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end; }\n  .swal2-container.swal2-center {\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n  .swal2-container.swal2-center-left {\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start; }\n  .swal2-container.swal2-center-right {\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end; }\n  .swal2-container.swal2-bottom {\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end; }\n  .swal2-container.swal2-bottom-left {\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start; }\n  .swal2-container.swal2-bottom-right {\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end; }\n  .swal2-container.swal2-grow-fullscreen > .swal2-modal {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    -ms-flex-item-align: stretch;\n        align-self: stretch;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n  .swal2-container.swal2-grow-row > .swal2-modal {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    -ms-flex-line-pack: center;\n        align-content: center;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n  .swal2-container.swal2-grow-column {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column; }\n    .swal2-container.swal2-grow-column.swal2-top, .swal2-container.swal2-grow-column.swal2-center, .swal2-container.swal2-grow-column.swal2-bottom {\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center; }\n    .swal2-container.swal2-grow-column.swal2-top-left, .swal2-container.swal2-grow-column.swal2-center-left, .swal2-container.swal2-grow-column.swal2-bottom-left {\n      -webkit-box-align: start;\n          -ms-flex-align: start;\n              align-items: flex-start; }\n    .swal2-container.swal2-grow-column.swal2-top-right, .swal2-container.swal2-grow-column.swal2-center-right, .swal2-container.swal2-grow-column.swal2-bottom-right {\n      -webkit-box-align: end;\n          -ms-flex-align: end;\n              align-items: flex-end; }\n    .swal2-container.swal2-grow-column > .swal2-modal {\n      display: -webkit-box !important;\n      display: -ms-flexbox !important;\n      display: flex !important;\n      -webkit-box-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      -ms-flex-line-pack: center;\n          align-content: center;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center; }\n  .swal2-container:not(.swal2-top):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-left):not(.swal2-bottom-right) > .swal2-modal {\n    margin: auto; }\n  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {\n    .swal2-container .swal2-modal {\n      margin: 0 !important; } }\n  .swal2-container.swal2-fade {\n    -webkit-transition: background-color .1s;\n    transition: background-color .1s; }\n  .swal2-container.swal2-shown {\n    background-color: rgba(0, 0, 0, 0.4); }\n\n.swal2-modal {\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  background-color: #fff;\n  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  border-radius: 5px;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  text-align: center;\n  overflow-x: hidden;\n  overflow-y: auto;\n  display: none;\n  position: relative;\n  max-width: 100%; }\n  .swal2-modal:focus {\n    outline: none; }\n  .swal2-modal.swal2-loading {\n    overflow-y: hidden; }\n  .swal2-modal .swal2-title {\n    color: #595959;\n    font-size: 30px;\n    text-align: center;\n    font-weight: 600;\n    text-transform: none;\n    position: relative;\n    margin: 0 0 .4em;\n    padding: 0;\n    display: block;\n    word-wrap: break-word; }\n  .swal2-modal .swal2-buttonswrapper {\n    margin-top: 15px; }\n    .swal2-modal .swal2-buttonswrapper:not(.swal2-loading) .swal2-styled[disabled] {\n      opacity: .4;\n      cursor: no-drop; }\n    .swal2-modal .swal2-buttonswrapper.swal2-loading .swal2-styled.swal2-confirm {\n      -webkit-box-sizing: border-box;\n              box-sizing: border-box;\n      border: 4px solid transparent;\n      border-color: transparent;\n      width: 40px;\n      height: 40px;\n      padding: 0;\n      margin: 7.5px;\n      vertical-align: top;\n      background-color: transparent !important;\n      color: transparent;\n      cursor: default;\n      border-radius: 100%;\n      -webkit-animation: rotate-loading 1.5s linear 0s infinite normal;\n              animation: rotate-loading 1.5s linear 0s infinite normal;\n      -webkit-user-select: none;\n         -moz-user-select: none;\n          -ms-user-select: none;\n              user-select: none; }\n    .swal2-modal .swal2-buttonswrapper.swal2-loading .swal2-styled.swal2-cancel {\n      margin-left: 30px;\n      margin-right: 30px; }\n    .swal2-modal .swal2-buttonswrapper.swal2-loading :not(.swal2-styled).swal2-confirm::after {\n      display: inline-block;\n      content: '';\n      margin-left: 5px;\n      vertical-align: -1px;\n      height: 15px;\n      width: 15px;\n      border: 3px solid #999999;\n      -webkit-box-shadow: 1px 1px 1px #fff;\n              box-shadow: 1px 1px 1px #fff;\n      border-right-color: transparent;\n      border-radius: 50%;\n      -webkit-animation: rotate-loading 1.5s linear 0s infinite normal;\n              animation: rotate-loading 1.5s linear 0s infinite normal; }\n  .swal2-modal .swal2-styled {\n    border: 0;\n    border-radius: 3px;\n    -webkit-box-shadow: none;\n            box-shadow: none;\n    color: #fff;\n    cursor: pointer;\n    font-size: 17px;\n    font-weight: 500;\n    margin: 15px 5px 0;\n    padding: 10px 32px; }\n    .swal2-modal .swal2-styled:focus {\n      outline: none;\n      -webkit-box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(50, 100, 150, 0.4);\n              box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(50, 100, 150, 0.4); }\n  .swal2-modal .swal2-image {\n    margin: 20px auto;\n    max-width: 100%; }\n  .swal2-modal .swal2-close {\n    background: transparent;\n    border: 0;\n    margin: 0;\n    padding: 0;\n    width: 38px;\n    height: 40px;\n    font-size: 36px;\n    line-height: 40px;\n    font-family: serif;\n    position: absolute;\n    top: 5px;\n    right: 8px;\n    cursor: pointer;\n    color: #cccccc;\n    -webkit-transition: color .1s ease;\n    transition: color .1s ease; }\n    .swal2-modal .swal2-close:hover {\n      color: #d55; }\n  .swal2-modal > .swal2-input,\n  .swal2-modal > .swal2-file,\n  .swal2-modal > .swal2-textarea,\n  .swal2-modal > .swal2-select,\n  .swal2-modal > .swal2-radio,\n  .swal2-modal > .swal2-checkbox {\n    display: none; }\n  .swal2-modal .swal2-content {\n    font-size: 18px;\n    text-align: center;\n    font-weight: 300;\n    position: relative;\n    float: none;\n    margin: 0;\n    padding: 0;\n    line-height: normal;\n    color: #545454;\n    word-wrap: break-word; }\n  .swal2-modal .swal2-input,\n  .swal2-modal .swal2-file,\n  .swal2-modal .swal2-textarea,\n  .swal2-modal .swal2-select,\n  .swal2-modal .swal2-radio,\n  .swal2-modal .swal2-checkbox {\n    margin: 20px auto; }\n  .swal2-modal .swal2-input,\n  .swal2-modal .swal2-file,\n  .swal2-modal .swal2-textarea {\n    width: 100%;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    font-size: 18px;\n    border-radius: 3px;\n    border: 1px solid #d9d9d9;\n    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06);\n            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06);\n    -webkit-transition: border-color .3s, -webkit-box-shadow .3s;\n    transition: border-color .3s, -webkit-box-shadow .3s;\n    transition: border-color .3s, box-shadow .3s;\n    transition: border-color .3s, box-shadow .3s, -webkit-box-shadow .3s; }\n    .swal2-modal .swal2-input.swal2-inputerror,\n    .swal2-modal .swal2-file.swal2-inputerror,\n    .swal2-modal .swal2-textarea.swal2-inputerror {\n      border-color: #f27474 !important;\n      -webkit-box-shadow: 0 0 2px #f27474 !important;\n              box-shadow: 0 0 2px #f27474 !important; }\n    .swal2-modal .swal2-input:focus,\n    .swal2-modal .swal2-file:focus,\n    .swal2-modal .swal2-textarea:focus {\n      outline: none;\n      border: 1px solid #b4dbed;\n      -webkit-box-shadow: 0 0 3px #c4e6f5;\n              box-shadow: 0 0 3px #c4e6f5; }\n    .swal2-modal .swal2-input::-webkit-input-placeholder,\n    .swal2-modal .swal2-file::-webkit-input-placeholder,\n    .swal2-modal .swal2-textarea::-webkit-input-placeholder {\n      color: #cccccc; }\n    .swal2-modal .swal2-input:-ms-input-placeholder,\n    .swal2-modal .swal2-file:-ms-input-placeholder,\n    .swal2-modal .swal2-textarea:-ms-input-placeholder {\n      color: #cccccc; }\n    .swal2-modal .swal2-input::-ms-input-placeholder,\n    .swal2-modal .swal2-file::-ms-input-placeholder,\n    .swal2-modal .swal2-textarea::-ms-input-placeholder {\n      color: #cccccc; }\n    .swal2-modal .swal2-input::placeholder,\n    .swal2-modal .swal2-file::placeholder,\n    .swal2-modal .swal2-textarea::placeholder {\n      color: #cccccc; }\n  .swal2-modal .swal2-range input {\n    float: left;\n    width: 80%; }\n  .swal2-modal .swal2-range output {\n    float: right;\n    width: 20%;\n    font-size: 20px;\n    font-weight: 600;\n    text-align: center; }\n  .swal2-modal .swal2-range input,\n  .swal2-modal .swal2-range output {\n    height: 43px;\n    line-height: 43px;\n    vertical-align: middle;\n    margin: 20px auto;\n    padding: 0; }\n  .swal2-modal .swal2-input {\n    height: 43px;\n    padding: 0 12px; }\n    .swal2-modal .swal2-input[type='number'] {\n      max-width: 150px; }\n  .swal2-modal .swal2-file {\n    font-size: 20px; }\n  .swal2-modal .swal2-textarea {\n    height: 108px;\n    padding: 12px; }\n  .swal2-modal .swal2-select {\n    color: #545454;\n    font-size: inherit;\n    padding: 5px 10px;\n    min-width: 40%;\n    max-width: 100%; }\n  .swal2-modal .swal2-radio {\n    border: 0; }\n    .swal2-modal .swal2-radio label:not(:first-child) {\n      margin-left: 20px; }\n    .swal2-modal .swal2-radio input,\n    .swal2-modal .swal2-radio span {\n      vertical-align: middle; }\n    .swal2-modal .swal2-radio input {\n      margin: 0 3px 0 0; }\n  .swal2-modal .swal2-checkbox {\n    color: #545454; }\n    .swal2-modal .swal2-checkbox input,\n    .swal2-modal .swal2-checkbox span {\n      vertical-align: middle; }\n  .swal2-modal .swal2-validationerror {\n    background-color: #f0f0f0;\n    margin: 0 -20px;\n    overflow: hidden;\n    padding: 10px;\n    color: gray;\n    font-size: 16px;\n    font-weight: 300;\n    display: none; }\n    .swal2-modal .swal2-validationerror::before {\n      content: '!';\n      display: inline-block;\n      width: 24px;\n      height: 24px;\n      border-radius: 50%;\n      background-color: #ea7d7d;\n      color: #fff;\n      line-height: 24px;\n      text-align: center;\n      margin-right: 10px; }\n\n@supports (-ms-accelerator: true) {\n  .swal2-range input {\n    width: 100% !important; }\n  .swal2-range output {\n    display: none; } }\n\n@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {\n  .swal2-range input {\n    width: 100% !important; }\n  .swal2-range output {\n    display: none; } }\n\n.swal2-icon {\n  width: 80px;\n  height: 80px;\n  border: 4px solid transparent;\n  border-radius: 50%;\n  margin: 20px auto 30px;\n  padding: 0;\n  position: relative;\n  -webkit-box-sizing: content-box;\n          box-sizing: content-box;\n  cursor: default;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none; }\n  .swal2-icon.swal2-error {\n    border-color: #f27474; }\n    .swal2-icon.swal2-error .swal2-x-mark {\n      position: relative;\n      display: block; }\n    .swal2-icon.swal2-error [class^='swal2-x-mark-line'] {\n      position: absolute;\n      height: 5px;\n      width: 47px;\n      background-color: #f27474;\n      display: block;\n      top: 37px;\n      border-radius: 2px; }\n      .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='left'] {\n        -webkit-transform: rotate(45deg);\n                transform: rotate(45deg);\n        left: 17px; }\n      .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='right'] {\n        -webkit-transform: rotate(-45deg);\n                transform: rotate(-45deg);\n        right: 16px; }\n  .swal2-icon.swal2-warning {\n    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;\n    color: #f8bb86;\n    border-color: #facea8;\n    font-size: 60px;\n    line-height: 80px;\n    text-align: center; }\n  .swal2-icon.swal2-info {\n    font-family: 'Open Sans', sans-serif;\n    color: #3fc3ee;\n    border-color: #9de0f6;\n    font-size: 60px;\n    line-height: 80px;\n    text-align: center; }\n  .swal2-icon.swal2-question {\n    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;\n    color: #87adbd;\n    border-color: #c9dae1;\n    font-size: 60px;\n    line-height: 80px;\n    text-align: center; }\n  .swal2-icon.swal2-success {\n    border-color: #a5dc86; }\n    .swal2-icon.swal2-success [class^='swal2-success-circular-line'] {\n      border-radius: 50%;\n      position: absolute;\n      width: 60px;\n      height: 120px;\n      -webkit-transform: rotate(45deg);\n              transform: rotate(45deg); }\n      .swal2-icon.swal2-success [class^='swal2-success-circular-line'][class$='left'] {\n        border-radius: 120px 0 0 120px;\n        top: -7px;\n        left: -33px;\n        -webkit-transform: rotate(-45deg);\n                transform: rotate(-45deg);\n        -webkit-transform-origin: 60px 60px;\n                transform-origin: 60px 60px; }\n      .swal2-icon.swal2-success [class^='swal2-success-circular-line'][class$='right'] {\n        border-radius: 0 120px 120px 0;\n        top: -11px;\n        left: 30px;\n        -webkit-transform: rotate(-45deg);\n                transform: rotate(-45deg);\n        -webkit-transform-origin: 0 60px;\n                transform-origin: 0 60px; }\n    .swal2-icon.swal2-success .swal2-success-ring {\n      width: 80px;\n      height: 80px;\n      border: 4px solid rgba(165, 220, 134, 0.2);\n      border-radius: 50%;\n      -webkit-box-sizing: content-box;\n              box-sizing: content-box;\n      position: absolute;\n      left: -4px;\n      top: -4px;\n      z-index: 2; }\n    .swal2-icon.swal2-success .swal2-success-fix {\n      width: 7px;\n      height: 90px;\n      position: absolute;\n      left: 28px;\n      top: 8px;\n      z-index: 1;\n      -webkit-transform: rotate(-45deg);\n              transform: rotate(-45deg); }\n    .swal2-icon.swal2-success [class^='swal2-success-line'] {\n      height: 5px;\n      background-color: #a5dc86;\n      display: block;\n      border-radius: 2px;\n      position: absolute;\n      z-index: 2; }\n      .swal2-icon.swal2-success [class^='swal2-success-line'][class$='tip'] {\n        width: 25px;\n        left: 14px;\n        top: 46px;\n        -webkit-transform: rotate(45deg);\n                transform: rotate(45deg); }\n      .swal2-icon.swal2-success [class^='swal2-success-line'][class$='long'] {\n        width: 47px;\n        right: 8px;\n        top: 38px;\n        -webkit-transform: rotate(-45deg);\n                transform: rotate(-45deg); }\n\n.swal2-progresssteps {\n  font-weight: 600;\n  margin: 0 0 20px;\n  padding: 0; }\n  .swal2-progresssteps li {\n    display: inline-block;\n    position: relative; }\n  .swal2-progresssteps .swal2-progresscircle {\n    background: #3085d6;\n    border-radius: 2em;\n    color: #fff;\n    height: 2em;\n    line-height: 2em;\n    text-align: center;\n    width: 2em;\n    z-index: 20; }\n    .swal2-progresssteps .swal2-progresscircle:first-child {\n      margin-left: 0; }\n    .swal2-progresssteps .swal2-progresscircle:last-child {\n      margin-right: 0; }\n    .swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep {\n      background: #3085d6; }\n      .swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep ~ .swal2-progresscircle {\n        background: #add8e6; }\n      .swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep ~ .swal2-progressline {\n        background: #add8e6; }\n  .swal2-progresssteps .swal2-progressline {\n    background: #3085d6;\n    height: .4em;\n    margin: 0 -1px;\n    z-index: 10; }\n\n[class^='swal2'] {\n  -webkit-tap-highlight-color: transparent; }\n\n@-webkit-keyframes showSweetAlert {\n  0% {\n    -webkit-transform: scale(0.7);\n            transform: scale(0.7); }\n  45% {\n    -webkit-transform: scale(1.05);\n            transform: scale(1.05); }\n  80% {\n    -webkit-transform: scale(0.95);\n            transform: scale(0.95); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n@keyframes showSweetAlert {\n  0% {\n    -webkit-transform: scale(0.7);\n            transform: scale(0.7); }\n  45% {\n    -webkit-transform: scale(1.05);\n            transform: scale(1.05); }\n  80% {\n    -webkit-transform: scale(0.95);\n            transform: scale(0.95); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n@-webkit-keyframes hideSweetAlert {\n  0% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n    opacity: 1; }\n  100% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n    opacity: 0; } }\n\n@keyframes hideSweetAlert {\n  0% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n    opacity: 1; }\n  100% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n    opacity: 0; } }\n\n.swal2-show {\n  -webkit-animation: showSweetAlert .3s;\n          animation: showSweetAlert .3s; }\n  .swal2-show.swal2-noanimation {\n    -webkit-animation: none;\n            animation: none; }\n\n.swal2-hide {\n  -webkit-animation: hideSweetAlert .15s forwards;\n          animation: hideSweetAlert .15s forwards; }\n  .swal2-hide.swal2-noanimation {\n    -webkit-animation: none;\n            animation: none; }\n\n@-webkit-keyframes animate-success-tip {\n  0% {\n    width: 0;\n    left: 1px;\n    top: 19px; }\n  54% {\n    width: 0;\n    left: 1px;\n    top: 19px; }\n  70% {\n    width: 50px;\n    left: -8px;\n    top: 37px; }\n  84% {\n    width: 17px;\n    left: 21px;\n    top: 48px; }\n  100% {\n    width: 25px;\n    left: 14px;\n    top: 45px; } }\n\n@keyframes animate-success-tip {\n  0% {\n    width: 0;\n    left: 1px;\n    top: 19px; }\n  54% {\n    width: 0;\n    left: 1px;\n    top: 19px; }\n  70% {\n    width: 50px;\n    left: -8px;\n    top: 37px; }\n  84% {\n    width: 17px;\n    left: 21px;\n    top: 48px; }\n  100% {\n    width: 25px;\n    left: 14px;\n    top: 45px; } }\n\n@-webkit-keyframes animate-success-long {\n  0% {\n    width: 0;\n    right: 46px;\n    top: 54px; }\n  65% {\n    width: 0;\n    right: 46px;\n    top: 54px; }\n  84% {\n    width: 55px;\n    right: 0;\n    top: 35px; }\n  100% {\n    width: 47px;\n    right: 8px;\n    top: 38px; } }\n\n@keyframes animate-success-long {\n  0% {\n    width: 0;\n    right: 46px;\n    top: 54px; }\n  65% {\n    width: 0;\n    right: 46px;\n    top: 54px; }\n  84% {\n    width: 55px;\n    right: 0;\n    top: 35px; }\n  100% {\n    width: 47px;\n    right: 8px;\n    top: 38px; } }\n\n@-webkit-keyframes rotatePlaceholder {\n  0% {\n    -webkit-transform: rotate(-45deg);\n            transform: rotate(-45deg); }\n  5% {\n    -webkit-transform: rotate(-45deg);\n            transform: rotate(-45deg); }\n  12% {\n    -webkit-transform: rotate(-405deg);\n            transform: rotate(-405deg); }\n  100% {\n    -webkit-transform: rotate(-405deg);\n            transform: rotate(-405deg); } }\n\n@keyframes rotatePlaceholder {\n  0% {\n    -webkit-transform: rotate(-45deg);\n            transform: rotate(-45deg); }\n  5% {\n    -webkit-transform: rotate(-45deg);\n            transform: rotate(-45deg); }\n  12% {\n    -webkit-transform: rotate(-405deg);\n            transform: rotate(-405deg); }\n  100% {\n    -webkit-transform: rotate(-405deg);\n            transform: rotate(-405deg); } }\n\n.swal2-animate-success-line-tip {\n  -webkit-animation: animate-success-tip .75s;\n          animation: animate-success-tip .75s; }\n\n.swal2-animate-success-line-long {\n  -webkit-animation: animate-success-long .75s;\n          animation: animate-success-long .75s; }\n\n.swal2-success.swal2-animate-success-icon .swal2-success-circular-line-right {\n  -webkit-animation: rotatePlaceholder 4.25s ease-in;\n          animation: rotatePlaceholder 4.25s ease-in; }\n\n@-webkit-keyframes animate-error-icon {\n  0% {\n    -webkit-transform: rotateX(100deg);\n            transform: rotateX(100deg);\n    opacity: 0; }\n  100% {\n    -webkit-transform: rotateX(0deg);\n            transform: rotateX(0deg);\n    opacity: 1; } }\n\n@keyframes animate-error-icon {\n  0% {\n    -webkit-transform: rotateX(100deg);\n            transform: rotateX(100deg);\n    opacity: 0; }\n  100% {\n    -webkit-transform: rotateX(0deg);\n            transform: rotateX(0deg);\n    opacity: 1; } }\n\n.swal2-animate-error-icon {\n  -webkit-animation: animate-error-icon .5s;\n          animation: animate-error-icon .5s; }\n\n@-webkit-keyframes animate-x-mark {\n  0% {\n    -webkit-transform: scale(0.4);\n            transform: scale(0.4);\n    margin-top: 26px;\n    opacity: 0; }\n  50% {\n    -webkit-transform: scale(0.4);\n            transform: scale(0.4);\n    margin-top: 26px;\n    opacity: 0; }\n  80% {\n    -webkit-transform: scale(1.15);\n            transform: scale(1.15);\n    margin-top: -6px; }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n    margin-top: 0;\n    opacity: 1; } }\n\n@keyframes animate-x-mark {\n  0% {\n    -webkit-transform: scale(0.4);\n            transform: scale(0.4);\n    margin-top: 26px;\n    opacity: 0; }\n  50% {\n    -webkit-transform: scale(0.4);\n            transform: scale(0.4);\n    margin-top: 26px;\n    opacity: 0; }\n  80% {\n    -webkit-transform: scale(1.15);\n            transform: scale(1.15);\n    margin-top: -6px; }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n    margin-top: 0;\n    opacity: 1; } }\n\n.swal2-animate-x-mark {\n  -webkit-animation: animate-x-mark .5s;\n          animation: animate-x-mark .5s; }\n\n@-webkit-keyframes rotate-loading {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n\n@keyframes rotate-loading {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n";
 
 var defaultParams = {
   title: '',
@@ -16,10 +16,8 @@ var defaultParams = {
   text: '',
   html: '',
   type: null,
-  toast: false,
   customClass: '',
   target: 'body',
-  backdrop: true,
   animation: true,
   allowOutsideClick: true,
   allowEscapeKey: true,
@@ -48,8 +46,8 @@ var defaultParams = {
   imageAlt: '',
   imageClass: null,
   timer: null,
-  width: null,
-  padding: null,
+  width: 500,
+  padding: 20,
   background: '#fff',
   input: null,
   inputPlaceholder: '',
@@ -63,15 +61,12 @@ var defaultParams = {
   position: 'center',
   progressSteps: [],
   currentProgressStep: null,
-  progressStepsDistance: null,
+  progressStepsDistance: '40px',
   onBeforeOpen: null,
   onOpen: null,
   onClose: null,
-  useRejections: false,
-  expectRejections: false
+  useRejections: true
 };
-
-var deprecatedParams = ['useRejections', 'expectRejections'];
 
 var swalPrefix = 'swal2-';
 
@@ -83,7 +78,7 @@ var prefix = function prefix(items) {
   return result;
 };
 
-var swalClasses = prefix(['container', 'shown', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'overlay', 'fade', 'show', 'hide', 'noanimation', 'close', 'title', 'header', 'content', 'actions', 'confirm', 'cancel', 'icon', 'image', 'input', 'has-input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea', 'inputerror', 'validationerror', 'progresssteps', 'activeprogressstep', 'progresscircle', 'progressline', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen']);
+var swalClasses = prefix(['container', 'shown', 'iosfix', 'modal', 'overlay', 'fade', 'show', 'hide', 'noanimation', 'close', 'title', 'content', 'buttonswrapper', 'confirm', 'cancel', 'icon', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea', 'inputerror', 'validationerror', 'progresssteps', 'activeprogressstep', 'progresscircle', 'progressline', 'loading', 'styled', 'top', 'top-left', 'top-right', 'center', 'center-left', 'center-right', 'bottom', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen']);
 
 var iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
 
@@ -111,10 +106,6 @@ var colorLuminance = function colorLuminance(hex, lum) {
   return rgb;
 };
 
-/**
- * Filter the unique values into a new array
- * @param arr
- */
 var uniqueArray = function uniqueArray(arr) {
   var result = [];
   for (var i in arr) {
@@ -141,33 +132,6 @@ var error = function error(message) {
   console.error(consolePrefix + ' ' + message);
 };
 
-/**
- * Private global state for `warnOnce`
- * @type {Array}
- * @private
- */
-var previousWarnOnceMessages = [];
-
-/**
- * Show a console warning, but only if it hasn't already been shown
- * @param message
- */
-var warnOnce = function warnOnce(message) {
-  if (!(previousWarnOnceMessages.indexOf(message) !== -1)) {
-    previousWarnOnceMessages.push(message);
-    warn(message);
-  }
-};
-
-/**
- * If `arg` is a function, call it (with no arguments or context) and return the result.
- * Otherwise, just pass the value through
- * @param arg
- */
-var callIfFunction = function callIfFunction(arg) {
-  return typeof arg === 'function' ? arg() : arg;
-};
-
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
   return typeof obj;
 } : function (obj) {
@@ -178,7 +142,118 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 
 
+var asyncGenerator = function () {
+  function AwaitValue(value) {
+    this.value = value;
+  }
 
+  function AsyncGenerator(gen) {
+    var front, back;
+
+    function send(key, arg) {
+      return new Promise(function (resolve, reject) {
+        var request = {
+          key: key,
+          arg: arg,
+          resolve: resolve,
+          reject: reject,
+          next: null
+        };
+
+        if (back) {
+          back = back.next = request;
+        } else {
+          front = back = request;
+          resume(key, arg);
+        }
+      });
+    }
+
+    function resume(key, arg) {
+      try {
+        var result = gen[key](arg);
+        var value = result.value;
+
+        if (value instanceof AwaitValue) {
+          Promise.resolve(value.value).then(function (arg) {
+            resume("next", arg);
+          }, function (arg) {
+            resume("throw", arg);
+          });
+        } else {
+          settle(result.done ? "return" : "normal", result.value);
+        }
+      } catch (err) {
+        settle("throw", err);
+      }
+    }
+
+    function settle(type, value) {
+      switch (type) {
+        case "return":
+          front.resolve({
+            value: value,
+            done: true
+          });
+          break;
+
+        case "throw":
+          front.reject(value);
+          break;
+
+        default:
+          front.resolve({
+            value: value,
+            done: false
+          });
+          break;
+      }
+
+      front = front.next;
+
+      if (front) {
+        resume(front.key, front.arg);
+      } else {
+        back = null;
+      }
+    }
+
+    this._invoke = send;
+
+    if (typeof gen.return !== "function") {
+      this.return = undefined;
+    }
+  }
+
+  if (typeof Symbol === "function" && Symbol.asyncIterator) {
+    AsyncGenerator.prototype[Symbol.asyncIterator] = function () {
+      return this;
+    };
+  }
+
+  AsyncGenerator.prototype.next = function (arg) {
+    return this._invoke("next", arg);
+  };
+
+  AsyncGenerator.prototype.throw = function (arg) {
+    return this._invoke("throw", arg);
+  };
+
+  AsyncGenerator.prototype.return = function (arg) {
+    return this._invoke("return", arg);
+  };
+
+  return {
+    wrap: function (fn) {
+      return function () {
+        return new AsyncGenerator(fn.apply(this, arguments));
+      };
+    },
+    await: function (value) {
+      return new AwaitValue(value);
+    }
+  };
+}();
 
 
 
@@ -208,38 +283,19 @@ var _extends = Object.assign || function (target) {
   return target;
 };
 
-var popupParams = _extends({}, defaultParams);
+var modalParams = _extends({}, defaultParams);
 var queue = [];
-
-var previousWindowKeyDown = void 0;
-var windowOnkeydownOverridden = void 0;
 
 /*
  * Check for the existence of Promise
  * Hopefully to avoid many github issues
  */
 if (typeof Promise === 'undefined') {
-  error('This package requires a Promise library, please include a shim to enable it in this browser (See: https://github.com/sweetalert2/sweetalert2/wiki/Migration-from-SweetAlert-to-SweetAlert2#1-ie-support)');
+  error('This package requires a Promise library, please include a shim to enable it in this browser (See: https://github.com/limonte/sweetalert2/wiki/Migration-from-SweetAlert-to-SweetAlert2#1-ie-support)');
 }
 
 /**
- * Show relevant warnings for given params
- *
- * @param params
- */
-var showWarningsForParams = function showWarningsForParams(params) {
-  for (var param in params) {
-    if (!sweetAlert$1.isValidParameter(param)) {
-      warn('Unknown parameter "' + param + '"');
-    }
-    if (sweetAlert$1.isDeprecatedParameter(param)) {
-      warnOnce('The parameter "' + param + '" is deprecated and will be removed in the next major release.');
-    }
-  }
-};
-
-/**
- * Set type, text and actions on popup
+ * Set type, text and actions on modal
  *
  * @param params
  * @returns {boolean}
@@ -251,36 +307,36 @@ var setParameters = function setParameters(params) {
     params.target = 'body';
   }
 
-  var popup = void 0;
-  var oldPopup = getPopup();
+  var modal = void 0;
+  var oldModal = getModal();
   var targetElement = typeof params.target === 'string' ? document.querySelector(params.target) : params.target;
-  // If the model target has changed, refresh the popup
-  if (oldPopup && targetElement && oldPopup.parentNode !== targetElement.parentNode) {
-    popup = init(params);
+  // If the model target has changed, refresh the modal
+  if (oldModal && targetElement && oldModal.parentNode !== targetElement.parentNode) {
+    modal = init(params);
   } else {
-    popup = oldPopup || init(params);
+    modal = oldModal || init(params);
   }
 
-  // Set popup width
-  if (params.width) {
-    popup.style.width = typeof params.width === 'number' ? params.width + 'px' : params.width;
+  for (var param in params) {
+    if (!sweetAlert$1.isValidParameter(param)) {
+      warn('Unknown parameter "' + param + '"');
+    }
   }
 
-  // Set popup padding
-  if (params.padding) {
-    popup.style.padding = typeof params.padding === 'number' ? params.padding + 'px' : params.padding;
-  }
+  // Set modal width
+  modal.style.width = typeof params.width === 'number' ? params.width + 'px' : params.width;
 
-  popup.style.background = params.background;
-  var successIconParts = popup.querySelectorAll('[class^=swal2-success-circular-line], .swal2-success-fix');
+  modal.style.padding = params.padding + 'px';
+  modal.style.background = params.background;
+  var successIconParts = modal.querySelectorAll('[class^=swal2-success-circular-line], .swal2-success-fix');
   for (var i = 0; i < successIconParts.length; i++) {
     successIconParts[i].style.background = params.background;
   }
 
   var container = getContainer();
   var title = getTitle();
-  var content = getContent().querySelector('#' + swalClasses.content);
-  var actions = getActions();
+  var content = getContent();
+  var buttonsWrapper = getButtonsWrapper();
   var confirmButton = getConfirmButton();
   var cancelButton = getCancelButton();
   var closeButton = getCloseButton();
@@ -290,10 +346,6 @@ var setParameters = function setParameters(params) {
     title.innerText = params.titleText;
   } else {
     title.innerHTML = params.title.split('\n').join('<br />');
-  }
-
-  if (!params.backdrop) {
-    addClass([document.documentElement, document.body], swalClasses['no-backdrop']);
   }
 
   // Content
@@ -338,18 +390,10 @@ var setParameters = function setParameters(params) {
     hide(closeButton);
   }
 
-  // Default Class
-  popup.className = swalClasses.popup;
-  if (params.toast) {
-    addClass([document.documentElement, document.body], swalClasses['toast-shown']);
-    addClass(popup, swalClasses.toast);
-  } else {
-    addClass(popup, swalClasses.modal);
-  }
-
   // Custom Class
+  modal.className = swalClasses.modal;
   if (params.customClass) {
-    addClass(popup, params.customClass);
+    addClass(modal, params.customClass);
   }
 
   // Progress steps
@@ -372,9 +416,7 @@ var setParameters = function setParameters(params) {
       if (index !== params.progressSteps.length - 1) {
         var line = document.createElement('li');
         addClass(line, swalClasses.progressline);
-        if (params.progressStepsDistance) {
-          line.style.width = params.progressStepsDistance;
-        }
+        line.style.width = params.progressStepsDistance;
         progressStepsContainer.appendChild(line);
       }
     });
@@ -399,7 +441,7 @@ var setParameters = function setParameters(params) {
       error('Unknown alert type: ' + params.type);
       return false;
     }
-    var icon = popup.querySelector('.' + swalClasses.icon + '.' + iconTypes[params.type]);
+    var icon = modal.querySelector('.' + swalClasses.icon + '.' + iconTypes[params.type]);
     show(icon);
 
     // Animate icon
@@ -461,11 +503,11 @@ var setParameters = function setParameters(params) {
     hide(confirmButton);
   }
 
-  // Actions (buttons) wrapper
+  // Buttons wrapper
   if (!params.showConfirmButton && !params.showCancelButton) {
-    hide(actions);
+    hide(buttonsWrapper);
   } else {
-    show(actions);
+    show(buttonsWrapper);
   }
 
   // Edit text on confirm and cancel buttons
@@ -490,9 +532,11 @@ var setParameters = function setParameters(params) {
 
   // Buttons styling
   if (params.buttonsStyling) {
-    addClass([confirmButton, cancelButton], swalClasses.styled);
+    addClass(confirmButton, swalClasses.styled);
+    addClass(cancelButton, swalClasses.styled);
   } else {
-    removeClass([confirmButton, cancelButton], swalClasses.styled);
+    removeClass(confirmButton, swalClasses.styled);
+    removeClass(cancelButton, swalClasses.styled);
 
     confirmButton.style.backgroundColor = confirmButton.style.borderLeftColor = confirmButton.style.borderRightColor = '';
     cancelButton.style.backgroundColor = cancelButton.style.borderLeftColor = cancelButton.style.borderRightColor = '';
@@ -500,14 +544,14 @@ var setParameters = function setParameters(params) {
 
   // CSS animation
   if (params.animation === true) {
-    removeClass(popup, swalClasses.noanimation);
+    removeClass(modal, swalClasses.noanimation);
   } else {
-    addClass(popup, swalClasses.noanimation);
+    addClass(modal, swalClasses.noanimation);
   }
 
   // showLoaderOnConfirm && preConfirm
   if (params.showLoaderOnConfirm && !params.preConfirm) {
-    warn('showLoaderOnConfirm is set to true, but preConfirm is not defined.\n' + 'showLoaderOnConfirm should be used together with preConfirm, see usage example:\n' + 'https://sweetalert2.github.io/#ajax-request');
+    warn('showLoaderOnConfirm is set to true, but preConfirm is not defined.\n' + 'showLoaderOnConfirm should be used together with preConfirm, see usage example:\n' + 'https://limonte.github.io/sweetalert2/#ajax-request');
   }
 };
 
@@ -518,43 +562,43 @@ var setParameters = function setParameters(params) {
  * @param onBeforeOpen
  * @param onComplete
  */
-var openPopup = function openPopup(animation, onBeforeOpen, onComplete) {
+var openModal = function openModal(animation, onBeforeOpen, onComplete) {
   var container = getContainer();
-  var popup = getPopup();
+  var modal = getModal();
 
   if (onBeforeOpen !== null && typeof onBeforeOpen === 'function') {
-    onBeforeOpen(popup);
+    onBeforeOpen(modal);
   }
 
   if (animation) {
-    addClass(popup, swalClasses.show);
+    addClass(modal, swalClasses.show);
     addClass(container, swalClasses.fade);
-    removeClass(popup, swalClasses.hide);
+    removeClass(modal, swalClasses.hide);
   } else {
-    removeClass(popup, swalClasses.fade);
+    removeClass(modal, swalClasses.fade);
   }
-  show(popup);
+  show(modal);
 
   // scrolling is 'hidden' until animation is done, after that 'auto'
   container.style.overflowY = 'hidden';
-  if (animationEndEvent && !hasClass(popup, swalClasses.noanimation)) {
-    popup.addEventListener(animationEndEvent, function swalCloseEventFinished() {
-      popup.removeEventListener(animationEndEvent, swalCloseEventFinished);
+  if (animationEndEvent && !hasClass(modal, swalClasses.noanimation)) {
+    modal.addEventListener(animationEndEvent, function swalCloseEventFinished() {
+      modal.removeEventListener(animationEndEvent, swalCloseEventFinished);
       container.style.overflowY = 'auto';
     });
   } else {
     container.style.overflowY = 'auto';
   }
 
-  addClass([document.documentElement, document.body, container], swalClasses.shown);
-  if (isModal()) {
-    fixScrollbar();
-    iOSfix();
-  }
+  addClass(document.documentElement, swalClasses.shown);
+  addClass(document.body, swalClasses.shown);
+  addClass(container, swalClasses.shown);
+  fixScrollbar();
+  iOSfix();
   states.previousActiveElement = document.activeElement;
   if (onComplete !== null && typeof onComplete === 'function') {
     setTimeout(function () {
-      onComplete(popup);
+      onComplete(modal);
     });
   }
 };
@@ -604,17 +648,12 @@ var sweetAlert$1 = function sweetAlert() {
     args[_key] = arguments[_key];
   }
 
-  // Prevent run in Node env
-  if (typeof window === 'undefined') {
-    return;
-  }
-
-  if (typeof args[0] === 'undefined') {
+  if (args[0] === undefined) {
     error('SweetAlert2 expects at least 1 attribute!');
     return false;
   }
 
-  var params = _extends({}, popupParams);
+  var params = _extends({}, modalParams);
 
   switch (_typeof(args[0])) {
     case 'string':
@@ -625,14 +664,13 @@ var sweetAlert$1 = function sweetAlert() {
       break;
 
     case 'object':
-      showWarningsForParams(args[0]);
       _extends(params, args[0]);
       params.extraParams = args[0].extraParams;
 
       if (params.input === 'email' && params.inputValidator === null) {
-        var inputValidator = function inputValidator(email) {
+        params.inputValidator = function (email) {
           return new Promise(function (resolve, reject) {
-            var emailRegex = /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/;
+            var emailRegex = /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
             if (emailRegex.test(email)) {
               resolve();
             } else {
@@ -640,11 +678,10 @@ var sweetAlert$1 = function sweetAlert() {
             }
           });
         };
-        params.inputValidator = params.expectRejections ? inputValidator : sweetAlert.adaptInputValidator(inputValidator);
       }
 
       if (params.input === 'url' && params.inputValidator === null) {
-        var _inputValidator = function _inputValidator(url) {
+        params.inputValidator = function (url) {
           return new Promise(function (resolve, reject) {
             // taken from https://stackoverflow.com/a/3809435/1331425
             var urlRegex = /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)$/;
@@ -655,7 +692,6 @@ var sweetAlert$1 = function sweetAlert() {
             }
           });
         };
-        params.inputValidator = params.expectRejections ? _inputValidator : sweetAlert.adaptInputValidator(_inputValidator);
       }
       break;
 
@@ -667,35 +703,18 @@ var sweetAlert$1 = function sweetAlert() {
   setParameters(params);
 
   var container = getContainer();
-  var popup = getPopup();
+  var modal = getModal();
 
   return new Promise(function (resolve, reject) {
-    // functions to handle all resolving/rejecting/settling
-    var succeedWith = function succeedWith(value) {
-      sweetAlert.closePopup(params.onClose);
-      if (params.useRejections) {
-        resolve(value);
-      } else {
-        resolve({ value: value });
-      }
-    };
-    var dismissWith = function dismissWith(dismiss) {
-      sweetAlert.closePopup(params.onClose);
-      if (params.useRejections) {
-        reject(dismiss);
-      } else {
-        resolve({ dismiss: dismiss });
-      }
-    };
-    var errorWith = function errorWith(error$$1) {
-      sweetAlert.closePopup(params.onClose);
-      reject(error$$1);
-    };
-
     // Close on timer
     if (params.timer) {
-      popup.timeout = setTimeout(function () {
-        return dismissWith('timer');
+      modal.timeout = setTimeout(function () {
+        sweetAlert.closeModal(params.onClose);
+        if (params.useRejections) {
+          reject('timer');
+        } else {
+          resolve({ dismiss: 'timer' });
+        }
       }, params.timer);
     }
 
@@ -709,19 +728,19 @@ var sweetAlert$1 = function sweetAlert() {
         case 'select':
         case 'textarea':
         case 'file':
-          return getChildByClass(content, swalClasses[inputType]);
+          return getChildByClass(modal, swalClasses[inputType]);
         case 'checkbox':
-          return popup.querySelector('.' + swalClasses.checkbox + ' input');
+          return modal.querySelector('.' + swalClasses.checkbox + ' input');
         case 'radio':
-          return popup.querySelector('.' + swalClasses.radio + ' input:checked') || popup.querySelector('.' + swalClasses.radio + ' input:first-child');
+          return modal.querySelector('.' + swalClasses.radio + ' input:checked') || modal.querySelector('.' + swalClasses.radio + ' input:first-child');
         case 'range':
-          return popup.querySelector('.' + swalClasses.range + ' input');
+          return modal.querySelector('.' + swalClasses.range + ' input');
         default:
-          return getChildByClass(content, swalClasses.input);
+          return getChildByClass(modal, swalClasses.input);
       }
     };
 
-    // Get the value of the popup input
+    // Get the value of the modal input
     var getInputValue = function getInputValue() {
       var input = getInput();
       if (!input) {
@@ -755,32 +774,22 @@ var sweetAlert$1 = function sweetAlert() {
       }
 
       if (params.preConfirm) {
-        sweetAlert.resetValidationError();
-        var preConfirmPromise = Promise.resolve().then(function () {
-          return params.preConfirm(value, params.extraParams);
+        params.preConfirm(value, params.extraParams).then(function (preConfirmValue) {
+          sweetAlert.closeModal(params.onClose);
+          resolve(preConfirmValue || value);
+        }, function (error$$1) {
+          sweetAlert.hideLoading();
+          if (error$$1) {
+            sweetAlert.showValidationError(error$$1);
+          }
         });
-        if (params.expectRejections) {
-          preConfirmPromise.then(function (preConfirmValue) {
-            return succeedWith(preConfirmValue || value);
-          }, function (validationError) {
-            sweetAlert.hideLoading();
-            if (validationError) {
-              sweetAlert.showValidationError(validationError);
-            }
-          });
-        } else {
-          preConfirmPromise.then(function (preConfirmValue) {
-            if (isVisible(getValidationError())) {
-              sweetAlert.hideLoading();
-            } else {
-              succeedWith(preConfirmValue || value);
-            }
-          }, function (error$$1) {
-            return errorWith(error$$1);
-          });
-        }
       } else {
-        succeedWith(value);
+        sweetAlert.closeModal(params.onClose);
+        if (params.useRejections) {
+          resolve(value);
+        } else {
+          resolve({ value: value });
+        }
       }
     };
 
@@ -831,34 +840,17 @@ var sweetAlert$1 = function sweetAlert() {
 
               if (params.inputValidator) {
                 sweetAlert.disableInput();
-                var validationPromise = Promise.resolve().then(function () {
-                  return params.inputValidator(inputValue, params.extraParams);
+                params.inputValidator(inputValue, params.extraParams).then(function () {
+                  sweetAlert.enableButtons();
+                  sweetAlert.enableInput();
+                  confirm(inputValue);
+                }, function (error$$1) {
+                  sweetAlert.enableButtons();
+                  sweetAlert.enableInput();
+                  if (error$$1) {
+                    sweetAlert.showValidationError(error$$1);
+                  }
                 });
-                if (params.expectRejections) {
-                  validationPromise.then(function () {
-                    sweetAlert.enableButtons();
-                    sweetAlert.enableInput();
-                    confirm(inputValue);
-                  }, function (validationError) {
-                    sweetAlert.enableButtons();
-                    sweetAlert.enableInput();
-                    if (validationError) {
-                      sweetAlert.showValidationError(validationError);
-                    }
-                  });
-                } else {
-                  validationPromise.then(function (validationError) {
-                    sweetAlert.enableButtons();
-                    sweetAlert.enableInput();
-                    if (validationError) {
-                      sweetAlert.showValidationError(validationError);
-                    } else {
-                      confirm(inputValue);
-                    }
-                  }, function (error$$1) {
-                    return errorWith(error$$1);
-                  });
-                }
               } else {
                 confirm(inputValue);
               }
@@ -869,14 +861,19 @@ var sweetAlert$1 = function sweetAlert() {
             // Clicked 'cancel'
           } else if (targetedCancel && sweetAlert.isVisible()) {
             sweetAlert.disableButtons();
-            dismissWith('cancel');
+            sweetAlert.closeModal(params.onClose);
+            if (params.useRejections) {
+              reject('cancel');
+            } else {
+              resolve({ dismiss: 'cancel' });
+            }
           }
           break;
         default:
       }
     };
 
-    var buttons = popup.querySelectorAll('button');
+    var buttons = modal.querySelectorAll('button');
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].onclick = onButtonEvent;
       buttons[i].onmouseover = onButtonEvent;
@@ -884,65 +881,32 @@ var sweetAlert$1 = function sweetAlert() {
       buttons[i].onmousedown = onButtonEvent;
     }
 
-    // Closing popup by close button
+    // Closing modal by close button
     getCloseButton().onclick = function () {
-      dismissWith('close');
+      sweetAlert.closeModal(params.onClose);
+      if (params.useRejections) {
+        reject('close');
+      } else {
+        resolve({ dismiss: 'close' });
+      }
     };
 
-    if (params.toast) {
-      // Closing popup by overlay click
-      popup.onclick = function (e) {
-        if (e.target !== popup || params.showConfirmButton || params.showCancelButton) {
-          return;
+    // Closing modal by overlay click
+    container.onclick = function (e) {
+      if (e.target !== container) {
+        return;
+      }
+      if (params.allowOutsideClick) {
+        sweetAlert.closeModal(params.onClose);
+        if (params.useRejections) {
+          reject('overlay');
+        } else {
+          resolve({ dismiss: 'overlay' });
         }
-        if (params.allowOutsideClick) {
-          sweetAlert.closePopup(params.onClose);
-          dismissWith('overlay');
-        }
-      };
-    } else {
-      var ignoreOutsideClick = false;
+      }
+    };
 
-      // Ignore click events that had mousedown on the popup but mouseup on the container
-      // This can happen when the user drags a slider
-      popup.onmousedown = function () {
-        container.onmouseup = function (e) {
-          container.onmouseup = undefined;
-          // We only check if the mouseup target is the container because usually it doesn't
-          // have any other direct children aside of the popup
-          if (e.target === container) {
-            ignoreOutsideClick = true;
-          }
-        };
-      };
-
-      // Ignore click events that had mousedown on the container but mouseup on the popup
-      container.onmousedown = function () {
-        popup.onmouseup = function (e) {
-          popup.onmouseup = undefined;
-          // We also need to check if the mouseup target is a child of the popup
-          if (e.target === popup || popup.contains(e.target)) {
-            ignoreOutsideClick = true;
-          }
-        };
-      };
-
-      container.onclick = function (e) {
-        if (ignoreOutsideClick) {
-          ignoreOutsideClick = false;
-          return;
-        }
-        if (e.target !== container) {
-          return;
-        }
-        if (callIfFunction(params.allowOutsideClick)) {
-          dismissWith('overlay');
-        }
-      };
-    }
-
-    var content = getContent();
-    var actions = getActions();
+    var buttonsWrapper = getButtonsWrapper();
     var confirmButton = getConfirmButton();
     var cancelButton = getCancelButton();
 
@@ -980,15 +944,8 @@ var sweetAlert$1 = function sweetAlert() {
     var handleKeyDown = function handleKeyDown(event) {
       var e = event || window.event;
 
-      var arrowKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Left', 'Right', 'Up', 'Down' // IE11
-      ];
-
-      if (e.key === 'Enter' && !e.isComposing) {
+      if (e.key === 'Enter') {
         if (e.target === getInput()) {
-          if (['textarea', 'file'].indexOf(params.input) !== -1) {
-            return; // do not submit
-          }
-
           sweetAlert.clickConfirm();
           e.preventDefault();
         }
@@ -1017,7 +974,7 @@ var sweetAlert$1 = function sweetAlert() {
         e.preventDefault();
 
         // ARROWS - switch focus between buttons
-      } else if (arrowKeys.indexOf(e.key) !== -1) {
+      } else if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'Arrowdown'].indexOf(e.key) !== -1) {
         // focus Cancel button if Confirm button is currently focused
         if (document.activeElement === confirmButton && isVisible(cancelButton)) {
           cancelButton.focus();
@@ -1027,19 +984,18 @@ var sweetAlert$1 = function sweetAlert() {
         }
 
         // ESC
-      } else if ((e.key === 'Escape' || e.key === 'Esc') && callIfFunction(params.allowEscapeKey) === true) {
-        dismissWith('esc');
+      } else if (e.key === 'Escape' && params.allowEscapeKey === true) {
+        sweetAlert.closeModal(params.onClose);
+        if (params.useRejections) {
+          reject('esc');
+        } else {
+          resolve({ dismiss: 'esc' });
+        }
       }
     };
 
-    if (params.toast && windowOnkeydownOverridden) {
-      window.onkeydown = previousWindowKeyDown;
-      windowOnkeydownOverridden = false;
-    }
-
-    if (!params.toast && !windowOnkeydownOverridden) {
-      previousWindowKeyDown = window.onkeydown;
-      windowOnkeydownOverridden = true;
+    if (!window.onkeydown || window.onkeydown.toString() !== handleKeyDown.toString()) {
+      states.previousWindowKeyDown = window.onkeydown;
       window.onkeydown = handleKeyDown;
     }
 
@@ -1056,12 +1012,12 @@ var sweetAlert$1 = function sweetAlert() {
       if (!params.showConfirmButton) {
         hide(confirmButton);
         if (!params.showCancelButton) {
-          hide(getActions());
+          hide(getButtonsWrapper());
         }
       }
-      removeClass([popup, actions], swalClasses.loading);
-      popup.removeAttribute('aria-busy');
-      popup.removeAttribute('data-loading');
+      removeClass(buttonsWrapper, swalClasses.loading);
+      removeClass(modal, swalClasses.loading);
+      modal.removeAttribute('aria-busy');
       confirmButton.disabled = false;
       cancelButton.disabled = false;
     };
@@ -1081,17 +1037,11 @@ var sweetAlert$1 = function sweetAlert() {
     sweetAlert.getButtonsWrapper = function () {
       return getButtonsWrapper();
     };
-    sweetAlert.getActions = function () {
-      return getActions();
-    };
     sweetAlert.getConfirmButton = function () {
       return getConfirmButton();
     };
     sweetAlert.getCancelButton = function () {
       return getCancelButton();
-    };
-    sweetAlert.isLoading = function () {
-      return isLoading();
     };
 
     sweetAlert.enableButtons = function () {
@@ -1148,9 +1098,6 @@ var sweetAlert$1 = function sweetAlert() {
     sweetAlert.showValidationError = function (error$$1) {
       var validationError = getValidationError();
       validationError.innerHTML = error$$1;
-      var popupComputedStyle = window.getComputedStyle(popup);
-      validationError.style.marginLeft = '-' + popupComputedStyle.getPropertyValue('padding-left');
-      validationError.style.marginRight = '-' + popupComputedStyle.getPropertyValue('padding-right');
       show(validationError);
 
       var input = getInput();
@@ -1196,16 +1143,12 @@ var sweetAlert$1 = function sweetAlert() {
     sweetAlert.hideLoading();
     sweetAlert.resetValidationError();
 
-    if (params.input) {
-      addClass(document.body, swalClasses['has-input']);
-    }
-
     // inputs
     var inputTypes = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea'];
     var input = void 0;
     for (var _i7 = 0; _i7 < inputTypes.length; _i7++) {
       var inputClass = swalClasses[inputTypes[_i7]];
-      var inputContainer = getChildByClass(content, inputClass);
+      var inputContainer = getChildByClass(modal, inputClass);
       input = getInput(inputTypes[_i7]);
 
       // set attributes
@@ -1240,20 +1183,20 @@ var sweetAlert$1 = function sweetAlert() {
       case 'number':
       case 'tel':
       case 'url':
-        input = getChildByClass(content, swalClasses.input);
+        input = getChildByClass(modal, swalClasses.input);
         input.value = params.inputValue;
         input.placeholder = params.inputPlaceholder;
         input.type = params.input;
         show(input);
         break;
       case 'file':
-        input = getChildByClass(content, swalClasses.file);
+        input = getChildByClass(modal, swalClasses.file);
         input.placeholder = params.inputPlaceholder;
         input.type = params.input;
         show(input);
         break;
       case 'range':
-        var range = getChildByClass(content, swalClasses.range);
+        var range = getChildByClass(modal, swalClasses.range);
         var rangeInput = range.querySelector('input');
         var rangeOutput = range.querySelector('output');
         rangeInput.value = params.inputValue;
@@ -1262,7 +1205,7 @@ var sweetAlert$1 = function sweetAlert() {
         show(range);
         break;
       case 'select':
-        var select = getChildByClass(content, swalClasses.select);
+        var select = getChildByClass(modal, swalClasses.select);
         select.innerHTML = '';
         if (params.inputPlaceholder) {
           var placeholder = document.createElement('option');
@@ -1287,7 +1230,7 @@ var sweetAlert$1 = function sweetAlert() {
         };
         break;
       case 'radio':
-        var radio = getChildByClass(content, swalClasses.radio);
+        var radio = getChildByClass(modal, swalClasses.radio);
         radio.innerHTML = '';
         populateInputOptions = function populateInputOptions(inputOptions) {
           for (var radioValue in inputOptions) {
@@ -1314,7 +1257,7 @@ var sweetAlert$1 = function sweetAlert() {
         };
         break;
       case 'checkbox':
-        var checkbox = getChildByClass(content, swalClasses.checkbox);
+        var checkbox = getChildByClass(modal, swalClasses.checkbox);
         var checkboxInput = getInput('checkbox');
         checkboxInput.type = 'checkbox';
         checkboxInput.value = 1;
@@ -1330,7 +1273,7 @@ var sweetAlert$1 = function sweetAlert() {
         show(checkbox);
         break;
       case 'textarea':
-        var textarea = getChildByClass(content, swalClasses.textarea);
+        var textarea = getChildByClass(modal, swalClasses.textarea);
         textarea.value = params.inputValue;
         textarea.placeholder = params.inputPlaceholder;
         show(textarea);
@@ -1356,20 +1299,18 @@ var sweetAlert$1 = function sweetAlert() {
       }
     }
 
-    openPopup(params.animation, params.onBeforeOpen, params.onOpen);
+    openModal(params.animation, params.onBeforeOpen, params.onOpen);
 
-    if (!params.toast) {
-      if (!callIfFunction(params.allowEnterKey)) {
-        if (document.activeElement) {
-          document.activeElement.blur();
-        }
-      } else if (params.focusCancel && isVisible(cancelButton)) {
-        cancelButton.focus();
-      } else if (params.focusConfirm && isVisible(confirmButton)) {
-        confirmButton.focus();
-      } else {
-        setFocus(-1, 1);
+    if (!params.allowEnterKey) {
+      if (document.activeElement) {
+        document.activeElement.blur();
       }
+    } else if (params.focusCancel && isVisible(cancelButton)) {
+      cancelButton.focus();
+    } else if (params.focusConfirm && isVisible(confirmButton)) {
+      confirmButton.focus();
+    } else {
+      setFocus(-1, 1);
     }
 
     // fix scroll
@@ -1378,14 +1319,14 @@ var sweetAlert$1 = function sweetAlert() {
 };
 
 /*
- * Global function to determine if swal2 popup is shown
+ * Global function to determine if swal2 modal is shown
  */
 sweetAlert$1.isVisible = function () {
-  return !!getPopup();
+  return !!getModal();
 };
 
 /*
- * Global function for chaining sweetAlert popups
+ * Global function for chaining sweetAlert modals
  */
 sweetAlert$1.queue = function (steps) {
   queue = steps;
@@ -1400,31 +1341,29 @@ sweetAlert$1.queue = function (steps) {
         document.body.setAttribute('data-swal2-queue-step', i);
 
         sweetAlert$1(queue[i]).then(function (result) {
-          if (typeof result.value !== 'undefined') {
-            queueResult.push(result.value);
-            step(i + 1, callback);
-          } else {
-            resetQueue();
-            resolve({ dismiss: result.dismiss });
-          }
+          queueResult.push(result);
+          step(i + 1, callback);
+        }, function (dismiss) {
+          resetQueue();
+          reject(dismiss);
         });
       } else {
         resetQueue();
-        resolve({ value: queueResult });
+        resolve(queueResult);
       }
     })(0);
   });
 };
 
 /*
- * Global function for getting the index of current popup in queue
+ * Global function for getting the index of current modal in queue
  */
 sweetAlert$1.getQueueStep = function () {
   return document.body.getAttribute('data-swal2-queue-step');
 };
 
 /*
- * Global function for inserting a popup to the queue
+ * Global function for inserting a modal to the queue
  */
 sweetAlert$1.insertQueueStep = function (step, index) {
   if (index && index < queue.length) {
@@ -1434,7 +1373,7 @@ sweetAlert$1.insertQueueStep = function (step, index) {
 };
 
 /*
- * Global function for deleting a popup from the queue
+ * Global function for deleting a modal from the queue
  */
 sweetAlert$1.deleteQueueStep = function (index) {
   if (typeof queue[index] !== 'undefined') {
@@ -1445,49 +1384,43 @@ sweetAlert$1.deleteQueueStep = function (index) {
 /*
  * Global function to close sweetAlert
  */
-sweetAlert$1.close = sweetAlert$1.closePopup = sweetAlert$1.closeModal = sweetAlert$1.closeToast = function (onComplete) {
+sweetAlert$1.close = sweetAlert$1.closeModal = function (onComplete) {
   var container = getContainer();
-  var popup = getPopup();
-  if (!popup) {
+  var modal = getModal();
+  if (!modal) {
     return;
   }
-  removeClass(popup, swalClasses.show);
-  addClass(popup, swalClasses.hide);
-  clearTimeout(popup.timeout);
+  removeClass(modal, swalClasses.show);
+  addClass(modal, swalClasses.hide);
+  clearTimeout(modal.timeout);
 
-  if (!isToast()) {
-    resetPrevState();
-    window.onkeydown = previousWindowKeyDown;
-    windowOnkeydownOverridden = false;
-  }
+  resetPrevState();
 
-  var removePopupAndResetState = function removePopupAndResetState() {
+  var removeModalAndResetState = function removeModalAndResetState() {
     if (container.parentNode) {
       container.parentNode.removeChild(container);
     }
-    removeClass([document.documentElement, document.body], [swalClasses.shown, swalClasses['no-backdrop'], swalClasses['has-input'], swalClasses['toast-shown']]);
-
-    if (isModal()) {
-      undoScrollbar();
-      undoIOSfix();
-    }
+    removeClass(document.documentElement, swalClasses.shown);
+    removeClass(document.body, swalClasses.shown);
+    undoScrollbar();
+    undoIOSfix();
   };
 
   // If animation is supported, animate
-  if (animationEndEvent && !hasClass(popup, swalClasses.noanimation)) {
-    popup.addEventListener(animationEndEvent, function swalCloseEventFinished() {
-      popup.removeEventListener(animationEndEvent, swalCloseEventFinished);
-      if (hasClass(popup, swalClasses.hide)) {
-        removePopupAndResetState();
+  if (animationEndEvent && !hasClass(modal, swalClasses.noanimation)) {
+    modal.addEventListener(animationEndEvent, function swalCloseEventFinished() {
+      modal.removeEventListener(animationEndEvent, swalCloseEventFinished);
+      if (hasClass(modal, swalClasses.hide)) {
+        removeModalAndResetState();
       }
     });
   } else {
     // Otherwise, remove immediately
-    removePopupAndResetState();
+    removeModalAndResetState();
   }
   if (onComplete !== null && typeof onComplete === 'function') {
     setTimeout(function () {
-      onComplete(popup);
+      onComplete(modal);
     });
   }
 };
@@ -1510,24 +1443,24 @@ sweetAlert$1.clickCancel = function () {
  * Show spinner instead of Confirm button and disable Cancel button
  */
 sweetAlert$1.showLoading = sweetAlert$1.enableLoading = function () {
-  var popup = getPopup();
-  if (!popup) {
+  var modal = getModal();
+  if (!modal) {
     sweetAlert$1('');
   }
-  popup = getPopup();
-  var actions = getActions();
+  modal = getModal();
+  var buttonsWrapper = getButtonsWrapper();
   var confirmButton = getConfirmButton();
   var cancelButton = getCancelButton();
 
-  show(actions);
+  show(buttonsWrapper);
   show(confirmButton, 'inline-block');
-  addClass([popup, actions], swalClasses.loading);
+  addClass(buttonsWrapper, swalClasses.loading);
+  addClass(modal, swalClasses.loading);
   confirmButton.disabled = true;
   cancelButton.disabled = true;
 
-  popup.setAttribute('data-loading', true);
-  popup.setAttribute('aria-busy', true);
-  popup.focus();
+  modal.setAttribute('aria-busy', true);
+  modal.focus();
 };
 
 /**
@@ -1539,14 +1472,6 @@ sweetAlert$1.isValidParameter = function (paramName) {
 };
 
 /**
- * Is deprecated parameter
- * @param {String} paramName
- */
-sweetAlert$1.isDeprecatedParameter = function (paramName) {
-  return deprecatedParams.indexOf(paramName) !== -1;
-};
-
-/**
  * Set default params for each popup
  * @param {Object} userParams
  */
@@ -1555,71 +1480,46 @@ sweetAlert$1.setDefaults = function (userParams) {
     return error('the argument for setDefaults() is required and has to be a object');
   }
 
-  showWarningsForParams(userParams);
-
-  // assign valid params from userParams to popupParams
   for (var param in userParams) {
-    if (sweetAlert$1.isValidParameter(param)) {
-      popupParams[param] = userParams[param];
+    if (!sweetAlert$1.isValidParameter(param)) {
+      warn('Unknown parameter "' + param + '"');
+      delete userParams[param];
     }
   }
+
+  _extends(modalParams, userParams);
 };
 
 /**
  * Reset default params for each popup
  */
 sweetAlert$1.resetDefaults = function () {
-  popupParams = _extends({}, defaultParams);
-};
-
-/**
- * Adapt a legacy inputValidator for use with expectRejections=false
- */
-sweetAlert$1.adaptInputValidator = function (legacyValidator) {
-  return function adaptedInputValidator(inputValue, extraParams) {
-    return legacyValidator.call(this, inputValue, extraParams).then(function () {
-      return undefined;
-    }, function (validationError) {
-      return validationError;
-    });
-  };
+  modalParams = _extends({}, defaultParams);
 };
 
 sweetAlert$1.noop = function () {};
 
-sweetAlert$1.version = '7.6.0';
+sweetAlert$1.version = '6.11.4';
 
 sweetAlert$1.default = sweetAlert$1;
 
-/**
- * Set default params if `window._swalDefaults` is an object
- */
-if (typeof window !== 'undefined' && _typeof(window._swalDefaults) === 'object') {
-  sweetAlert$1.setDefaults(window._swalDefaults);
-}
-
 // Remember state in cases where opening and handling a modal will fiddle with it.
 var states = {
+  previousWindowKeyDown: null,
   previousActiveElement: null,
   previousBodyPadding: null
 
-  // Detect Node env
-};var isNodeEnv = function isNodeEnv() {
-  return typeof window === 'undefined' || typeof document === 'undefined';
-};
-
-/*
- * Add modal + overlay to DOM
- */
-var init = function init(params) {
-  // Clean up the old popup if it exists
+  /*
+   * Add modal + overlay to DOM
+   */
+};var init = function init(params) {
+  // Clean up the old modal if it exists
   var c = getContainer();
   if (c) {
     c.parentNode.removeChild(c);
-    removeClass([document.documentElement, document.body], [swalClasses['no-backdrop'], swalClasses['has-input'], swalClasses['toast-shown']]);
   }
 
-  if (isNodeEnv()) {
+  if (typeof document === 'undefined') {
     error('SweetAlert2 requires document to initialize');
     return;
   }
@@ -1631,59 +1531,65 @@ var init = function init(params) {
   var targetElement = typeof params.target === 'string' ? document.querySelector(params.target) : params.target;
   targetElement.appendChild(container);
 
-  var popup = getPopup();
-  var content = getContent();
-  var input = getChildByClass(content, swalClasses.input);
-  var file = getChildByClass(content, swalClasses.file);
-  var range = content.querySelector('.' + swalClasses.range + ' input');
-  var rangeOutput = content.querySelector('.' + swalClasses.range + ' output');
-  var select = getChildByClass(content, swalClasses.select);
-  var checkbox = content.querySelector('.' + swalClasses.checkbox + ' input');
-  var textarea = getChildByClass(content, swalClasses.textarea);
+  var modal = getModal();
+  var input = getChildByClass(modal, swalClasses.input);
+  var file = getChildByClass(modal, swalClasses.file);
+  var range = modal.querySelector('.' + swalClasses.range + ' input');
+  var rangeOutput = modal.querySelector('.' + swalClasses.range + ' output');
+  var select = getChildByClass(modal, swalClasses.select);
+  var checkbox = modal.querySelector('.' + swalClasses.checkbox + ' input');
+  var textarea = getChildByClass(modal, swalClasses.textarea);
 
-  // a11y
-  popup.setAttribute('aria-live', params.toast ? 'polite' : 'assertive');
-
-  var resetValidationError = function resetValidationError() {
-    sweetAlert$1.isVisible() && sweetAlert$1.resetValidationError();
+  input.oninput = function () {
+    sweetAlert$1.resetValidationError();
   };
 
-  input.oninput = resetValidationError;
-  file.onchange = resetValidationError;
-  select.onchange = resetValidationError;
-  checkbox.onchange = resetValidationError;
-  textarea.oninput = resetValidationError;
+  file.onchange = function () {
+    sweetAlert$1.resetValidationError();
+  };
 
   range.oninput = function () {
-    resetValidationError();
+    sweetAlert$1.resetValidationError();
     rangeOutput.value = range.value;
   };
 
   range.onchange = function () {
-    resetValidationError();
+    sweetAlert$1.resetValidationError();
     range.previousSibling.value = range.value;
   };
 
-  return popup;
+  select.onchange = function () {
+    sweetAlert$1.resetValidationError();
+  };
+
+  checkbox.onchange = function () {
+    sweetAlert$1.resetValidationError();
+  };
+
+  textarea.oninput = function () {
+    sweetAlert$1.resetValidationError();
+  };
+
+  return modal;
 };
 
 /*
  * Manipulate DOM
  */
 
-var sweetHTML = ('\n <div role="dialog" aria-modal="true" aria-labelledby="' + swalClasses.title + '" aria-describedby="' + swalClasses.content + '" class="' + swalClasses.popup + '" tabindex="-1">\n   <div class="' + swalClasses.header + '">\n     <ul class="' + swalClasses.progresssteps + '"></ul>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.error + '">\n       <span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span>\n     </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.question + '">?</div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.warning + '">!</div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.info + '">i</div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.success + '">\n       <div class="swal2-success-circular-line-left"></div>\n       <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>\n       <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>\n       <div class="swal2-success-circular-line-right"></div>\n     </div>\n     <img class="' + swalClasses.image + '" />\n     <h2 class="' + swalClasses.title + '" id="' + swalClasses.title + '"></h2>\n     <button type="button" class="' + swalClasses.close + '">\xD7</button>\n   </div>\n   <div class="' + swalClasses.content + '">\n     <div id="' + swalClasses.content + '"></div>\n     <input class="' + swalClasses.input + '" />\n     <input type="file" class="' + swalClasses.file + '" />\n     <div class="' + swalClasses.range + '">\n       <input type="range" />\n       <output></output>\n     </div>\n     <select class="' + swalClasses.select + '"></select>\n     <div class="' + swalClasses.radio + '"></div>\n     <label for="' + swalClasses.checkbox + '" class="' + swalClasses.checkbox + '">\n       <input type="checkbox" />\n     </label>\n     <textarea class="' + swalClasses.textarea + '"></textarea>\n     <div class="' + swalClasses.validationerror + '" id="' + swalClasses.validationerror + '"></div>\n   </div>\n   <div class="' + swalClasses.actions + '">\n     <button type="button" class="' + swalClasses.confirm + '">OK</button>\n     <button type="button" class="' + swalClasses.cancel + '">Cancel</button>\n   </div>\n </div>\n').replace(/(^|\n)\s*/g, '');
+var sweetHTML = ('\n <div role="dialog" aria-modal="true" aria-labelledby="' + swalClasses.title + '" aria-describedby="' + swalClasses.content + '" class="' + swalClasses.modal + '" tabindex="-1">\n   <ul class="' + swalClasses.progresssteps + '"></ul>\n   <div class="' + swalClasses.icon + ' ' + iconTypes.error + '">\n     <span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span>\n   </div>\n   <div class="' + swalClasses.icon + ' ' + iconTypes.question + '">?</div>\n   <div class="' + swalClasses.icon + ' ' + iconTypes.warning + '">!</div>\n   <div class="' + swalClasses.icon + ' ' + iconTypes.info + '">i</div>\n   <div class="' + swalClasses.icon + ' ' + iconTypes.success + '">\n     <div class="swal2-success-circular-line-left"></div>\n     <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>\n     <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>\n     <div class="swal2-success-circular-line-right"></div>\n   </div>\n   <img class="' + swalClasses.image + '" />\n   <h2 class="' + swalClasses.title + '" id="' + swalClasses.title + '"></h2>\n   <div id="' + swalClasses.content + '" class="' + swalClasses.content + '"></div>\n   <input class="' + swalClasses.input + '" />\n   <input type="file" class="' + swalClasses.file + '" />\n   <div class="' + swalClasses.range + '">\n     <output></output>\n     <input type="range" />\n   </div>\n   <select class="' + swalClasses.select + '"></select>\n   <div class="' + swalClasses.radio + '"></div>\n   <label for="' + swalClasses.checkbox + '" class="' + swalClasses.checkbox + '">\n     <input type="checkbox" />\n   </label>\n   <textarea class="' + swalClasses.textarea + '"></textarea>\n   <div class="' + swalClasses.validationerror + '" id="' + swalClasses.validationerror + '"></div>\n   <div class="' + swalClasses.buttonswrapper + '">\n     <button type="button" class="' + swalClasses.confirm + '">OK</button>\n     <button type="button" class="' + swalClasses.cancel + '">Cancel</button>\n   </div>\n   <button type="button" class="' + swalClasses.close + '">\xD7</button>\n </div>\n').replace(/(^|\n)\s*/g, '');
 
 var getContainer = function getContainer() {
   return document.body.querySelector('.' + swalClasses.container);
 };
 
-var getPopup = function getPopup() {
-  return getContainer() ? getContainer().querySelector('.' + swalClasses.popup) : null;
+var getModal = function getModal() {
+  return getContainer() ? getContainer().querySelector('.' + swalClasses.modal) : null;
 };
 
 var getIcons = function getIcons() {
-  var popup = getPopup();
-  return popup.querySelectorAll('.' + swalClasses.icon);
+  var modal = getModal();
+  return modal.querySelectorAll('.' + swalClasses.icon);
 };
 
 var elementByClass = function elementByClass(className) {
@@ -1719,12 +1625,7 @@ var getCancelButton = function getCancelButton() {
 };
 
 var getButtonsWrapper = function getButtonsWrapper() {
-  warnOnce('swal.getButtonsWrapper() is deprecated and will be removed in the next major release, use swal.getActions() instead');
-  return elementByClass(swalClasses.actions);
-};
-
-var getActions = function getActions() {
-  return elementByClass(swalClasses.actions);
+  return elementByClass(swalClasses.buttonswrapper);
 };
 
 var getCloseButton = function getCloseButton() {
@@ -1732,7 +1633,7 @@ var getCloseButton = function getCloseButton() {
 };
 
 var getFocusableElements = function getFocusableElements() {
-  var focusableElementsWithTabindex = Array.prototype.slice.call(getPopup().querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])'))
+  var focusableElementsWithTabindex = Array.from(getModal().querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])'))
   // sort according to tabindex
   .sort(function (a, b) {
     a = parseInt(a.getAttribute('tabindex'));
@@ -1745,21 +1646,9 @@ var getFocusableElements = function getFocusableElements() {
     return 0;
   });
 
-  var otherFocusableElements = Array.prototype.slice.call(getPopup().querySelectorAll('button, input:not([type=hidden]), textarea, select, a, [tabindex="0"]'));
+  var otherFocusableElements = Array.prototype.slice.call(getModal().querySelectorAll('button, input:not([type=hidden]), textarea, select, a, [tabindex="0"]'));
 
   return uniqueArray(focusableElementsWithTabindex.concat(otherFocusableElements));
-};
-
-var isModal = function isModal() {
-  return !document.body.classList.contains(swalClasses['toast-shown']);
-};
-
-var isToast = function isToast() {
-  return document.body.classList.contains(swalClasses['toast-shown']);
-};
-
-var isLoading = function isLoading() {
-  return getPopup().hasAttribute('data-loading');
 };
 
 var hasClass = function hasClass(elem, className) {
@@ -1781,30 +1670,24 @@ var focusInput = function focusInput(input) {
   }
 };
 
-var addOrRemoveClass = function addOrRemoveClass(target, classList, add) {
-  if (!target || !classList) {
+var addClass = function addClass(elem, className) {
+  if (!elem || !className) {
     return;
   }
-  if (typeof classList === 'string') {
-    classList = classList.split(/\s+/).filter(Boolean);
-  }
-  classList.forEach(function (className) {
-    if (target.forEach) {
-      target.forEach(function (elem) {
-        add ? elem.classList.add(className) : elem.classList.remove(className);
-      });
-    } else {
-      add ? target.classList.add(className) : target.classList.remove(className);
-    }
+  var classes = className.split(/\s+/).filter(Boolean);
+  classes.forEach(function (className) {
+    elem.classList.add(className);
   });
 };
 
-var addClass = function addClass(target, classList) {
-  addOrRemoveClass(target, classList, true);
-};
-
-var removeClass = function removeClass(target, classList) {
-  addOrRemoveClass(target, classList, false);
+var removeClass = function removeClass(elem, className) {
+  if (!elem || !className) {
+    return;
+  }
+  var classes = className.split(/\s+/).filter(Boolean);
+  classes.forEach(function (className) {
+    elem.classList.remove(className);
+  });
 };
 
 var getChildByClass = function getChildByClass(elem, className) {
@@ -1817,7 +1700,7 @@ var getChildByClass = function getChildByClass(elem, className) {
 
 var show = function show(elem, display) {
   if (!display) {
-    display = elem.id === swalClasses.content ? 'block' : 'flex';
+    display = 'block';
   }
   elem.style.opacity = '';
   elem.style.display = display;
@@ -1836,7 +1719,7 @@ var empty = function empty(elem) {
 
 // borrowed from jquery $(elem).is(':visible') implementation
 var isVisible = function isVisible(elem) {
-  return elem && (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
+  return elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length;
 };
 
 var removeStyleProperty = function removeStyleProperty(elem, property) {
@@ -1848,11 +1731,6 @@ var removeStyleProperty = function removeStyleProperty(elem, property) {
 };
 
 var animationEndEvent = function () {
-  // Prevent run in Node env
-  if (isNodeEnv()) {
-    return false;
-  }
-
   var testEl = document.createElement('div');
   var transEndEventNames = {
     'WebkitAnimation': 'webkitAnimationEnd',
@@ -1860,7 +1738,7 @@ var animationEndEvent = function () {
     'animation': 'animationend'
   };
   for (var i in transEndEventNames) {
-    if (transEndEventNames.hasOwnProperty(i) && typeof testEl.style[i] !== 'undefined') {
+    if (transEndEventNames.hasOwnProperty(i) && testEl.style[i] !== undefined) {
       return transEndEventNames[i];
     }
   }
@@ -1870,12 +1748,13 @@ var animationEndEvent = function () {
 
 // Reset previous window keydown handler and focued element
 var resetPrevState = function resetPrevState() {
+  window.onkeydown = states.previousWindowKeyDown;
   if (states.previousActiveElement && states.previousActiveElement.focus) {
     var x = window.scrollX;
     var y = window.scrollY;
     states.previousActiveElement.focus();
-    if (typeof x !== 'undefined' && typeof y !== 'undefined') {
-      // IE doesn't have scrollX/scrollY support
+    if (x && y) {
+      // IE has no scrollX/scrollY support
       window.scrollTo(x, y);
     }
   }
@@ -1906,11 +1785,6 @@ var measureScrollbar = function measureScrollbar() {
 var injectCSS = function injectCSS() {
   var css = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
-  // Prevent run in Node env
-  if (isNodeEnv()) {
-    return false;
-  }
-
   var head = document.head || document.getElementsByTagName('head')[0];
   var style = document.createElement('style');
   style.type = 'text/css';
@@ -1928,4 +1802,4 @@ injectCSS(styles);
 return sweetAlert$1;
 
 })));
-if (typeof window !== 'undefined' && window.Sweetalert2) window.sweetAlert = window.swal = window.Sweetalert2;
+if (window.Sweetalert2) window.sweetAlert = window.swal = window.Sweetalert2;

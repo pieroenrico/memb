@@ -53,6 +53,8 @@ jQuery.fn.scrollToEnd = function() {
 
 'use strict';
 
+
+
 // =====================
 // App
 // =====================
@@ -60,14 +62,10 @@ jQuery.fn.scrollToEnd = function() {
 +function($, window){
   var app = {
     name:       'TheAdmin',
-    version:    '1.1.2',
+    version:    '1.0.0',
     corejs:     $('script[src*="core.min.js"]').attr('src'),
   };
 
-  // Check if there's a version bumper
-  if ( app.corejs.indexOf('?') > -1 ) {
-    app.corejs = app.corejs.substr(0, app.corejs.indexOf('?'));
-  }
 
   app.dir = {
     home:   app.corejs.replace('assets/js/core.min.js', ''),
@@ -93,13 +91,11 @@ jQuery.fn.scrollToEnd = function() {
 
   app.defaults = {
 
-    autoload: true,
     provide: null,
     googleApiKey: null,
     googleAnalyticsKey: null,
     smoothScroll: false,
     saveState: false,
-    cacheBust: '',
 
     // Toast
     //
@@ -109,6 +105,8 @@ jQuery.fn.scrollToEnd = function() {
       actionUrl:   '',
       actionColor: 'warning',
     },
+
+
 
 
     // Modaler
@@ -207,21 +205,6 @@ jQuery.fn.scrollToEnd = function() {
   var readyCallbacks = [];
 
 
-  app.initAll = function() {
-    $(document).ready(function() {
-      app.init();
-      topbar.init();
-      sidebar.init();
-      topbar_menu.init();
-      quickview.init();
-      dock.init();
-      aside.init();
-      lookup.init();
-      cards.init();
-      app.isReady();
-    })
-  }
-
   app.getReadyCallbacksString = function() {
     return readyCallbacks.toString();
   }
@@ -235,7 +218,7 @@ jQuery.fn.scrollToEnd = function() {
 
   app.isReady = function() {
     count++;
-    if (app.defaults.autoload && count != 2) {
+    if (count != 2) {
       return;
     }
 
@@ -429,7 +412,7 @@ jQuery.fn.scrollToEnd = function() {
   //
   app.config = function(options) {
 
-    // Return config value
+    // Rteurn config value
     if ( typeof options === 'string' ) {
       return app.defaults[options];
     }
@@ -437,13 +420,6 @@ jQuery.fn.scrollToEnd = function() {
 
     // Save configs
     $.extend(true, app.defaults, options);
-
-
-    // Add question mark if cache bust exist
-    //
-    if ( app.defaults.cacheBust !== '' ) {
-      app.defaults.cacheBust = '?'+ app.defaults.cacheBust;
-    }
 
 
     // Provide required plugins
@@ -463,9 +439,7 @@ jQuery.fn.scrollToEnd = function() {
     // Google map
     //
     if ( $('[data-provide~="map"]').length && window["google.maps.Map"] === undefined ) {
-      if ( app.defaults.googleApiKey != null ) {
-        $.getScript("https://maps.googleapis.com/maps/api/js?key="+ app.defaults.googleApiKey +"&callback=app.map");
-      }
+      $.getScript("https://maps.googleapis.com/maps/api/js?key="+ app.defaults.googleApiKey +"&callback=app.map");
     }
 
 
@@ -494,10 +468,6 @@ jQuery.fn.scrollToEnd = function() {
         topbar.fix();
       }
     }
-
-
-    app.initAll();
-
   }
 
 
@@ -665,11 +635,6 @@ jQuery.fn.scrollToEnd = function() {
 
   provider.init = function() {
 
-    if ( ! app.defaults.autoload ) {
-      return;
-    }
-
-
     $LAB.setGlobalDefaults({
       BasePath: app.dir.vendor,
       AlwaysPreserveOrder: true,
@@ -731,10 +696,6 @@ jQuery.fn.scrollToEnd = function() {
 
   provider.inject = function(pluginName) {
 
-    if ( ! app.defaults.autoload ) {
-      return;
-    }
-
     if ( pluginName !== undefined ) {
       var vendor = provider.list[pluginName];
 
@@ -760,11 +721,11 @@ jQuery.fn.scrollToEnd = function() {
 
         if ( Array.isArray(js) ) {
           for (var i = 0; i < js.length; i++) {
-            provider.queueScript(js[i]);
+            $LAB.queueScript(js[i]);
           }
         }
         else {
-          provider.queueScript(js);
+          $LAB.queueScript(js);
         }
       }
 
@@ -782,7 +743,7 @@ jQuery.fn.scrollToEnd = function() {
       // Add to loaded list
       loaded.push(pluginName);
 
-      //$LAB.runQueue();
+      $LAB.runQueue();
 
       return;
     }
@@ -820,11 +781,11 @@ jQuery.fn.scrollToEnd = function() {
 
         if ( Array.isArray(js) ) {
           for (var i = 0; i < js.length; i++) {
-            provider.queueScript(js[i]);
+            $LAB.queueScript(js[i]);
           }
         }
         else {
-          provider.queueScript(js);
+          $LAB.queueScript(js);
         }
       }
 
@@ -874,53 +835,25 @@ jQuery.fn.scrollToEnd = function() {
     //
     $('[data-mapael-map]').each(function(){
       var js = 'mapael/maps/'+ $(this).data('mapael-map') +'.min.js';
-      provider.queueScript(js);
+      $LAB.queueScript(js);
     });
 
     // Load Bootstrap Select languages
     //
     $('[data-provide="selectpicker"][data-lang]').each(function(){
       var js = 'bootstrap-select/js/i18n/defaults-'+ $(this).data('lang') +'.min.js';
-      provider.queueScript(js);
-    });
-
-    // Datepicker
-    //
-    $('[data-provide="datepicker"][data-language]').each(function(){
-      var js = 'bootstrap-datepicker/locales/bootstrap-datepicker.'+ $(this).data('language') +'.min.js';
-      provider.queueScript(js);
-    });
-
-    // Load Summernote language file
-    //
-    $('[data-provide="summernote"][data-lang]').each(function(){
-      var js = 'summernote/lang/summernote-'+ $(this).data('lang') +'.js';
-      provider.queueScript(js);
-    });
-
-    // Fullcalendar
-    //
-    $('[data-provide="fullcalendar"][data-locale]').each(function(){
-      var locale = $(this).data('locale');
-      var js = 'fullcalendar/locale/'+ locale +'.js';
-      if ( locale == 'all' ) {
-        js = 'fullcalendar/locale-all.js';
-      }
-      provider.queueScript(js);
+      $LAB.queueScript(js);
     });
 
   }
 
 
 
+
+
   // Inject plugins if they called in app.ready()
   //
   provider.injectCalledVendors = function() {
-
-    if ( ! app.defaults.autoload ) {
-      return;
-    }
-
     var callbacksStr = app.getReadyCallbacksString();
     var localCallbacks = [];
 
@@ -954,11 +887,11 @@ jQuery.fn.scrollToEnd = function() {
 
         if ( Array.isArray(js) ) {
           for (var i = 0; i < js.length; i++) {
-            provider.queueScript(js[i]);
+            $LAB.queueScript(js[i]);
           }
         }
         else {
-          provider.queueScript(js);
+          $LAB.queueScript(js);
         }
       }
 
@@ -997,17 +930,15 @@ jQuery.fn.scrollToEnd = function() {
   }
 
 
+
+
+
   provider.getSelector = function(str) {
     var selector = '[data-provide~="'+ str +'"]';
     if ( str.indexOf('$ ') == 0 ) {
       selector = str.substr(2);
     }
     return selector;
-  }
-
-
-  provider.queueScript = function(js) {
-    $LAB.queueScript(js + app.defaults.cacheBust);
   }
 
 
@@ -1320,16 +1251,12 @@ jQuery.fn.scrollToEnd = function() {
     // ======================================================================
     // Map
     //
-
-    // This cause duplication in loading map script
-    /*
     map: {
       selector: 'map',
       callback: 'initMap',
       css:      '',
       js:       'https://maps.googleapis.com/maps/api/js?key='+ app.defaults.googleApiKey +'&callback=app.map',
     },
-    */
 
 
     mapael: {
@@ -1531,7 +1458,7 @@ jQuery.fn.scrollToEnd = function() {
 
     intercoolerjs: {
       selector: '$ [ic-get-from], [ic-post-to], [ic-put-to], [ic-patch-to], [ic-delete-from], [data-ic-get-from], [data-ic-post-to], [data-ic-put-to], [data-ic-patch-to], [data-ic-delete-from]',
-      js:       'intercoolerjs/intercooler.min.js',
+      js:       'intercoolerjs/intercoolerjs.min.js',
     },
 
 
@@ -2231,18 +2158,17 @@ jQuery.fn.scrollToEnd = function() {
       return;
     }
 
+    $.fn.datepicker.defaults.multidateSeparator = ", ";
+
     provider.provide('datepicker', function(){
-      var options = {
-        multidateSeparator: ', '
+      if ( $(this).prop("tagName") == 'INPUT' ) {
+        $(this).datepicker();
       }
-
-      options = $.extend( options, app.getDataOptions( $(this) ));
-
-      if ( $(this).prop("tagName") != 'INPUT' ) {
-        options.inputs = [$(this).find('input:first'), $(this).find('input:last')];
+      else {
+        $(this).datepicker({
+          inputs: [$(this).find('input:first'), $(this).find('input:last')]
+        });
       }
-
-      $(this).datepicker(options);
     });
   };
 
@@ -3087,6 +3013,7 @@ jQuery.fn.scrollToEnd = function() {
         bgOpacity: 'num',
         timeToIdle: 'num',
         spacing: 'num',
+        spacing: 'array',
       }
 
       options = $.extend( options, app.getDataOptions( $(this), cast ));
@@ -3420,6 +3347,87 @@ jQuery.fn.scrollToEnd = function() {
 
     var setting = $.extend({}, app.defaults.modaler, options);
 
+
+
+    var handleCallback = function() {
+
+      // Bootstrap modal events
+      //
+      if ( setting.onShow ) {
+        $('#'+ id).on('show.bs.modal', function(e){
+          app.call( setting.onShow, e);
+        });
+      }
+
+      if ( setting.onShown ) {
+        $('#'+ id).on('shown.bs.modal', function(e){
+          app.call( setting.onShown, e);
+        });
+      }
+
+      if ( setting.onHide ) {
+        $('#'+ id).on('hide.bs.modal', function(e){
+          app.call( setting.onHide, e);
+        });
+      }
+
+      if ( setting.onHidden ) {
+        $('#'+ id).on('hidden.bs.modal', function(e){
+          app.call( setting.onHidden, e);
+        });
+      }
+
+
+      // Handle confirm callback
+      //
+      $('#'+ id).find('[data-perform="confirm"]').on('click', function(){
+
+        // Hasn't set
+        if ( setting.onConfirm == null ) {
+          return;
+        }
+
+        // Is a function
+        if ( $.isFunction(setting.onConfirm) ) {
+          setting.onConfirm($('#'+ id));
+          return;
+        }
+
+        // Is string value, so call it
+        if ( setting.onConfirm.substring ) {
+          app.call( setting.onConfirm, $('#'+ id) );
+        }
+
+      });
+
+
+      // Handle cancel callback
+      //
+      $('#'+ id).find('[data-perform="cancel"]').on('click', function(){
+
+        // Hasn't set
+        if ( setting.onCancel == null ) {
+          return;
+        }
+
+        // Is a function
+        if ( $.isFunction(setting.onCancel) ) {
+          setting.onCancel($('#'+ id));
+          return;
+        }
+
+        // Is string value, so call it
+        if ( setting.onCancel.substring ) {
+          app.call( setting.onCancel, $('#'+ id) );
+        }
+
+      });
+    }
+
+
+
+
+
     if ( setting.modalId ) {
       $('#'+ setting.modalId).modal('show');
       return;
@@ -3439,10 +3447,6 @@ jQuery.fn.scrollToEnd = function() {
         $('body').append( $(this).find('.modal').attr('id', id).outerHTML() );
 
         $('#'+ id).modal('show');
-        $('#'+ id).one('shown.bs.modal', function (e) {
-          $('#'+ id).find('.modal-body').perfectScrollbar('update');
-        });
-
 
 
         // Destroy after close
@@ -3457,7 +3461,9 @@ jQuery.fn.scrollToEnd = function() {
         }
 
 
-        handleCallback(id);
+        handleCallback();
+
+
       });
     }
 
@@ -3556,95 +3562,21 @@ jQuery.fn.scrollToEnd = function() {
       if ( setting.url ) {
         $('#'+ id).find('.modal-body').load(setting.url, function(){
           //$(this).removeClass('p-a-0');
-          $(this).perfectScrollbar('update');
-          handleCallback(id);
+          handleCallback();
         });
       }
       else if ( setting.html ) {
         $('#'+ id).find('.modal-body').html(setting.html);
-        handleCallback(id);
+        handleCallback();
       }
       else if ( setting.target ) {
         $('#'+ id).find('.modal-body').html( $(setting.target).html() );
-        handleCallback(id);
-      }
-    }
-
-
-
-    var handleCallback = function(id) {
-
-      // Bootstrap modal events
-      //
-      if ( setting.onShow ) {
-        $('#'+ id).on('show.bs.modal', function(e){
-          setting.onShow();
-        });
-      }
-
-      if ( setting.onShown ) {
-        $('#'+ id).on('shown.bs.modal', function(e){
-          setting.onShown();
-        });
-      }
-
-      if ( setting.onHide ) {
-        $('#'+ id).on('hide.bs.modal', function(e){
-          setting.onHide();
-        });
-      }
-
-      if ( setting.onHidden ) {
-        $('#'+ id).on('hidden.bs.modal', function(e){
-          setting.onHidden();
-        });
+        handleCallback();
       }
 
 
-      // Handle confirm callback
-      //
-      $('#'+ id).find('[data-perform="confirm"]').on('click', function(){
-
-        // Hasn't set
-        if ( setting.onConfirm == null ) {
-          return;
-        }
-
-        // Is a function
-        if ( $.isFunction(setting.onConfirm) ) {
-          setting.onConfirm($('#'+ id));
-          return;
-        }
-
-        // Is string value, so call it
-        if ( setting.onConfirm.substring ) {
-          app.call( setting.onConfirm, $('#'+ id) );
-        }
-
-      });
 
 
-      // Handle cancel callback
-      //
-      $('#'+ id).find('[data-perform="cancel"]').on('click', function(){
-
-        // Hasn't set
-        if ( setting.onCancel == null ) {
-          return;
-        }
-
-        // Is a function
-        if ( $.isFunction(setting.onCancel) ) {
-          setting.onCancel($('#'+ id));
-          return;
-        }
-
-        // Is string value, so call it
-        if ( setting.onCancel.substring ) {
-          app.call( setting.onCancel, $('#'+ id) );
-        }
-
-      });
     }
 
 
@@ -3788,11 +3720,6 @@ jQuery.fn.scrollToEnd = function() {
       }
     });
 
-    $('.topbar .topbar-navigation').each(function() {
-      if ($(this).height() > 265) {
-        $(this).perfectScrollbar();
-      }
-    });
 
     // Topbar search
     //
@@ -3930,24 +3857,6 @@ jQuery.fn.scrollToEnd = function() {
 
 
 
-  sidebar.toggleHide = function() {
-    $('body').toggleClass('sidebar-hidden');
-    app.toggleState('sidebar.hidden');
-  }
-
-  sidebar.hide = function() {
-    $('body').addClass('sidebar-hidden');
-    app.state('sidebar.hidden', true);
-  }
-
-  sidebar.show = function() {
-    $('body').removeClass('sidebar-hidden');
-    app.state('sidebar.hidden', false);
-  }
-
-
-
-
   sidebar.open = function() {
     $('body').addClass('sidebar-open').prepend('<div class="app-backdrop backdrop-sidebar"></div>');
   }
@@ -4002,11 +3911,7 @@ jQuery.fn.scrollToEnd = function() {
         quickview.close( $(this).closest('.quickview') )
       }
       else {
-        var url = '';
-        if ( $(this).hasDataAttr('url') ) {
-          url = $(this).data('url');
-        }
-        quickview.toggle(target, url);
+        quickview.toggle(target);
       }
     });
 
@@ -4016,11 +3921,8 @@ jQuery.fn.scrollToEnd = function() {
     //
     $(document).on('click', '.backdrop-quickview', function(){
       var qv = $(this).attr('data-target');
-      if ( ! $(qv).is('[data-disable-backdrop-click]') ) {
-        quickview.close(qv);
-      }
+      quickview.close(qv);
     });
-
     $(document).on('click', '.quickview .close, [data-dismiss="quickview"]', function(){
       var qv = $(this).closest('.quickview');
       quickview.close(qv);
@@ -4032,17 +3934,11 @@ jQuery.fn.scrollToEnd = function() {
 
   // Toggle open/close state
   //
-  quickview.toggle = function(e, url) {
+  quickview.toggle = function(e) {
     if ( $(e).hasClass('reveal') ) {
       quickview.close(e);
     }
     else {
-      if ( url !== '' ) {
-        $(e).html('<div class="spinner-linear"><div class="line"></div></div>');
-        $(e).load(url, function() {
-          $('.quickview-body').perfectScrollbar();
-        });
-      }
       quickview.open(e);
     }
   }
@@ -4633,11 +4529,6 @@ jQuery.fn.scrollToEnd = function() {
   //
   app.initThePlugins = function() {
 
-    var scrollOffsetTop = 64;
-
-    if ( $('.topbar.topbar-unfix').length ) {
-      scrollOffsetTop = 0;
-    }
 
     // Disable demonstrative links!
     //
@@ -4654,36 +4545,6 @@ jQuery.fn.scrollToEnd = function() {
     });
 
 
-    // Smooth scroll for anchors
-    //
-    $(document).on( 'click', "a[href^='#']", function() {
-      if ( $(this).attr('href').length < 2 ) {
-        return;
-      }
-
-      if ( $(this)[0].hasAttribute('data-toggle') ) {
-        return;
-      }
-
-      var target = $( $(this).attr('href') );
-      if ( target.length ) {
-        smoothlyScrollTo( target.offset().top - scrollOffsetTop );
-        return false;
-      }
-    });
-
-
-    // Smoothscroll to anchor in page load
-    //
-    var hash = location.hash.replace('#','');
-    if ( hash != '' ) {
-      var el = $("#"+hash);
-      if (el.length > 0) {
-        smoothlyScrollTo( el.offset().top - scrollOffsetTop );
-      }
-    }
-
-
     // Fix for .nav-tabs dropdown-menu
     //
     $(document).on('click', '.nav-tabs .dropdown-item', function() {
@@ -4692,20 +4553,8 @@ jQuery.fn.scrollToEnd = function() {
 
 
 
-    // Custom control check
-    //
-    // Since BS4-beta-3, custom-controls needs id and for attributes.
-    // We bypass this requirement.
-    //
-    $(document).on('click', '.custom-checkbox', function() {
-      var input = $(this).children('.custom-control-input').not(':disabled');
-      input.prop('checked', ! input.prop('checked')).trigger( "change" );
-    });
 
-    $(document).on('click', '.custom-radio', function() {
-      var input = $(this).children('.custom-control-input').not(':disabled');
-      input.prop('checked', true).trigger( "change" );
-    });
+
 
 
 
@@ -5198,9 +5047,6 @@ jQuery.fn.scrollToEnd = function() {
 
 
 
-    var smoothlyScrollTo = function(pos) {
-      $('html, body').animate({scrollTop: pos}, 600);
-    }
 
   }
 
@@ -5211,7 +5057,6 @@ jQuery.fn.scrollToEnd = function() {
 
 // initialize app
 //
-/*
 +function($) {
   app.init();
   topbar.init();
@@ -5227,4 +5072,4 @@ jQuery.fn.scrollToEnd = function() {
   app.isReady();
 
 }(jQuery);
-*/
+

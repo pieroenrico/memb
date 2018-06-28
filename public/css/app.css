@@ -10412,7 +10412,7 @@ a.text-dark:focus {
 }
 
 body {
-  font-family: 'Roboto', 'sans-serif';
+  font-family: 'Roboto Condensed', 'sans-serif';
 }
 
 a {
@@ -10430,21 +10430,85 @@ a.tag {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.topbar .menu-link {
+  color: #fff;
+  font-family: 'Roboto';
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+.topbar .menu-item.active > .menu-link {
+  color: #57c7d4;
+  border-top-color: #57c7d4;
+  font-weight: 400;
+}
+
 .small-header .header-info {
   margin: 20px 0;
+}
+
+.header-info h1 {
+  font-family: 'Roboto';
+  width: 100%;
+  letter-spacing: 0;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.header-info h1 strong {
+  font-weight: bold !important;
+}
+
+.main-content {
+  background: #fff;
+}
+
+.card.card-transparent {
+  background: none;
+  border: none;
+}
+
+.upload .card-title {
+  font-family: 'Roboto Condensed';
+  color: #000;
+  border-bottom: none;
+}
+
+.upload .card-title hr {
+  border-top: 1px solid #999;
+}
+
+.upload .card-title h4 {
+  font-size: 2.2em;
+  font-weight: 100;
+  letter-spacing: 0;
+  color: #222;
+}
+
+.upload .card-title small {
+  font-family: 'Roboto';
+  font-size: 15px;
+  letter-spacing: 10px;
+  color: #444;
+  font-weight: 100;
+  text-transform: uppercase;
 }
 
 .upload.upload-text p {
   cursor: pointer;
   cursor: hand;
+  color: #000;
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 1.5;
 }
 
 .upload.upload-text p:hover {
-  background: rgba(255, 255, 0, 0.5);
+  color: #48b0f7;
 }
 
 .upload.upload-text p.disabled {
-  color: #999;
+  color: #ccc;
   cursor: default;
 }
 
@@ -10453,11 +10517,58 @@ a.tag {
 }
 
 .upload.upload-text p.selected {
-  color: #000;
-  background: #ff0;
+  padding: 20px;
+  font-size: 20px;
+  background: #48b0f7;
+  border-radius: 15px;
+  color: #fff;
 }
 
 .upload.upload-text p.selected:hover {
-  background: #ff0;
+  background: #48b0f7;
+}
+
+.upload.upload-text p.selected:before {
+  font-family: FontAwesome;
+  content: '\F10D';
+  /*quote left icon*/
+  color: #79e9f6;
+  display: block;
+}
+
+.upload.upload-text p.selected:after {
+  font-family: FontAwesome;
+  content: '\F10E';
+  /*quote left icon*/
+  color: #79e9f6;
+  display: block;
+}
+
+.float-bottom-center {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 2000;
+  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.5);
+  border-top: 1px solid #f0f0f0;
+}
+
+.site-footer {
+  background: #333;
+  color: #fff;
+  border-top: 1px solid #444;
+}
+
+.user-help {
+  font-weight: 100;
+  text-transform: uppercase;
+  font-family: 'Roboto';
+  font-size: 16px;
+}
+
+.yellow {
+  color: #cc0;
 }
 

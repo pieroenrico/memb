@@ -2,7 +2,7 @@
  * 
  *   typed.js - A JavaScript Typing Animation Library
  *   Author: Matt Boldt <me@mattboldt.com>
- *   Version: v2.0.6
+ *   Version: v2.0.4
  *   Url: https://github.com/mattboldt/typed.js
  *   License(s): MIT
  * 
@@ -669,12 +669,28 @@ return /******/ (function(modules) { // webpackBootstrap
 	        self.strings = [];
 	        self.stringsElement.style.display = 'none';
 	        var strings = Array.prototype.slice.apply(self.stringsElement.children);
-	        var stringsLength = strings.length;
+	        var _iteratorNormalCompletion = true;
+	        var _didIteratorError = false;
+	        var _iteratorError = undefined;
 	
-	        if (stringsLength) {
-	          for (var i = 0; i < stringsLength; i += 1) {
-	            var stringEl = strings[i];
-	            self.strings.push(stringEl.innerHTML.trim());
+	        try {
+	          for (var _iterator = strings[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	            var s = _step.value;
+	
+	            self.strings.push(s.innerHTML.trim());
+	          }
+	        } catch (err) {
+	          _didIteratorError = true;
+	          _iteratorError = err;
+	        } finally {
+	          try {
+	            if (!_iteratorNormalCompletion && _iterator['return']) {
+	              _iterator['return']();
+	            }
+	          } finally {
+	            if (_didIteratorError) {
+	              throw _iteratorError;
+	            }
 	          }
 	        }
 	      }

@@ -29,6 +29,12 @@ class UploadController extends Controller
         return view('upload.text');
     }
 
+    public function tags()
+    {
+
+        return view('upload.tags');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

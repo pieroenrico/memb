@@ -1,32 +1,30 @@
 @extends('layouts.app')
 
 
+@section('header')
+    <header class="header small-header mb-0 mt-30">
+        <div class="header-info text-center">
+            <h1 class="header-title">
+                <strong>Subir foto</strong>
+                {{--<small>Create the skeleton of your app with popular pre-designed layouts.</small>--}}
+            </h1>
+        </div>
+    </header>
+@endsection
+
+
 @section('content')
 
-    <div class="upload">
+    <div class="upload upload-picture">
+
+        @include('upload.partials.progress')
 
         <div class="row justify-content-center">
 
-            <div class="col-sm-12 col-xs-12 col-md-8">
+            <div class="col-sm-12 col-xs-12 col-md-8 no-padding">
 
-                <div class="card">
+                <div class="card card-transparent">
 
-                    <div class="card-title">
-                        <h4>Subir foto</h4>
-                    </div>
-                    <div class="card-title">
-                        <ul class="nav nav-process nav-process-circle">
-                            <li class="nav-item complete">
-                                <a class="nav-link" href="#"></a>
-                            </li>
-                            <li class="nav-item processing">
-                                <a class="nav-link" href="#"></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"></a>
-                            </li>
-                        </ul>
-                    </div>
                     <div class="card-body form-type-fill">
 
                         {{--<div class="form-group">
@@ -38,11 +36,14 @@
                             <input type="file" data-provide="dropify" data-height="400">
                         </div>
 
-                        <div class="form-group text-center">
-                            <button class="btn btn-bold btn-primary">Continuar <i class="ti-arrow-right"></i></button>
+                        <div class="fab fab-fixed">
+                            <button class="btn btn-float btn-danger" data-toggle="button" style="border-radius: 50%">
+                                <i class="fab-icon-default ti-arrow-right"></i>
+                            </button>
                         </div>
 
                     </div>
+
                 </div>
 
             </div>
