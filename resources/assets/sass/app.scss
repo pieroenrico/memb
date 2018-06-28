@@ -1,0 +1,64 @@
+
+// Fonts
+//@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  font-family: 'Roboto', 'sans-serif';
+}
+
+a {
+  color: #800000;
+}
+a.tag {
+  color: #005f8d;
+  font-size: .8em;
+}
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.small-header {
+  .header-info {
+    margin: 20px 0;
+  }
+}
+.feed {
+  .feed-picture {
+
+  }
+}
+
+
+.upload {
+  &.upload-text {
+    p {
+      cursor: pointer;
+      cursor: hand;
+      &:hover {
+        background: rgba(255,255,0,0.5);
+      }
+      &.disabled {
+        color: #999;
+        cursor: default;
+        &:hover {
+          background: none;
+        }
+      }
+      &.selected {
+        color: #000;
+        background: #ff0;
+        &:hover {
+          background: #ff0;
+        }
+      }
+    }
+  }
+}
