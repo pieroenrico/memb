@@ -1,0 +1,29 @@
+<div class="memb-picture-uploader">
+
+    <div class="card card-transparent">
+
+        <div class="card-body form-type-fill">
+
+
+            <div class="form-group">
+                <input type="file" class="dropify">
+            </div>
+
+            <div class="fab fab-fixed">
+                <button class="btn btn-float btn-danger" data-toggle="button" style="border-radius: 50%">
+                    <i class="fab-icon-default ti-arrow-right"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="card-loading reveal" v-if="loading">
+            <svg class="spinner-circle-material-svg" viewBox="0 0 50 50">
+                <circle class="circle" cx="25" cy="25" r="20"></circle>
+            </svg>
+        </div>
+
+    </div>
+
+</div>
+

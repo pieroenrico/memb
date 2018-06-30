@@ -17,10 +17,11 @@ Route::get('/', function () {
 
 Route::get('/authors', 'AuthorController@index')->name('authors');
 Route::get('/feed', 'FeedController@index')->name('feed');
-Route::get('/upload/picture', 'UploadController@index')->name('upload.picture');
-Route::get('/upload/location', 'UploadController@location')->name('upload.location');
-Route::get('/upload/text', 'UploadController@text')->name('upload.text');
-Route::get('/upload/tags', 'UploadController@tags')->name('upload.tags');
+Route::get('/upload/picture', 'UploadController@picture')->name('upload.picture.show');
+Route::post('/upload/picture', 'UploadController@savePicture')->name('upload.picture.save');
+Route::get('/upload/location', 'UploadController@location')->name('upload.location.show');
+Route::get('/upload/text', 'UploadController@text')->name('upload.text.show');
+Route::get('/upload/tags', 'UploadController@tags')->name('upload.tags.show');
 
 
 Auth::routes();

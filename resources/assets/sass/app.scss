@@ -13,7 +13,7 @@ body {
 }
 
 a {
-  color: #800000;
+  color: $color-link;
 }
 a.tag {
   color: #005f8d;
@@ -153,6 +153,7 @@ a.tag {
   background: #333;
   color: #fff;
   border-top: 1px solid #444;
+  display: none;
 }
 .user-help {
   font-weight: 100;
@@ -162,4 +163,80 @@ a.tag {
 }
 .yellow {
   color: #cc0;
+}
+
+.fade-long-text {
+  max-height: 350px;
+  position: relative;
+  overflow: hidden;
+  .read-more {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 30px 0;
+
+    /* "transparent" only works here because == rgba(0,0,0,0) */
+    background-image: linear-gradient(to bottom, transparent, rgba(255,255,255,.8), #fff);
+    a {
+      i {
+        color: $color-link;
+      }
+    }
+  }
+}
+
+.panel-user {
+  font-size: 30px;
+  font-size: 23px;
+  font-weight: 100;
+  a {
+    color: $color-link;
+  }
+  small {
+    font-size: 12px;
+  }
+}
+.picturext {
+
+  margin: 20px 0;
+
+  .panel-paragraph {
+    p {
+      font-family: 'Roboto';
+      font-weight: 300;
+      font-size: 16px;
+    }
+  }
+  .panel-text {
+    h3 {
+      margin-bottom: 0;
+    }
+  }
+
+  .panel-tags {
+    a {
+      color: $color-link;
+    }
+  }
+
+  .align-to-bottom {
+    position:absolute;
+    bottom:0;
+  }
+}
+
+.fab .btn {
+  border-radius: 50%;
+}
+
+.header-upload {
+  h1 {
+    strong {
+      color: #fff;
+      font-weight: 300 !important;
+    }
+  }
 }

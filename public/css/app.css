@@ -10416,7 +10416,7 @@ body {
 }
 
 a {
-  color: #800000;
+  color: #219AA9;
 }
 
 a.tag {
@@ -10559,6 +10559,7 @@ a.tag {
   background: #333;
   color: #fff;
   border-top: 1px solid #444;
+  display: none;
 }
 
 .user-help {
@@ -10570,5 +10571,74 @@ a.tag {
 
 .yellow {
   color: #cc0;
+}
+
+.fade-long-text {
+  max-height: 350px;
+  position: relative;
+  overflow: hidden;
+}
+
+.fade-long-text .read-more {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 30px 0;
+  /* "transparent" only works here because == rgba(0,0,0,0) */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(rgba(255, 255, 255, 0.8)), to(#fff));
+  background-image: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.8), #fff);
+}
+
+.fade-long-text .read-more a i {
+  color: #219AA9;
+}
+
+.panel-user {
+  font-size: 30px;
+  font-size: 23px;
+  font-weight: 100;
+}
+
+.panel-user a {
+  color: #219AA9;
+}
+
+.panel-user small {
+  font-size: 12px;
+}
+
+.picturext {
+  margin: 20px 0;
+}
+
+.picturext .panel-paragraph p {
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.picturext .panel-text h3 {
+  margin-bottom: 0;
+}
+
+.picturext .panel-tags a {
+  color: #219AA9;
+}
+
+.picturext .align-to-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+.fab .btn {
+  border-radius: 50%;
+}
+
+.header-upload h1 strong {
+  color: #fff;
+  font-weight: 300 !important;
 }
 

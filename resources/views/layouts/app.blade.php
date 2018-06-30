@@ -19,7 +19,7 @@
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+    {{--<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">--}}
     <link rel="icon" href="/assets/img/favicon.png">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">

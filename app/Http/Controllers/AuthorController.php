@@ -15,8 +15,8 @@ class AuthorController extends BaseController
     public function index()
     {
 
-        $authors = Author::orderBy('lastname', 'asc')
-            ->orderBy('name', 'asc')
+        $authors = Author::orderBy('name', 'asc')
+            ->orderBy('lastname', 'asc')
             ->get();
 
         $buffer = [
