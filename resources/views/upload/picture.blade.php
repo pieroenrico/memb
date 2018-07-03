@@ -13,21 +13,22 @@
 
 @section('content-upload')
 
-    <div class="card card-transparent">
+    <div class="upload upload-picture">
+        <div class="card card-transparent">
 
-        <div class="card-body form-type-fill">
+            <div class="card-body form-type-fill">
 
-            {!! Form::open(
-                        [
-                        'method' => 'POST',
-                        'enctype' => 'multipart/form-data',
-                        'files' => 'true',
-                        'class' => 'form-type-fill',
-                        'data-provide' => 'validation',
-                        'route' => [
-                                    'upload.picture.save',
-                                    ]
-                         ]) !!}
+                {!! Form::open(
+                            [
+                            'method' => 'POST',
+                            'enctype' => 'multipart/form-data',
+                            'files' => 'true',
+                            'class' => 'form-type-fill',
+                            'data-provide' => 'validation',
+                            'route' => [
+                                        'upload.picture.save',
+                                        ]
+                             ]) !!}
 
 
                 <div class="form-group">
@@ -36,16 +37,17 @@
                            data-provide="dropify"
                            data-height="400"
                            class="file-uploader"
-                           {!!  $picturext['file'] != '' ? "data-default-file='/uploads/pictures/".$picturext['file']."'" : ''  !!}
+                            {!!  $picturext['file'] != '' ? "data-default-file='/uploads/pictures/".$picturext['file']."'" : ''  !!}
                     >
                 </div>
 
                 @include('upload.partials.submit', ['hide' => true])
 
-            {{ Form::close() }}
+                {{ Form::close() }}
+
+            </div>
 
         </div>
-
     </div>
 
 @endsection

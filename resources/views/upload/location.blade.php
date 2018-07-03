@@ -1,58 +1,43 @@
-@extends('layouts.app')
+@extends('upload.layouts.base')
+
+@section('header-upload')
+    <header class="header small-header mb-0 mt-20 bg-gray header-upload">
+        <div class="header-info text-center">
+            <h1 class="header-title">
+                <strong>Selecciona la ubicación de la foto</strong>
+                {{--<small>Create the skeleton of your app with popular pre-designed layouts.</small>--}}
+            </h1>
+        </div>
+    </header>
+@endsection
+
+@section('content-upload')
 
 
-@section('content')
+    <div class="upload upload-location">
+        <div class="card card-transparent">
 
-    <div class="upload">
+            <div class="card-body form-type-fill">
 
-        <div class="row justify-content-center">
+                {!! Form::open(
+                            [
+                            'method' => 'POST',
+                            'enctype' => 'multipart/form-data',
+                            'files' => 'true',
+                            'class' => 'form-type-fill',
+                            'data-provide' => 'validation',
+                            'route' => [
+                                        'upload.location.save',
+                                        ]
+                             ]) !!}
 
-            <div class="col-sm-12 col-xs-12 col-md-8">
+                <memb-location-selector></memb-location-selector>
 
-                <div class="card">
-
-                    <div class="card-title">
-                        <h4>Ubicación</h4>
-                    </div>
-                    <div class="card-title">
-                        <ul class="nav nav-process nav-process-circle">
-                            <li class="nav-item complete">
-                                <a class="nav-link" href="#"></a>
-                            </li>
-                            <li class="nav-item processing">
-                                <a class="nav-link" href="#"></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card-body form-type-fill">
-
-                        {{--<div class="form-group">
-                            <label for="input-normal">Normal input</label>
-                            <input type="text" class="form-control" id="input-normal" value="Input value">
-                        </div>--}}
-
-                        <div class="form-group">
-                            <img class="img-fluid w-100" src="/uploads/a.jpg" alt="...">
-                        </div>
-
-                        <div class="form-group">
-                            mapa
-                        </div>
-
-                        <div class="form-group text-center">
-                            <button class="btn btn-bold btn-primary">Continuar <i class="ti-arrow-right"></i></button>
-                        </div>
-
-                    </div>
-                </div>
+                {{ Form::close() }}
 
             </div>
 
         </div>
-
     </div>
 
 @endsection

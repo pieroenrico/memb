@@ -18,4 +18,9 @@ class Text extends Model
     {
         return $this->belongsTo(Author::class, 'author_id');
     }
+
+    public function paragraphs()
+    {
+        return $this->hasMany(Paragraph::class, 'text_id');
+    }
 }

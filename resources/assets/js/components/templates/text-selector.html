@@ -1,44 +1,32 @@
-<div class="memb-text-selector">
+<div class="memb-author-selector">
 
-    <div class="card card-transparent">
-
-        <div class="card-title text-center">
-            <h4>Casa Tomada</h4>
-            <hr>
-            <small>Julio Cortázar</small>
-        </div>
-
-        <div class="card-body form-type-fill">
-
-            <!--<div class="my-20 text-center user-help">
-                <span class="yellow"><i class="fa fa-info-circle"></i> Selecciona un párrafo</span>
-            </div>-->
-
-            <div class="paragraphs">
-                <p v-for="paragraph in paragraphs"
-                    :class="{disabled: (selectedParagraph != null) && (selectedParagraph!=paragraph.id), selected: (selectedParagraph == paragraph.id) }"
-                    @click="selectParagraph(paragraph.id)">
-                    {{ paragraph.paragraph }}
-                </p>
-            </div>
-
-            <!--<div class="form-group text-center float-bottom-center" v-if="selectedParagraph != null">
-                <button class="btn btn-bold btn-primary">Continuar <i class="ti-arrow-right"></i></button>
-            </div>-->
-
-            <div class="fab fab-fixed" v-if="selectedParagraph != null">
-                <button class="btn btn-float btn-danger" data-toggle="button" style="border-radius: 50%">
-                    <i class="fab-icon-default ti-arrow-right"></i>
-                </button>
-            </div>
-
+    <div class="row my-20">
+        <div class="col-12 text-right">
+            <!-- Large -->
+            <form class="lookup lookup-lg">
+                <input type="text" placeholder="Buscar..." v-model="search">
+            </form>
         </div>
     </div>
 
-    <div class="card-loading reveal" v-if="loading">
-        <svg class="spinner-circle-material-svg" viewBox="0 0 50 50">
-            <circle class="circle" cx="25" cy="25" r="20"></circle>
-        </svg>
+    <div class="row">
+
+        <div class="col-md-3 col-xs-12" v-for="text in filteredList">
+            <div class="card card-transparent cursor-link" @click="selectText(text.id, text.author_id)">
+                <div class="card-body text-center">
+                    <img
+                            src='/img/book3.jpg'
+                            alt="" class="rounded-circle mb-10 circle-border"
+                            >
+                    <h3>{{ text.title }} <br> <small>{{ text.author }}</small></h3>
+                </div>
+            </div>
+        </div>
+
+        <p class="no-results" v-if="filteredList.length == 0">No hay textos</p>
+
+
     </div>
+
 </div>
 

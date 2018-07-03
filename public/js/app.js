@@ -13878,12 +13878,22 @@ module.exports = __webpack_require__(43);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_TextSelectorComponent_vue__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_TextSelectorComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_TextSelectorComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PictureUploaderComponent_vue__ = __webpack_require__(92);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PictureUploaderComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_PictureUploaderComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue2_google_maps__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue2_google_maps___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue2_google_maps__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_TextParagraphSelector_vue__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_TextParagraphSelector_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_TextParagraphSelector_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_TextSelectorComponent_vue__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_TextSelectorComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_TextSelectorComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_ParagraphSelectorComponent_vue__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_ParagraphSelectorComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_ParagraphSelectorComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_AuthorSelectorComponent_vue__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_AuthorSelectorComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_AuthorSelectorComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_PictureUploaderComponent_vue__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_PictureUploaderComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_PictureUploaderComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_LocationSelectorComponent_vue__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_LocationSelectorComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_LocationSelectorComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Picturext_vue__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Picturext_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_Picturext_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_vue2_google_maps__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_vue2_google_maps___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_vue2_google_maps__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -13901,7 +13911,12 @@ window.$ = window.jQuery = __webpack_require__(4);
 
 
 
-Vue.use(__WEBPACK_IMPORTED_MODULE_3_vue2_google_maps__, {
+
+
+
+
+
+Vue.use(__WEBPACK_IMPORTED_MODULE_8_vue2_google_maps__, {
     load: {
         key: 'AIzaSyDVM_vacbr7Ct4ntmIgwFrMnllYHb6Ss5w',
         libraries: 'places' // This is required if you use the Autocomplete plugin
@@ -13929,10 +13944,15 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_3_vue2_google_maps__, {
 var app = new Vue({
     el: '#app',
     components: {
-        'memb-text-selector': __WEBPACK_IMPORTED_MODULE_1__components_TextSelectorComponent_vue___default.a,
-        'memb-picture-uploader': __WEBPACK_IMPORTED_MODULE_2__components_PictureUploaderComponent_vue___default.a,
-        'gmap-map': __WEBPACK_IMPORTED_MODULE_3_vue2_google_maps__["Map"],
-        'gmap-marker': __WEBPACK_IMPORTED_MODULE_3_vue2_google_maps__["Marker"]
+        'memb-text-paragraph-selector': __WEBPACK_IMPORTED_MODULE_1__components_TextParagraphSelector_vue___default.a,
+        'memb-text-selector': __WEBPACK_IMPORTED_MODULE_2__components_TextSelectorComponent_vue___default.a,
+        'memb-author-selector': __WEBPACK_IMPORTED_MODULE_4__components_AuthorSelectorComponent_vue___default.a,
+        'memb-paragraph-selector': __WEBPACK_IMPORTED_MODULE_3__components_ParagraphSelectorComponent_vue___default.a,
+        'memb-picture-uploader': __WEBPACK_IMPORTED_MODULE_5__components_PictureUploaderComponent_vue___default.a,
+        'memb-location-selector': __WEBPACK_IMPORTED_MODULE_6__components_LocationSelectorComponent_vue___default.a,
+        'memb-picturext': __WEBPACK_IMPORTED_MODULE_7__components_Picturext_vue___default.a,
+        'gmap-map': __WEBPACK_IMPORTED_MODULE_8_vue2_google_maps__["Map"],
+        'gmap-marker': __WEBPACK_IMPORTED_MODULE_8_vue2_google_maps__["Marker"]
     }
 });
 
@@ -47490,34 +47510,48 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     template: __webpack_require__(51),
     mounted: function mounted() {
-        this.loadParagraphs();
+        this.loadTexts();
     },
 
     data: function data() {
         return {
             loading: false,
-            paragraphs: [],
-            selectedParagraph: null
+            texts: [],
+            textsList: [],
+            selectedText: null,
+            selectedAuthor: null,
+            search: ''
         };
     },
-    props: ['endpoint'],
-    computed: {},
-    methods: {
-        loadParagraphs: function loadParagraphs() {
+    props: ['endpoint', 'author'],
+    computed: {
+        filteredList: function filteredList() {
             var _this = this;
+
+            return this.textsList.filter(function (text) {
+                return text.search.toLowerCase().includes(_this.search.toLowerCase());
+            });
+        }
+    },
+    methods: {
+        loadTexts: function loadTexts() {
+            var _this2 = this;
 
             this.loading = true;
 
-            axios.get(this.endpoint).then(function (response) {
-                _this.paragraphs = response.data.paragraphs;
-                _this.loading = false;
+            axios.get(this.endpoint + (this.author ? '?author_id=' + this.author : '')).then(function (response) {
+                _this2.texts = response.data;
+                _this2.textsList = _this2.texts.slice();
+                _this2.loading = false;
             }).catch(function (e) {
-                _this.loading = false;
+                _this2.loading = false;
                 console.log(e);
             });
         },
-        selectParagraph: function selectParagraph(id) {
-            this.selectedParagraph = this.selectedParagraph == null ? id : null;
+        selectText: function selectText(id, author_id) {
+            this.selectedText = id;
+            this.selectedAuthor = id;
+            this.$emit('textSelected', this.selectedText, this.selectedAuthor);
         }
     }
 });
@@ -47527,7 +47561,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 51 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"memb-text-selector\">\n\n    <div class=\"card card-transparent\">\n\n        <div class=\"card-title text-center\">\n            <h4>Casa Tomada</h4>\n            <hr>\n            <small>Julio Cortázar</small>\n        </div>\n\n        <div class=\"card-body form-type-fill\">\n\n            <!--<div class=\"my-20 text-center user-help\">\n                <span class=\"yellow\"><i class=\"fa fa-info-circle\"></i> Selecciona un párrafo</span>\n            </div>-->\n\n            <div class=\"paragraphs\">\n                <p v-for=\"paragraph in paragraphs\"\n                    :class=\"{disabled: (selectedParagraph != null) && (selectedParagraph!=paragraph.id), selected: (selectedParagraph == paragraph.id) }\"\n                    @click=\"selectParagraph(paragraph.id)\">\n                    {{ paragraph.paragraph }}\n                </p>\n            </div>\n\n            <!--<div class=\"form-group text-center float-bottom-center\" v-if=\"selectedParagraph != null\">\n                <button class=\"btn btn-bold btn-primary\">Continuar <i class=\"ti-arrow-right\"></i></button>\n            </div>-->\n\n            <div class=\"fab fab-fixed\" v-if=\"selectedParagraph != null\">\n                <button class=\"btn btn-float btn-danger\" data-toggle=\"button\" style=\"border-radius: 50%\">\n                    <i class=\"fab-icon-default ti-arrow-right\"></i>\n                </button>\n            </div>\n\n        </div>\n    </div>\n\n    <div class=\"card-loading reveal\" v-if=\"loading\">\n        <svg class=\"spinner-circle-material-svg\" viewBox=\"0 0 50 50\">\n            <circle class=\"circle\" cx=\"25\" cy=\"25\" r=\"20\"></circle>\n        </svg>\n    </div>\n</div>\n\n";
+module.exports = "<div class=\"memb-author-selector\">\n\n    <div class=\"row my-20\">\n        <div class=\"col-12 text-right\">\n            <!-- Large -->\n            <form class=\"lookup lookup-lg\">\n                <input type=\"text\" placeholder=\"Buscar...\" v-model=\"search\">\n            </form>\n        </div>\n    </div>\n\n    <div class=\"row\">\n\n        <div class=\"col-md-3 col-xs-12\" v-for=\"text in filteredList\">\n            <div class=\"card card-transparent cursor-link\" @click=\"selectText(text.id, text.author_id)\">\n                <div class=\"card-body text-center\">\n                    <img\n                            src='/img/book3.jpg'\n                            alt=\"\" class=\"rounded-circle mb-10 circle-border\"\n                            >\n                    <h3>{{ text.title }} <br> <small>{{ text.author }}</small></h3>\n                </div>\n            </div>\n        </div>\n\n        <p class=\"no-results\" v-if=\"filteredList.length == 0\">No hay textos</p>\n\n\n    </div>\n\n</div>\n\n";
 
 /***/ }),
 /* 52 */
@@ -50402,6 +50436,506 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"memb-picture-uploader\">\n\n    <div class=\"card card-transparent\">\n\n        <div class=\"card-body form-type-fill\">\n\n\n            <div class=\"form-group\">\n                <input type=\"file\" class=\"dropify\">\n            </div>\n\n            <div class=\"fab fab-fixed\">\n                <button class=\"btn btn-float btn-danger\" data-toggle=\"button\" style=\"border-radius: 50%\">\n                    <i class=\"fab-icon-default ti-arrow-right\"></i>\n                </button>\n            </div>\n\n        </div>\n\n        <div class=\"card-loading reveal\" v-if=\"loading\">\n            <svg class=\"spinner-circle-material-svg\" viewBox=\"0 0 50 50\">\n                <circle class=\"circle\" cx=\"25\" cy=\"25\" r=\"20\"></circle>\n            </svg>\n        </div>\n\n    </div>\n\n</div>\n\n";
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(40)
+/* script */
+var __vue_script__ = __webpack_require__(96)
+/* template */
+var __vue_template__ = null
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/LocationSelectorComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-01e63602", Component.options)
+  } else {
+    hotAPI.reload("data-v-01e63602", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 96 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    template: __webpack_require__(97),
+    mounted: function mounted() {},
+
+    data: function data() {
+        return {
+            loading: false,
+            marker: { lat: -34.6066663, lng: -58.4336508 }
+        };
+    },
+    props: [],
+    computed: {},
+    methods: {
+        getMarkerPosition: function getMarkerPosition(position) {
+            this.marker.lat = position.lat();
+            this.marker.lng = position.lng();
+        }
+    }
+});
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"memb-location-selector\">\n    <div class=\"form-group\">\n        <gmap-map\n                :center=\"{lat:-34.6066663, lng:-58.4336508}\"\n                :zoom=\"14\"\n                map-type-id=\"roadmap\"\n                style=\"width: 100%; height: 400px\"\n        >\n            <gmap-marker\n                    :key=\"1\"\n                    :position=\"marker\"\n                    :clickable=\"true\"\n                    :draggable=\"true\"\n                    @click=\"center=marker\"\n                    @dragend=\"getMarkerPosition($event.latLng)\"\n            />\n        </gmap-map>\n    </div>\n\n    <input type=\"hidden\" name=\"lat\" v-model=\"marker.lat\">\n    <input type=\"hidden\" name=\"lng\" v-model=\"marker.lng\">\n\n    <div class=\"fab fab-fixed\">\n        <button type=\"submit\" class=\"btn btn-float btn-danger btn-submit\">\n            <i class=\"fab-icon-default ti-arrow-right\"></i>\n        </button>\n    </div>\n</div>";
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(40)
+/* script */
+var __vue_script__ = __webpack_require__(99)
+/* template */
+var __vue_template__ = null
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/ParagraphSelectorComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-fe73c8f2", Component.options)
+  } else {
+    hotAPI.reload("data-v-fe73c8f2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 99 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    template: __webpack_require__(106),
+    mounted: function mounted() {
+
+        this.selectedText = this.text;
+        this.selectedAuthor = this.author;
+        this.loadParagraphs();
+    },
+
+    data: function data() {
+        return {
+            loading: false,
+            story: null,
+            paragraphs: [],
+            paragraphsList: [],
+            selectedParagraph: null,
+            selectedText: null,
+            selectedAuthor: null,
+            search: ''
+        };
+    },
+    props: ['endpoint', 'text', 'author'],
+    computed: {
+        filteredList: function filteredList() {
+            var _this = this;
+
+            return this.paragraphsList.filter(function (paragraph) {
+                return paragraph.paragraph.toLowerCase().includes(_this.search.toLowerCase());
+            });
+        }
+    },
+    methods: {
+        loadParagraphs: function loadParagraphs() {
+            var _this2 = this;
+
+            this.loading = true;
+            axios.get(this.makeURL(this.endpoint, this.text)).then(function (response) {
+                _this2.story = response.data.story;
+                _this2.paragraphs = response.data.paragraphs;
+                _this2.paragraphsList = _this2.paragraphs.slice();
+                _this2.loading = false;
+            }).catch(function (e) {
+                _this2.loading = false;
+                console.log(e);
+            });
+        },
+        highlightSearch: function highlightSearch(text) {
+            if (this.search == '') {
+                return text;
+            } else {
+                return text.replace(new RegExp(this.search, "gi"), function (match) {
+                    return '<span class="highlightText">' + match + '</span>';
+                });
+            }
+        },
+
+        selectParagraph: function selectParagraph(id) {
+            this.selectedParagraph = this.selectedParagraph == null ? id : null;
+        },
+        changeStep: function changeStep() {
+            this.$emit('changeStep', 1);
+        },
+        makeURL: function makeURL(base, id) {
+            return base.replace('{id}', id);
+        }
+    }
+});
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(40)
+/* script */
+var __vue_script__ = __webpack_require__(101)
+/* template */
+var __vue_template__ = null
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/AuthorSelectorComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4071322c", Component.options)
+  } else {
+    hotAPI.reload("data-v-4071322c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 101 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    template: __webpack_require__(102),
+    mounted: function mounted() {
+        this.loadAuthors();
+    },
+
+    data: function data() {
+        return {
+            loading: false,
+            authors: [],
+            authorsList: [],
+            selectedAuthor: null,
+            search: ''
+        };
+    },
+    props: ['endpoint'],
+    computed: {
+        filteredList: function filteredList() {
+            var _this = this;
+
+            return this.authorsList.filter(function (author) {
+                return author.fullname.toLowerCase().includes(_this.search.toLowerCase());
+            });
+        }
+    },
+    methods: {
+        loadAuthors: function loadAuthors() {
+            var _this2 = this;
+
+            this.loading = true;
+
+            axios.get(this.endpoint).then(function (response) {
+                _this2.authors = response.data;
+                _this2.authorsList = _this2.authors.slice();
+                _this2.loading = false;
+            }).catch(function (e) {
+                _this2.loading = false;
+                console.log(e);
+            });
+        },
+        selectAuthor: function selectAuthor(id) {
+            this.selectedAuthor = id;
+        }
+    }
+});
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"memb-author-selector\">\n\n    <div class=\"row my-20\">\n        <div class=\"col-12 text-right\">\n            <!-- Large -->\n            <form class=\"lookup lookup-lg\">\n                <input type=\"text\" placeholder=\"Buscar...\" v-model=\"search\">\n            </form>\n        </div>\n    </div>\n\n    <div class=\"row\">\n\n        <div class=\"col-md-3 col-xs-12\" v-for=\"author in filteredList\">\n            <div class=\"card card-transparent cursor-link\">\n                <div class=\"card-body text-center\">\n                    <img\n                            :src=\"'/uploads/authors/'+author.picture\"\n                            alt=\"\" class=\"rounded-circle mb-10\"\n                            @click=\"selectAuthor(author.id)\">\n                    <h3>{{ author.fullname }}</h3>\n                </div>\n            </div>\n        </div>\n\n        <p class=\"no-results\" v-if=\"authors.length == 0\">No hay autores</p>\n\n\n    </div>\n\n</div>\n\n";
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(40)
+/* script */
+var __vue_script__ = __webpack_require__(104)
+/* template */
+var __vue_template__ = null
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/TextParagraphSelector.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-138a3419", Component.options)
+  } else {
+    hotAPI.reload("data-v-138a3419", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 104 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TextSelectorComponent_vue__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TextSelectorComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TextSelectorComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ParagraphSelectorComponent_vue__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ParagraphSelectorComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__ParagraphSelectorComponent_vue__);
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    template: __webpack_require__(105),
+    components: {
+        'memb-text-selector': __WEBPACK_IMPORTED_MODULE_0__TextSelectorComponent_vue___default.a,
+        'memb-paragraph-selector': __WEBPACK_IMPORTED_MODULE_1__ParagraphSelectorComponent_vue___default.a
+    },
+    mounted: function mounted() {
+        this.step = this.startIn;
+        console.log(this.step);
+    },
+
+    data: function data() {
+        return {
+            loading: false,
+            step: 0,
+            selectedAuthor: null,
+            selectedText: null,
+            selectedParagraph: null
+        };
+    },
+    props: ['start-in'],
+    computed: {},
+    methods: {
+        onTextSelected: function onTextSelected(textSelected, authorSelected) {
+            console.log('onTextSelected');
+            this.step = 2;
+            this.selectedText = textSelected;
+            this.selectedAuthor = authorSelected;
+        },
+        onParagraphSelected: function onParagraphSelected(paragraphSelected) {
+            console.log('onParagraphSelected');
+            this.selectedParagraph = paragraphSelected;
+        },
+        onChangeStep: function onChangeStep(step) {
+            if (step == 1) {
+                this.step = 1;
+                this.selectedText = null;
+                this.selectedAuthor = null;
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"memb-text-paragraph-selector\">\n\n    <memb-text-selector\n            :endpoint=\"'/api/texts/'\"\n            :author=\"selectedAuthor\"\n            v-if=\"step == 1\"\n            @textSelected=\"onTextSelected\"></memb-text-selector>\n    <memb-paragraph-selector\n            :endpoint=\"'/api/text/{id}/paragraphs'\"\n            :text=\"selectedText\"\n            :author=\"selectedAuthor\"\n            v-if=\"step == 2\"\n            @changeStep=\"onChangeStep\"\n            @paragraphSelected=\"onParagraphSelected\"></memb-paragraph-selector>\n\n</div>\n\n";
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"memb-text-selector\">\n\n    <div class=\"card card-transparent\">\n\n        <div class=\"card-title text-center\">\n            <h4>{{ story ? story.title : '' }}</h4>\n            <hr>\n            <small>{{ story ? story.author.name : '' }} {{ story ? story.author.lastname : '' }}</small>\n        </div>\n\n        <div class=\"card-body form-type-fill\">\n\n            <div class=\"row my-20\">\n                <div class=\"col-6\">\n                    <a href=\"#\" class=\"btn btn-info\" @click.stop=\"changeStep()\"><i class=\"ti-arrow-left\"></i> Volver a Textos</a>\n                </div>\n                <div class=\"col-6 text-right\">\n                    <button v-if=\"search != ''\" @click.prevent=\"search = ''\" class=\"btn btn-square btn-outline btn-round btn-danger\" style=\"text-align: center !important;padding-left: 0;padding-right: 0;border-radius: 50%;\"><i class=\"ti-close\"></i></button>\n                    <form class=\"lookup lookup-lg\">\n                        <input type=\"text\" placeholder=\"Buscar texto...\" v-model=\"search\">\n                    </form>\n                </div>\n            </div>\n\n            <div class=\"paragraphs\">\n                <p v-for=\"paragraph in filteredList\"\n                    :class=\"{disabled: (selectedParagraph != null) && (selectedParagraph!=paragraph.id), selected: (selectedParagraph == paragraph.id), follows: (search != '') }\"\n                    @click=\"selectParagraph(paragraph.id)\"\n                    v-html=\"highlightSearch(paragraph.paragraph)\">\n                </p>\n            </div>\n\n\n            <div class=\"fab fab-fixed\">\n                <button type=\"submit\" class=\"btn btn-float btn-danger btn-submit\">\n                    <i class=\"fab-icon-default ti-arrow-right\"></i>\n                </button>\n            </div>\n\n        </div>\n\n\n        <div class=\"card-loading reveal\" v-if=\"loading\">\n            <svg class=\"spinner-circle-material-svg\" viewBox=\"0 0 50 50\">\n                <circle class=\"circle\" cx=\"25\" cy=\"25\" r=\"20\"></circle>\n            </svg>\n        </div>\n    </div>\n\n    <input type=\"hidden\" name=\"paragraph_id\" v-model=\"selectedParagraph\">\n    <input type=\"hidden\" name=\"text_id\" v-model=\"selectedText\">\n    <input type=\"hidden\" name=\"author_id\" v-model=\"selectedAuthor\">\n\n\n</div>\n\n";
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(40)
+/* script */
+var __vue_script__ = __webpack_require__(108)
+/* template */
+var __vue_template__ = null
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Picturext.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-70a7d15a", Component.options)
+  } else {
+    hotAPI.reload("data-v-70a7d15a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 108 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    template: __webpack_require__(109),
+    mounted: function mounted() {
+        this.displayPanel = this.displayBottomPanel ? true : false;
+    },
+
+    data: function data() {
+        return {
+            loading: false,
+            displayPanel: true
+        };
+    },
+    props: ['display-bottom-panel', 'picture', 'location', 'user', 'tags', 'likes', 'text'],
+    computed: {},
+    methods: {}
+});
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"memb-picturext\">\n\n    <div class=\"card card-transparent picturext\">\n\n        <div class=\"card-content\" v-if=\"!loading\">\n\n            <div class=\"card-body form-type-fill\">\n\n                <div class=\"row row-eq-height\">\n\n                    <div class=\"col-sm-12 col-xs-12 col-md-7\">\n                        <img :src=\"picture\" class=\"img-fluid w-100\" alt=\"\">\n                        <gmap-map\n                                :center=\"location\"\n                                :zoom=\"14\"\n                                map-type-id=\"roadmap\"\n                                style=\"width: 100%; height: 200px\"\n                        >\n                            <gmap-marker\n                                    :key=\"1\"\n                                    {{--v-for=\"(m, index) in markers\"--}}\n                                    :position=\"location\"\n                                    :clickable=\"true\"\n                                    :draggable=\"true\"\n                                    @click=\"center=location\"\n                            />\n                        </gmap-map>\n                    </div>\n\n                    <div class=\"col-sm-12 col-xs-12 col-md-5 text-left\">\n\n                        <div class=\"panel-user row mb-30\">\n                            <div class=\"col-4\"><img :src=\"user.picture\" class=\"rounded-circle w-100px h-100px\" alt=\"\"></div>\n                            <div class=\"col-8 h-100px\">\n                                        <span class=\"center-v\">\n                                            <a href=\"\">{{ user.fullname }}</a>\n                                            <small>Subida el 13 de Junio 14:44</small>\n                                        </span>\n                            </div>\n                        </div>\n\n                        <div class=\"panel-paragraph\">\n                            <div class=\"fade-long-text\">\n                                <p class=\"\">{{ text.paragraph.paragraph }}</p>\n                                <p class=\"read-more\">\n                                    <a href=\"#\" class=\"btn btn-default\"><i class=\"pe-7s-more fs-30\"></i></a>\n                                </p>\n                            </div>\n                        </div>\n\n\n                        <div class=\"panel-text align-to-bottom\"><h3>{{ text.title }} <small>{{ text.author.fullname }}</small></h3></div>\n\n                    </div>\n\n                </div>\n\n                <div class=\"row my-10 bt-1 bb-1 py-10\" v-if=\"displayPanel\">\n\n                    <div class=\"col-6\">\n                        <div class=\"panel-tags\">\n                            <a href=\"#\" v-for=\"tag in tags\">#{{ tag }}</a>\n                        </div>\n                    </div>\n                    <div class=\"col-6 text-right\">\n                        <div class=\"panel-likes\">\n                            {{ likes }} <i class=\"ti-heart\"></i>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n        </div>\n\n        <div class=\"card-loading reveal\" v-if=\"loading\">\n            <div class=\"spinner-dots\">\n                <span class=\"dot1\"></span>\n                <span class=\"dot2\"></span>\n                <span class=\"dot3\"></span>\n            </div>\n        </div>\n\n    </div>\n\n\n\n\n\n</div>\n\n";
 
 /***/ })
 /******/ ]);

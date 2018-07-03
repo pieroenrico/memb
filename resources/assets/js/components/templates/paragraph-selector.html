@@ -1,0 +1,56 @@
+<div class="memb-text-selector">
+
+    <div class="card card-transparent">
+
+        <div class="card-title text-center">
+            <h4>{{ story ? story.title : '' }}</h4>
+            <hr>
+            <small>{{ story ? story.author.name : '' }} {{ story ? story.author.lastname : '' }}</small>
+        </div>
+
+        <div class="card-body form-type-fill">
+
+            <div class="row my-20">
+                <div class="col-6">
+                    <a href="#" class="btn btn-info" @click.stop="changeStep()"><i class="ti-arrow-left"></i> Volver a Textos</a>
+                </div>
+                <div class="col-6 text-right">
+                    <button v-if="search != ''" @click.prevent="search = ''" class="btn btn-square btn-outline btn-round btn-danger" style="text-align: center !important;padding-left: 0;padding-right: 0;border-radius: 50%;"><i class="ti-close"></i></button>
+                    <form class="lookup lookup-lg">
+                        <input type="text" placeholder="Buscar texto..." v-model="search">
+                    </form>
+                </div>
+            </div>
+
+            <div class="paragraphs">
+                <p v-for="paragraph in filteredList"
+                    :class="{disabled: (selectedParagraph != null) && (selectedParagraph!=paragraph.id), selected: (selectedParagraph == paragraph.id), follows: (search != '') }"
+                    @click="selectParagraph(paragraph.id)"
+                    v-html="highlightSearch(paragraph.paragraph)">
+                </p>
+            </div>
+
+
+            <div class="fab fab-fixed">
+                <button type="submit" class="btn btn-float btn-danger btn-submit">
+                    <i class="fab-icon-default ti-arrow-right"></i>
+                </button>
+            </div>
+
+        </div>
+
+
+        <div class="card-loading reveal" v-if="loading">
+            <svg class="spinner-circle-material-svg" viewBox="0 0 50 50">
+                <circle class="circle" cx="25" cy="25" r="20"></circle>
+            </svg>
+        </div>
+    </div>
+
+    <input type="hidden" name="paragraph_id" v-model="selectedParagraph">
+    <input type="hidden" name="text_id" v-model="selectedText">
+    <input type="hidden" name="author_id" v-model="selectedAuthor">
+
+
+</div>
+

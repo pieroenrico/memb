@@ -112,6 +112,12 @@ a.tag {
           background: none;
         }
       }
+      &.follows:after {
+        font-family: FontAwesome;
+        content: '(...)'; /*quote left icon*/
+        color: #79e9f6;
+        display: block;
+      }
       &.selected {
         padding: 20px;
         font-size: 20px;
@@ -230,6 +236,18 @@ a.tag {
 
 .fab .btn {
   border-radius: 50%;
+}
+.cursor-link {
+  cursor: pointer;
+  cursor: hand;
+}
+.circle-border {
+  padding: 3px;
+  border: 1px solid #ccc;
+}
+
+.highlightText {
+  background: yellow;
 }
 
 .header-upload {

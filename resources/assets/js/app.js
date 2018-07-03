@@ -11,8 +11,13 @@ window.Vue = require('vue');
 window.$ = window.jQuery = require('jquery');
 
 import axios from 'axios';
+import TextParagraphSelectorComponent from './components/TextParagraphSelector.vue';
 import TextSelectorComponent from './components/TextSelectorComponent.vue';
+import ParagraphSelectorComponent from './components/ParagraphSelectorComponent.vue';
+import AuthorSelectorComponent from './components/AuthorSelectorComponent.vue';
 import PictureSelectorComponent from './components/PictureUploaderComponent.vue';
+import LocationSelector from './components/LocationSelectorComponent.vue';
+import Picturext from './components/Picturext.vue';
 import * as VueGoogleMaps from 'vue2-google-maps';
 
 
@@ -46,8 +51,13 @@ Vue.use(VueGoogleMaps, {
 const app = new Vue({
     el: '#app',
     components: {
+        'memb-text-paragraph-selector': TextParagraphSelectorComponent,
         'memb-text-selector': TextSelectorComponent,
+        'memb-author-selector': AuthorSelectorComponent,
+        'memb-paragraph-selector': ParagraphSelectorComponent,
         'memb-picture-uploader': PictureSelectorComponent,
+        'memb-location-selector': LocationSelector,
+        'memb-picturext': Picturext,
         'gmap-map': VueGoogleMaps.Map,
         'gmap-marker': VueGoogleMaps.Marker,
     }

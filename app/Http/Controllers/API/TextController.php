@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Author;
 use App\Paragraph;
 use App\Text;
 use Illuminate\Http\Request;
@@ -46,16 +47,16 @@ class TextController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function paragraphs($text_id)
     {
 
-        $paragraphs = Paragraph::where(['text_id' => $id])
+        $paragraphs = Paragraph::where(['text_id' => $text_id])
             ->select('id', 'paragraph')
             ->orderBy('order')
             ->get();
 
         $text = Text::with('author')
-            ->where(['id' => $id])
+            ->where(['id' => $text_id])
             ->first();
 
         $data = [
@@ -65,6 +66,65 @@ class TextController extends Controller
 
         return $data;
 
+    }
+
+    public function authors()
+    {
+        $authors = Author::orderBy('name', 'asc')
+            ->select('id', 'name', 'lastname', 'picture')
+            ->orderBy('lastname', 'asc')
+            ->get();
+
+        $data = [];
+        foreach($authors as $author)
+        {
+            $data[] = [
+                'id' => $author->id,
+                'fullname' => $author->fullname,
+                'picture' => $author->picture,
+            ];
+        }
+
+        return $data;
+    }
+
+    public function texts()
+    {
+
+        $author_id = request()->get('author_id');
+
+        if($author_id)
+        {
+            $texts = Text::with('author')
+                ->orderBy('title', 'asc')
+                ->where(['author_id' => $author_id])
+                ->get();
+        }
+        else
+        {
+
+
+            $texts = Text::with('author')
+                ->orderBy('title', 'asc')
+                ->get();
+
+
+        }
+
+
+        $data = [];
+        foreach($texts as $text)
+        {
+            $data[] = [
+                'id' => $text->id,
+                'title' => $text->title,
+                'author' => $text->author->fullname,
+                'author_id' => $text->author->id,
+                'search' => $text->title . ' ' . $text->author->fullname,
+            ];
+        }
+
+        return $data;
     }
 
     /**

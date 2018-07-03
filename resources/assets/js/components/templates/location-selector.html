@@ -1,0 +1,28 @@
+<div class="memb-location-selector">
+    <div class="form-group">
+        <gmap-map
+                :center="{lat:-34.6066663, lng:-58.4336508}"
+                :zoom="14"
+                map-type-id="roadmap"
+                style="width: 100%; height: 400px"
+        >
+            <gmap-marker
+                    :key="1"
+                    :position="marker"
+                    :clickable="true"
+                    :draggable="true"
+                    @click="center=marker"
+                    @dragend="getMarkerPosition($event.latLng)"
+            />
+        </gmap-map>
+    </div>
+
+    <input type="hidden" name="lat" v-model="marker.lat">
+    <input type="hidden" name="lng" v-model="marker.lng">
+
+    <div class="fab fab-fixed">
+        <button type="submit" class="btn btn-float btn-danger btn-submit">
+            <i class="fab-icon-default ti-arrow-right"></i>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+<div class="memb-picturext">
+
+    <div class="card card-transparent picturext">
+
+        <div class="card-content" v-if="!loading">
+
+            <div class="card-body form-type-fill">
+
+                <div class="row row-eq-height">
+
+                    <div class="col-sm-12 col-xs-12 col-md-7">
+                        <img :src="picture" class="img-fluid w-100" alt="">
+                        <gmap-map
+                                :center="location"
+                                :zoom="14"
+                                map-type-id="roadmap"
+                                style="width: 100%; height: 200px"
+                        >
+                            <gmap-marker
+                                    :key="1"
+                                    {{--v-for="(m, index) in markers"--}}
+                                    :position="location"
+                                    :clickable="true"
+                                    :draggable="true"
+                                    @click="center=location"
+                            />
+                        </gmap-map>
+                    </div>
+
+                    <div class="col-sm-12 col-xs-12 col-md-5 text-left">
+
+                        <div class="panel-user row mb-30">
+                            <div class="col-4"><img :src="user.picture" class="rounded-circle w-100px h-100px" alt=""></div>
+                            <div class="col-8 h-100px">
+                                        <span class="center-v">
+                                            <a href="">{{ user.fullname }}</a>
+                                            <small>Subida el 13 de Junio 14:44</small>
+                                        </span>
+                            </div>
+                        </div>
+
+                        <div class="panel-paragraph">
+                            <div class="fade-long-text">
+                                <p class="">{{ text.paragraph.paragraph }}</p>
+                                <p class="read-more">
+                                    <a href="#" class="btn btn-default"><i class="pe-7s-more fs-30"></i></a>
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="panel-text align-to-bottom"><h3>{{ text.title }} <small>{{ text.author.fullname }}</small></h3></div>
+
+                    </div>
+
+                </div>
+
+                <div class="row my-10 bt-1 bb-1 py-10" v-if="displayPanel">
+
+                    <div class="col-6">
+                        <div class="panel-tags">
+                            <a href="#" v-for="tag in tags">#{{ tag }}</a>
+                        </div>
+                    </div>
+                    <div class="col-6 text-right">
+                        <div class="panel-likes">
+                            {{ likes }} <i class="ti-heart"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card-loading reveal" v-if="loading">
+            <div class="spinner-dots">
+                <span class="dot1"></span>
+                <span class="dot2"></span>
+                <span class="dot3"></span>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+</div>
+

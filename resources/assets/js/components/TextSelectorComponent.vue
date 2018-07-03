@@ -2,25 +2,35 @@
     export default {
         template: require('./templates/text-selector.html'),
         mounted() {
-            this.loadParagraphs()
+            this.loadTexts()
         },
         data: function(){
             return {
                 loading: false,
-                paragraphs: [],
-                selectedParagraph: null,
+                texts: [],
+                textsList: [],
+                selectedText: null,
+                selectedAuthor: null,
+                search: '',
             }
         },
-        props: ['endpoint'],
-        computed: {},
+        props: ['endpoint', 'author'],
+        computed: {
+            filteredList() {
+                return this.textsList.filter(text => {
+                    return text.search.toLowerCase().includes(this.search.toLowerCase())
+                })
+            }
+        },
         methods: {
-            loadParagraphs: function() {
+            loadTexts: function() {
 
                 this.loading = true;
 
-                axios.get(this.endpoint)
+                axios.get(this.endpoint + (this.author ? '?author_id=' + this.author : '' ))
                     .then( response => {
-                        this.paragraphs = response.data.paragraphs;
+                        this.texts = response.data;
+                        this.textsList = this.texts.slice()
                         this.loading = false;
                 })
                 .catch( e => {
@@ -28,8 +38,10 @@
                     console.log(e)
                 })
             },
-            selectParagraph: function(id) {
-                this.selectedParagraph = this.selectedParagraph == null ?  id : null;
+            selectText: function(id, author_id) {
+                this.selectedText = id;
+                this.selectedAuthor = id;
+                this.$emit('textSelected', this.selectedText, this.selectedAuthor);
             }
         }
     }

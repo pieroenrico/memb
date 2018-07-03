@@ -1,0 +1,32 @@
+<div class="memb-author-selector">
+
+    <div class="row my-20">
+        <div class="col-12 text-right">
+            <!-- Large -->
+            <form class="lookup lookup-lg">
+                <input type="text" placeholder="Buscar..." v-model="search">
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3 col-xs-12" v-for="author in filteredList">
+            <div class="card card-transparent cursor-link">
+                <div class="card-body text-center">
+                    <img
+                            :src="'/uploads/authors/'+author.picture"
+                            alt="" class="rounded-circle mb-10"
+                            @click="selectAuthor(author.id)">
+                    <h3>{{ author.fullname }}</h3>
+                </div>
+            </div>
+        </div>
+
+        <p class="no-results" v-if="authors.length == 0">No hay autores</p>
+
+
+    </div>
+
+</div>
+

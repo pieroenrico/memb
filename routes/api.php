@@ -17,4 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/text/{id}', 'API\TextController@show');
+Route::get('/text/{id}/paragraphs', 'API\TextController@paragraphs');
+Route::get('/texts', 'API\TextController@texts');
+Route::get('/authors', 'API\TextController@authors');

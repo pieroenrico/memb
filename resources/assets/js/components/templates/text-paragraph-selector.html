@@ -1,0 +1,17 @@
+<div class="memb-text-paragraph-selector">
+
+    <memb-text-selector
+            :endpoint="'/api/texts/'"
+            :author="selectedAuthor"
+            v-if="step == 1"
+            @textSelected="onTextSelected"></memb-text-selector>
+    <memb-paragraph-selector
+            :endpoint="'/api/text/{id}/paragraphs'"
+            :text="selectedText"
+            :author="selectedAuthor"
+            v-if="step == 2"
+            @changeStep="onChangeStep"
+            @paragraphSelected="onParagraphSelected"></memb-paragraph-selector>
+
+</div>
+
