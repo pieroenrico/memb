@@ -9,6 +9,7 @@
     :zoom-start="12"
     :mode="'map'"
     {!! isset($author_id) != '' ? ':author="'.$author_id . "\" :author-data='".$author_data. "'" : '' !!}
+    {!! isset($text_id) != '' ? ':text="'.$text_id . "\" :text-data='".$text_data. "'" : '' !!}
     ></memb-lister>
 
 

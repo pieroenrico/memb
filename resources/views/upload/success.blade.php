@@ -33,7 +33,9 @@
                         :likes="0"
                 ></memb-picturext>
 
-
+                <div class="text-center">
+                    <a href="{{ route('home') }}" class="btn btn-primary mt-20 mb-100">Regresar al feed</a>
+                </div>
             </div>
 
         </div>

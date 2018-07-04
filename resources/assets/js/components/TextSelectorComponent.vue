@@ -42,10 +42,10 @@
 
                 if(this.mode == 'selector') {
                     this.selectedText = id;
-                    this.selectedAuthor = id;
+                    this.selectedAuthor = author_id;
                     this.$emit('textSelected', this.selectedText, this.selectedAuthor);
                 } else if(this.mode == 'url') {
-                    alert('b')
+                    //alert('b')
                 }
 
             }

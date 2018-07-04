@@ -13,7 +13,8 @@
         <header class="header small-header mb-0 mt-60 bg-gray header-upload" style="position: absolute; top: 0; left: 0; width: 100vw;">
             <div class="header-info text-center">
                 <div class="pull-left">
-                    <h1 v-if="author" class="center-v">{{ authorData.name }} {{ authorData.lastname }}</h1>
+                    <h1 v-if="author" class="center-v">Textos de {{ authorData.name }} {{ authorData.lastname }}</h1>
+                    <h1 v-if="text" class="center-v">{{ textData.title }} de {{ textData.author.name }} {{textData.author.lastname }}</h1>
                 </div>
                 <div class="pull-right">
                     <div class="btn-group" data-toggle="buttons">
@@ -64,7 +65,8 @@
         <header class="header small-header mb-0 mt-60 bg-gray header-upload">
             <div class="header-info text-center">
                 <div class="pull-left">
-                    <h1 v-if="author" class="center-v">{{ authorData.name }} {{ authorData.lastname }}</h1>
+                    <h1 v-if="author" class="center-v">Textos de {{ authorData.name }} {{ authorData.lastname }}</h1>
+                    <h1 v-if="text" class="center-v">{{ textData.title }} de {{ textData.author.name }} {{textData.author.lastname }}</h1>
                 </div>
                 <div class="pull-right">
                     <div class="btn-group" data-toggle="buttons">

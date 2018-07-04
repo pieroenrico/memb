@@ -2,17 +2,31 @@
 
     <div class="row my-20">
         <div class="col-12 text-right">
-            <!-- Large -->
-            <form class="lookup lookup-lg">
-                <input type="text" placeholder="Buscar..." v-model="search">
-            </form>
+
+            <div class="input-group">
+                <span class="input-group-prepend" v-if="search!=''">
+                    <button class="btn btn-light" type="button" @click="search=''"><i class="ti-close"></i></button>
+                </span>
+                    <input type="text" class="form-control" placeholder="Buscar..." v-model="search">
+                <span class="input-group-append">
+                    <button class="btn btn-light" type="button"><i class="ti-search"></i></button>
+                </span>
+            </div>
+
         </div>
     </div>
 
     <div class="row">
 
         <div class="col-md-3 col-xs-12" v-for="text in filteredList">
-            <div class="card card-transparent cursor-link" @click="selectText(text.id, text.author_id)">
+            <div class="card card-transparent cursor-link" :class="{'author-option': mode=='url','card-options' : mode=='url'}" @click="selectText(text.id, text.author_id)">
+                <div class="options" v-if="mode=='url'">
+                    <div class="center-vh">
+                        <a href="#" class="btn btn-round btn-danger text-center"><i class="fa fa-cloud-upload"></i></a> &nbsp;
+                        <a href="#" class="btn btn-round btn-primary text-center"><i class="fa fa-eye"></i></a> &nbsp;
+                        <a :href="'/?text=' + text.id" class="btn btn-round btn-success text-center"><i class="fa fa-file-image-o"></i></a>
+                    </div>
+                </div>
                 <div class="card-body text-center">
                     <img
                             src='/img/book3.jpg'
@@ -24,8 +38,6 @@
         </div>
 
         <p class="no-results" v-if="filteredList.length == 0">No hay textos</p>
-
-
     </div>
 
 </div>

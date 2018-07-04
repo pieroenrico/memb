@@ -4,6 +4,7 @@ namespace App\Http\RichModels;
 use App\Location;
 use App\Picture;
 use App\Tag;
+use Illuminate\Support\Facades\Auth;
 
 class Picturext {
 
@@ -13,7 +14,7 @@ class Picturext {
     {
         if($id)
         {
-            $picturext = Picture::with('text', 'paragraph', 'location', 'tags')
+            $picturext = Picture::with('text', 'paragraph', 'location', 'tags', 'user', 'user.profile', 'author')
                 ->where(['id' => $id])
                 ->first();
 
@@ -32,17 +33,23 @@ class Picturext {
         $location->save();
 
         $picture = new Picture;
-        $picture->user_id = 1;
+        $picture->user_id = Auth::id();
+        $picture->author_id = $picturext['author_id'];
         $picture->text_id = $picturext['text_id'];
         $picture->paragraph_id = $picturext['paragraph_id'];
         $picture->file = $picturext['file'];
         $picture->location_id = $location->id;
         $picture->save();
 
-        for($i = 0; $i < count($picturext['tags']); $i++)
+        if(is_array($picturext['tags']))
         {
-            $picture->tags()->attach(Tag::firstOrCreate(['tag' => $picturext['tags'][$i]]));
+            for($i = 0; $i < count($picturext['tags']); $i++)
+            {
+                $picture->tags()->attach(Tag::firstOrCreate(['tag' => $picturext['tags'][$i]]));
+            }
         }
+
+        return $picture->id;
 
     }
 

@@ -5,6 +5,7 @@
                 :zoom="14"
                 map-type-id="roadmap"
                 style="width: 100%; height: 400px"
+                :options="mapOptions"
         >
             <gmap-marker
                     :key="1"
@@ -16,6 +17,12 @@
                     :icon="'/img/pinicon.svg'"
             />
         </gmap-map>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <small>Arrastrá el pin al lugar del mapa que desees</small>
+        </div>
     </div>
 
     <input type="hidden" name="lat" v-model="marker.lat">

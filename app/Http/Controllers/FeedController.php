@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Author;
 use App\Http\RichModels\Picturext;
 use App\Picture;
+use App\Text;
 use Illuminate\Http\Request;
 
 class FeedController extends BaseController
@@ -13,6 +14,7 @@ class FeedController extends BaseController
     public function home()
     {
         $author_id = request()->get('author');
+        $text_id = request()->get('text');
 
         $buffer = [
 
@@ -24,7 +26,12 @@ class FeedController extends BaseController
             $buffer['author_id'] = $author_id;
             $buffer['author_data'] = $author_data;
         }
-
+        if($text_id)
+        {
+            $text_data = Text::with('author')->where(['id' => $text_id])->first();
+            $buffer['text_id'] = $text_id;
+            $buffer['text_data'] = $text_data;
+        }
 
 
         return view('home.index', $this->pack($buffer));

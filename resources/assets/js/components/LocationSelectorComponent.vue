@@ -8,6 +8,12 @@
             return {
                 loading: false,
                 marker: {lat:-34.6066663, lng:-58.4336508},
+                mapOptions: {
+                    fullscreenControl: false,
+                    streetViewControl: false,
+                    mapTypeControl: false,
+
+                }
             }
         },
         props: [],

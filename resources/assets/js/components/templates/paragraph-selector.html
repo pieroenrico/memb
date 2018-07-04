@@ -12,13 +12,19 @@
 
             <div class="row my-20">
                 <div class="col-6">
-                    <a href="#" class="btn btn-info" @click.stop="changeStep()"><i class="ti-arrow-left"></i> Volver a Textos</a>
+                    <a href="#" class="btn btn-primary fw-100" @click.stop="changeStep()"><i class="ti-arrow-left"></i> Regresar</a>
                 </div>
                 <div class="col-6 text-right">
-                    <button v-if="search != ''" @click.prevent="search = ''" class="btn btn-square btn-outline btn-round btn-danger" style="text-align: center !important;padding-left: 0;padding-right: 0;border-radius: 50%;"><i class="ti-close"></i></button>
-                    <form class="lookup lookup-lg">
-                        <input type="text" placeholder="Buscar texto..." v-model="search">
-                    </form>
+                    <div class="input-group">
+                        <span class="input-group-prepend" v-if="search!=''">
+                            <button class="btn btn-light" type="button" @click="search=''"><i class="ti-close"></i></button>
+                        </span>
+                            <input type="text" class="form-control" placeholder="Buscar en el texto..." v-model="search">
+                        <span class="input-group-append">
+                            <button class="btn btn-light" type="button"><i class="ti-search"></i></button>
+                        </span>
+                    </div>
+
                 </div>
             </div>
 
@@ -31,7 +37,7 @@
             </div>
 
 
-            <div class="fab fab-fixed fab-fixed-big">
+            <div class="fab fab-fixed fab-fixed-big" v-if="selectedParagraph != null">
                 <button type="submit" class="btn btn-float btn-danger btn-submit">
                     <i class="fab-icon-default fa fa-arrow-right"></i>
                 </button>

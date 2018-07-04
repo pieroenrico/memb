@@ -20,6 +20,7 @@ class UploadController extends BaseController
         else
         {
             return [
+                'id' => null,
                 'file' => '',
                 'paragraph_id' => '',
                 'text_id' => '',
@@ -225,7 +226,10 @@ class UploadController extends BaseController
         $picturext = $this->getPicturext();
 
         $model = new Picturext;
-        $model->dump2DB($picturext);
+        $id = $model->dump2DB($picturext);
+
+        $picturext['id'] = $id;
+        $this->storePicturext($picturext);
 
         return redirect(route('upload.success.show'));
 
@@ -233,18 +237,56 @@ class UploadController extends BaseController
 
     public function success()
     {
-        $picturext = $this->getPicturext();
-        $data = $this->buildPicturextData();
 
+        if(!request()->session()->has('picturext'))
+        {
+            return redirect(route('home'));
+        }
+
+
+        $picturext_session = $this->getPicturext();
+        $picturext = new Picturext($picturext_session['id']);
+
+
+        $data_picturext = [
+            'picture' => $picturext->data['file'],
+            'location' => json_encode([
+                'lat' => $picturext->data['location']->lat,
+                'lng' => $picturext->data['location']->lng,
+            ]),
+            'tags' => json_encode($this->buildTags($picturext->data['tags'])),
+            'likes' => 0,
+            'text' => json_encode([
+                'id' => $picturext->data->text->id,
+                'title' => $picturext->data->text->title,
+                'author' => [
+                    'id' => $picturext->data->author->id,
+                    'fullname' => $picturext->data->author->fullname,
+                ],
+                'paragraph' => [
+                    'id' => $picturext->data->paragraph->id,
+                    'paragraph' => $picturext->data->paragraph->paragraph,
+                ]
+            ]),
+        ];
 
         $buffer = [
-            'picturext' => $picturext,
-            'data' => $data,
+            'picturext' => $data_picturext,
+            'data' => $data_picturext,
         ];
 
         $this->deletePicturext();
 
         return view('upload.success', $this->pack($buffer));
+    }
+
+    function buildTags($tags) {
+        $tags_list = [];
+        foreach($tags as $tag)
+        {
+            $tags_list[] = $tag->tag;
+        }
+        return $tags_list;
     }
 
     /**

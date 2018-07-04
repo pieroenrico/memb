@@ -20,7 +20,7 @@
                 }
             }
         },
-        props: ['endpoint', 'search-paragraph', 'mode', 'author', 'author-data'],
+        props: ['endpoint', 'search-paragraph', 'mode', 'author', 'author-data', 'text', 'text-data'],
         components: {
             'memb-picturext': Picturext,
         },
@@ -61,6 +61,7 @@
             makeURL: function() {
                 var baseURL = '/api/picturexts?';
                 if(this.author) baseURL += 'author=' + this.author + '&'
+                if(this.text) baseURL += 'text=' + this.text + '&'
                 return baseURL
             }
         }
