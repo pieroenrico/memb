@@ -108,4 +108,9 @@ $(document).ready(function(){
         return false;
 
     });
+
+    $(document).on('click', '.author-option', function(e){
+        $('.author-option .options').hide();
+        $(this).find('.options').show();
+    })
 })

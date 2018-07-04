@@ -2,10 +2,10 @@
 
 
 @section('header')
-    <header class="header small-header mb-0 mt-30">
+    <header class="header small-header mb-0 mt-20 bg-gray header-upload">
         <div class="header-info text-center">
             <h1 class="header-title">
-                <strong>Confirma y agrega Tags</strong>
+                <strong>Confirma y agrega tags</strong>
                 {{--<small>Create the skeleton of your app with popular pre-designed layouts.</small>--}}
             </h1>
         </div>
@@ -42,7 +42,7 @@
                         :picture="'/uploads/pictures/{{ $data['picture'] }}'"
                         :location='{{ str_replace("\"", "", $data['location']) }}'
                         :text='{{ $data['text'] }}'
-                        :user="{id: 1, fullname: 'Pito Catalan', picture: '/uploads/authors/borges.jpg'}"
+                        :user="{id: 1, fullname: 'Piero Bona', picture: '/uploads/users/piero.jpg'}"
                         :tags="{{ $data['tags'] }}"
                         :likes="0"
                 ></memb-picturext>
@@ -58,9 +58,9 @@
                         </div>
                     </div>
 
-                    <div class="fab fab-fixed">
+                    <div class="fab fab-fixed fab-fixed-big">
                         <button type="submit" class="btn btn-float btn-danger btn-submit">
-                            <i class="fab-icon-default ti-arrow-right"></i>
+                            <i class="fab-icon-default fa fa-arrow-right"></i>
                         </button>
                     </div>
 

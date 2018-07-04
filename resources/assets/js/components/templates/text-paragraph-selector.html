@@ -4,6 +4,7 @@
             :endpoint="'/api/texts/'"
             :author="selectedAuthor"
             v-if="step == 1"
+            :mode="'selector'"
             @textSelected="onTextSelected"></memb-text-selector>
     <memb-paragraph-selector
             :endpoint="'/api/text/{id}/paragraphs'"

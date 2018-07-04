@@ -49,22 +49,22 @@
         <nav class="topbar-navigation">
             <ul class="menu text-center">
 
-                <li class="menu-item">
-                    <a class="menu-link" href="../index.html">
+                <li class="menu-item <?php echo e(Route::currentRouteName() == "feed" ? 'active' : ''); ?>">
+                    <a class="menu-link" href="{{ route('feed') }}">
                         <span class="title">Feed</span>
                     </a>
                 </li>
 
 
-                <li class="menu-item active">
-                    <a class="menu-link" href="#">
+                <li class="menu-item <?php echo e(Route::currentRouteName() == "texts" ? 'active' : ''); ?>">
+                    <a class="menu-link" href="{{ route('texts') }}">
                         <span class="title">Textos</span>
                     </a>
                 </li>
 
 
-                <li class="menu-item">
-                    <a class="menu-link" href="#">
+                <li class="menu-item <?php echo e(Route::currentRouteName() == "authors" ? 'active' : ''); ?>">
+                    <a class="menu-link" href="{{ route('authors') }}">
                         <span class="title">Autores</span>
                     </a>
                 </li>

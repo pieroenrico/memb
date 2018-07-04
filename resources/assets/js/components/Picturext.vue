@@ -16,7 +16,7 @@
                 }
             }
         },
-        props: ['display-bottom-panel', 'picture', 'location', 'user', 'tags', 'likes', 'text', 'quickview'],
+        props: ['id', 'display-bottom-panel', 'picture', 'location', 'user', 'tags', 'likes', 'text', 'quickview'],
         computed: {
 
         },

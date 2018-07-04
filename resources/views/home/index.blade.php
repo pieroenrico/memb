@@ -7,6 +7,8 @@
     :search-text="false"
     :search-author="false"
     :zoom-start="12"
+    :mode="'map'"
+    {!! isset($author_id) != '' ? ':author="'.$author_id . "\" :author-data='".$author_data. "'" : '' !!}
     ></memb-lister>
 
 

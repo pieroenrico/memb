@@ -13,7 +13,7 @@
         <header class="header small-header mb-0 mt-60 bg-gray header-upload" style="position: absolute; top: 0; left: 0; width: 100vw;">
             <div class="header-info text-center">
                 <div class="pull-left">
-                    <h1 v-if="searchParagraph" class="center-v">'Este es el párrafo'</h1>
+                    <h1 v-if="author" class="center-v">{{ authorData.name }} {{ authorData.lastname }}</h1>
                 </div>
                 <div class="pull-right">
                     <div class="btn-group" data-toggle="buttons">
@@ -35,6 +35,7 @@
                 <memb-picturext
                         v-for="picturext in picturexts"
                         :display-bottom-panel="true"
+                        :id="picturext.id"
                         :picture="'/uploads/pictures/' + picturext.file"
                         :location='{lat:picturext.location.lat, lng:picturext.location.lng}'
                         :text="{id: picturext.text.id, title: picturext.text.title, author: {id: 1, fullname: 'Julio Cortazar'}, paragraph: { id: picturext.paragraph.id, paragraph: picturext.paragraph.paragraph}}"
@@ -63,7 +64,7 @@
         <header class="header small-header mb-0 mt-60 bg-gray header-upload">
             <div class="header-info text-center">
                 <div class="pull-left">
-                    <h1 v-if="searchParagraph" class="center-v">'Este es el párrafo'</h1>
+                    <h1 v-if="author" class="center-v">{{ authorData.name }} {{ authorData.lastname }}</h1>
                 </div>
                 <div class="pull-right">
                     <div class="btn-group" data-toggle="buttons">
@@ -113,6 +114,7 @@
             <div class="quickview-body">
                 <memb-picturext
                         v-if="selectedPicturext"
+                        :id="selectedPicturext.id"
                         :display-bottom-panel="true"
                         :picture="'/uploads/pictures/' + selectedPicturext.file"
                         :location='{lat:selectedPicturext.location.lat, lng:selectedPicturext.location.lng}'

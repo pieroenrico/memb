@@ -13,6 +13,7 @@
                     :draggable="true"
                     @click="center=marker"
                     @dragend="getMarkerPosition($event.latLng)"
+                    :icon="'/img/pinicon.svg'"
             />
         </gmap-map>
     </div>
@@ -20,9 +21,9 @@
     <input type="hidden" name="lat" v-model="marker.lat">
     <input type="hidden" name="lng" v-model="marker.lng">
 
-    <div class="fab fab-fixed">
+    <div class="fab fab-fixed fab-fixed-big">
         <button type="submit" class="btn btn-float btn-danger btn-submit">
-            <i class="fab-icon-default ti-arrow-right"></i>
+            <i class="fab-icon-default fa fa-arrow-right"></i>
         </button>
     </div>
 </div>

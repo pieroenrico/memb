@@ -9,7 +9,6 @@
         data: function(){
             return {
                 loading: false,
-                mode: 'map',
                 picturexts: [],
                 showQuickView: false,
                 selectedPicturext: null,
@@ -21,7 +20,7 @@
                 }
             }
         },
-        props: ['endpoint', 'search-paragraph'],
+        props: ['endpoint', 'search-paragraph', 'mode', 'author', 'author-data'],
         components: {
             'memb-picturext': Picturext,
         },
@@ -37,7 +36,7 @@
             },
             loadPicturexts() {
                 this.loading = true;
-                axios.get('/api/picturexts')
+                axios.get(this.makeURL())
                     .then( response => {
                     this.picturexts = response.data;
                     this.loading = false;
@@ -58,6 +57,11 @@
             },
             setMode: function(mode) {
                 this.mode = mode
+            },
+            makeURL: function() {
+                var baseURL = '/api/picturexts?';
+                if(this.author) baseURL += 'author=' + this.author + '&'
+                return baseURL
             }
         }
     }

@@ -34,6 +34,11 @@ class Picture extends Model
         return $this->belongsToMany(Tag::class, 'pictures_tags', 'picture_id', 'tag_id');
     }
 
+    public function author()
+    {
+        return $this->belongsTo(Author::class, 'author_id');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');

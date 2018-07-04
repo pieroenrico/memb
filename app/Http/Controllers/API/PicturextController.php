@@ -23,11 +23,13 @@ class PicturextController extends Controller
         $author_id = request()->get('author');
         $text_id = request()->get('text');
         $paragraph_id = request()->get('paragraph');
+        $author_id = request()->get('author');
         $tag = request()->get('tag');
         $user_id = request()->get('user');
 
-        $picturexts_builder = Picture::with('text', 'paragraph', 'location', 'tags', 'user', 'user.profile');
+        $picturexts_builder = Picture::with('text', 'paragraph', 'location', 'tags', 'user', 'user.profile', 'author');
         if($text_id != '') $picturexts_builder->where(['text_id' => $text_id]);
+        if($author_id != '') $picturexts_builder->where(['author_id' => $author_id]);
         if($paragraph_id != '') $picturexts_builder->where(['paragraph_id' => $paragraph_id]);
         if($user_id != '') $picturexts_builder->where(['user_id' => $user_id]);
         $picturexts = $picturexts_builder->orderBy('created_at', 'desc')->get();

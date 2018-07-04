@@ -3,43 +3,60 @@
 namespace App\Http\Controllers;
 
 use App\Author;
-use App\Http\RichModels\Picturext;
-use App\Picture;
 use Illuminate\Http\Request;
 
-class FeedController extends BaseController
+class TextsController extends BaseController
 {
-
-    public function home()
-    {
-        $author_id = request()->get('author');
-
-        $buffer = [
-
-        ];
-
-        if($author_id)
-        {
-            $author_data = Author::find($author_id);
-            $buffer['author_id'] = $author_id;
-            $buffer['author_data'] = $author_data;
-        }
-
-
-
-        return view('home.index', $this->pack($buffer));
-    }
-
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function feed()
+    public function index()
     {
+        $author_id = request()->get('author');
+        /*
 
-        return view('feed.index');
+        if($author_id)
+        {
+            $texts = Text::with('author')
+                ->orderBy('title', 'asc')
+                ->where(['author_id' => $author_id])
+                ->get();
+        }
+        else
+        {
+
+
+            $texts = Text::with('author')
+                ->orderBy('title', 'asc')
+                ->get();
+
+
+        }
+
+
+        $texts = [];
+        foreach($texts as $text)
+        {
+            $texts[] = [
+                'id' => $text->id,
+                'title' => $text->title,
+                'author' => $text->author->fullname,
+                'author_id' => $text->author->id,
+                'search' => $text->title . ' ' . $text->author->fullname,
+            ];
+        }
+
+        $buffer = [
+            'texts' => $texts,
+        ];*/
+
+        $buffer = [
+            'author_id' => $author_id,
+        ];
+
+        return view('texts.index', $this->pack($buffer));
     }
 
     /**
@@ -71,22 +88,7 @@ class FeedController extends BaseController
      */
     public function show($id)
     {
-
-        $picturext = Picture::with('text', 'paragraph', 'location', 'tags', 'user', 'user.profile', 'author')
-            ->where(['id' => $id])
-            ->first();
-
-        $relateds = Picture::with('text', 'paragraph', 'location', 'tags', 'user', 'user.profile', 'author')
-            ->where(['user_id' => $picturext->user->id])
-            ->orderBy('created_at', 'desc')
-            ->get();
-
-        $buffer = [
-            'picturext' => $picturext,
-            'relateds' => $relateds,
-        ];
-
-        return view('feed.show', $this->pack($buffer));
+        //
     }
 
     /**

@@ -12,8 +12,10 @@
 */
 
 Route::get('/', 'FeedController@home')->name('home');
-Route::get('/authors', 'AuthorController@index')->name('authors');
-Route::get('/feed', 'FeedController@index')->name('feed');
+Route::get('/autores', 'AuthorController@index')->name('authors');
+Route::get('/textos', 'TextsController@index')->name('texts');
+Route::get('/feed', 'FeedController@feed')->name('feed');
+Route::get('/foto/{id}', 'FeedController@show')->name('feed.show');
 Route::get('/upload/picture', 'UploadController@picture')->name('upload.picture.show');
 Route::post('/upload/picture', 'UploadController@savePicture')->name('upload.picture.save');
 Route::get('/upload/location', 'UploadController@location')->name('upload.location.show');
@@ -25,6 +27,7 @@ Route::post('/upload/tags', 'UploadController@saveTags')->name('upload.tags.save
 Route::get('/upload/confirm', 'UploadController@confirm')->name('upload.confirm.show');
 Route::post('/upload/confirm', 'UploadController@saveConfirm')->name('upload.confirm.save');
 Route::get('/upload/success', 'UploadController@success')->name('upload.success.show');
+
 
 
 Auth::routes();

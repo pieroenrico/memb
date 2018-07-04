@@ -14,7 +14,7 @@
                 search: '',
             }
         },
-        props: ['endpoint', 'author'],
+        props: ['endpoint', 'author', 'mode'],
         computed: {
             filteredList() {
                 return this.textsList.filter(text => {
@@ -39,9 +39,15 @@
                 })
             },
             selectText: function(id, author_id) {
-                this.selectedText = id;
-                this.selectedAuthor = id;
-                this.$emit('textSelected', this.selectedText, this.selectedAuthor);
+
+                if(this.mode == 'selector') {
+                    this.selectedText = id;
+                    this.selectedAuthor = id;
+                    this.$emit('textSelected', this.selectedText, this.selectedAuthor);
+                } else if(this.mode == 'url') {
+                    alert('b')
+                }
+
             }
         }
     }

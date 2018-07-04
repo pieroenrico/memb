@@ -10673,3 +10673,101 @@ a.tag {
   font-size: 2em;
 }
 
+.feed-show .feed-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.feed-show .feed-header .panel-user {
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  width: 400px;
+}
+
+.feed-show .feed-header .panel-user a {
+  color: #fff;
+}
+
+.feed-show .feed-header .panel-user small {
+  color: #ccc;
+}
+
+.feed-show .feed-header .panel-map {
+  width: 300px;
+  height: 200px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.feed-show .feed-header .panel-text {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 50%;
+}
+
+.feed-show .feed-header .panel-text p,
+.feed-show .feed-header .panel-text h3 {
+  color: #fff;
+  text-shadow: 0px 0px 4px black;
+}
+
+.feed-show .feed-header .panel-text a {
+  color: #fff;
+}
+
+.feed-show .feed-header .panel-text small {
+  color: #ccc;
+}
+
+.feed-show .feed-header .bgclass {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.7)));
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+}
+
+.feed-show .feed-content {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  width: 100vw;
+}
+
+.card.card-options .options {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.btn.btn-round {
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  line-height: 40px;
+  padding: 0;
+}
+
+.no-results {
+  display: block;
+  font-size: 2.5em;
+  text-align: center;
+  padding: 50px 0;
+  color: #999;
+  font-weight: 100;
+  width: 100%;
+}
+

@@ -9,7 +9,9 @@
                 <div class="row">
 
                     <div class="col-sm-12 col-xs-12 col-md-12">
-                        <img :src="picture" class="img-fluid w-100" alt="">
+                        <a :href="'/foto/' + id">
+                            <img :src="picture" class="img-fluid w-100" alt="">
+                        </a>
                     </div>
                 </div>
                 <div class="row">
@@ -63,7 +65,11 @@
                 <div class="row row-eq-height">
 
                     <div class="col-sm-12 col-xs-12 col-md-7">
-                        <img :src="picture" class="img-fluid w-100" alt="">
+
+                        <a :href="'/foto/' + id">
+                            <img :src="picture" class="img-fluid w-100" alt="">
+                        </a>
+
                         <gmap-map
                                 :center="location"
                                 :zoom="14"
@@ -86,7 +92,9 @@
                     <div class="col-sm-12 col-xs-12 col-md-5 text-left">
 
                         <div class="panel-user row mb-30">
-                            <div class="col-4"><img :src="user.picture" class="rounded-circle w-100px h-100px" alt=""></div>
+                            <div class="col-4">
+                                <img :src="user.picture" class="rounded-circle w-100px h-100px" alt="">
+                            </div>
                             <div class="col-8 h-100px">
                                         <span class="center-v">
                                             <a href="">{{ user.fullname }}</a>
