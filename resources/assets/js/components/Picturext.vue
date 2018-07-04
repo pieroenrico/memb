@@ -21,7 +21,9 @@
 
         },
         methods: {
-
+            textIsLong: function(text) {
+                return text.length > 100
+            }
         }
     }
 </script>

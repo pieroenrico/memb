@@ -38,8 +38,9 @@
             <div class="panel-text">
                 <div class="row">
                     <div class="col-12">
+                        <p>"{{ $picturext->paragraph->paragraph }}"</p>
+                        <hr style="border-color: #666">
                         <h3>{{ $picturext->text->title }} <small>{{ $picturext->author->name }} {{ $picturext->author->lastname }}</small></h3>
-                        <p>{{ $picturext->paragraph->paragraph }}</p>
                     </div>
                 </div>
                 <div class="row">

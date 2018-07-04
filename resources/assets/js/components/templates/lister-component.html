@@ -39,7 +39,7 @@
                         :id="picturext.id"
                         :picture="'/uploads/pictures/' + picturext.file"
                         :location='{lat:picturext.location.lat, lng:picturext.location.lng}'
-                        :text="{id: picturext.text.id, title: picturext.text.title, author: {id: 1, fullname: 'Julio Cortazar'}, paragraph: { id: picturext.paragraph.id, paragraph: picturext.paragraph.paragraph}}"
+                        :text="{id: picturext.text.id, title: picturext.text.title, author: {id: picturext.author.id, fullname: picturext.author.name + ' ' + picturext.author.lastname}, paragraph: { id: picturext.paragraph.id, paragraph: picturext.paragraph.paragraph}}"
                         :user="{id: picturext.user.id, fullname: picturext.user.name , picture: '/uploads/users/' + picturext.user.profile.picture }"
                         :tags="['mundos', 'barrio']"
                         :likes="0"

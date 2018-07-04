@@ -104,9 +104,9 @@
                         </div>
 
                         <div class="panel-paragraph">
-                            <div class="fade-long-text">
-                                <p class="">{{ text.paragraph.paragraph }}</p>
-                                <p class="read-more">
+                            <div :class="{'fade-long-text': textIsLong(text.paragraph.paragraph)}">
+                                <p class="" v-html="text.paragraph.paragraph.replace('\n', '<br>')"></p>
+                                <p class="read-more" v-if="textIsLong(text.paragraph.paragraph)">
                                     <a href="#" class="btn btn-default"><i class="fa fa-ellipsis-h fs-30"></i></a>
                                 </p>
                             </div>

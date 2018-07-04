@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\RichModels\Picturext;
 use App\Paragraph;
 use App\Text;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class UploadController extends BaseController
@@ -55,11 +57,18 @@ class UploadController extends BaseController
 
         $paragraph = Paragraph::where(['id' => $picturext['paragraph_id']])->first();
 
+        $user = User::with('profile')->where(['id' => Auth::id()])->first();
+
         return [
             'picture' => $picturext['file'],
             'location' => json_encode($picturext['location']),
             'tags' => json_encode($picturext['tags']),
             'likes' => 0,
+            'user' => json_encode([
+                'id' => $user->id,
+                'fullname' => $user->name,
+                'picture' => '/uploads/users/' . $user->profile->picture,
+            ]),
             'text' => json_encode([
                 'id' => $text->id,
                 'title' => $text->title,
@@ -247,6 +256,7 @@ class UploadController extends BaseController
         $picturext_session = $this->getPicturext();
         $picturext = new Picturext($picturext_session['id']);
 
+        $user = User::with('profile')->where(['id' => Auth::id()])->first();
 
         $data_picturext = [
             'picture' => $picturext->data['file'],
@@ -256,6 +266,11 @@ class UploadController extends BaseController
             ]),
             'tags' => json_encode($this->buildTags($picturext->data['tags'])),
             'likes' => 0,
+            'user' => json_encode([
+                'id' => $user->id,
+                'fullname' => $user->name,
+                'picture' => '/uploads/users/' . $user->profile->picture,
+            ]),
             'text' => json_encode([
                 'id' => $picturext->data->text->id,
                 'title' => $picturext->data->text->title,

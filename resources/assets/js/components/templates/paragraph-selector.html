@@ -32,7 +32,7 @@
                 <p v-for="paragraph in filteredList"
                     :class="{disabled: (selectedParagraph != null) && (selectedParagraph!=paragraph.id), selected: (selectedParagraph == paragraph.id), follows: (search != '') }"
                     @click="selectParagraph(paragraph.id)"
-                    v-html="highlightSearch(paragraph.paragraph)">
+                    v-html="highlightSearch(paragraph.paragraph).replace('\n', '<br>')">
                 </p>
             </div>
 

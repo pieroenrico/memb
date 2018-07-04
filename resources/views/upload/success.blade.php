@@ -28,7 +28,7 @@
                         :picture="'/uploads/pictures/{{ $data['picture'] }}'"
                         :location='{{ str_replace("\"", "", $data['location']) }}'
                         :text='{{ $data['text'] }}'
-                        :user="{id: 1, fullname: 'Piero Bona', picture: '/uploads/users/piero.jpg'}"
+                        :user="{{ $data['user'] }}"
                         :tags="{{ $data['tags'] }}"
                         :likes="0"
                 ></memb-picturext>
