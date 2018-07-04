@@ -17,6 +17,7 @@ import ParagraphSelectorComponent from './components/ParagraphSelectorComponent.
 import AuthorSelectorComponent from './components/AuthorSelectorComponent.vue';
 import PictureSelectorComponent from './components/PictureUploaderComponent.vue';
 import LocationSelector from './components/LocationSelectorComponent.vue';
+import Lister from './components/ListerComponent.vue';
 import Picturext from './components/Picturext.vue';
 import * as VueGoogleMaps from 'vue2-google-maps';
 
@@ -58,6 +59,7 @@ const app = new Vue({
         'memb-picture-uploader': PictureSelectorComponent,
         'memb-location-selector': LocationSelector,
         'memb-picturext': Picturext,
+        'memb-lister': Lister,
         'gmap-map': VueGoogleMaps.Map,
         'gmap-marker': VueGoogleMaps.Marker,
     }
@@ -75,7 +77,7 @@ $(document).ready(function(){
         }
     });
 
-    $(".fade-long-text .btn").click(function() {
+    $(document).on('click', ".fade-long-text .btn", function() {
 
         totalHeight = 0
 

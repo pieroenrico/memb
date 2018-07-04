@@ -258,3 +258,13 @@ a.tag {
     }
   }
 }
+
+.fab-fixed-center {
+  left: 50%;
+  margin-left: -28px;
+}
+.fab-fixed-big {
+  i {
+    font-size: 2em;
+  }
+}

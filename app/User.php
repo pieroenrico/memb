@@ -26,4 +26,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    /**
+    **********************************
+    RELATIONSHIPS
+    **********************************
+    **/
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class, 'user_id');
+    }
 }

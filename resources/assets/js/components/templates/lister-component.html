@@ -1,0 +1,130 @@
+<div class="memb-lister">
+
+    <!------------------------------------------------------------------------------------
+    --------------------------------------------------------------------------------------
+    --------------------------------------------------------------------------------------
+                                        FEED
+    --------------------------------------------------------------------------------------
+    --------------------------------------------------------------------------------------
+    ------------------------------------------------------------------------------------->
+
+    <div v-if="mode == 'list'">
+
+        <header class="header small-header mb-0 mt-60 bg-gray header-upload" style="position: absolute; top: 0; left: 0; width: 100vw;">
+            <div class="header-info text-center">
+                <div class="pull-left">
+                    <h1 v-if="searchParagraph" class="center-v">'Este es el párrafo'</h1>
+                </div>
+                <div class="pull-right">
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-dark" :class="{'active': mode == 'map'}" @click="setMode('map')">
+                            <input type="radio" name="options" id="option1" autocomplete="off"><i class="fa fa-map-marker"></i>
+                        </label>
+                        <label class="btn btn-dark" :class="{'active': mode == 'list'}" @click="setMode('list')">
+                            <input type="radio" name="options" id="option2" autocomplete="off"><i class="fa fa-th-list"></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="row justify-content-center mt-60" >
+
+            <div class="col-sm-12 col-xs-12 col-md-8 no-padding">
+
+                <memb-picturext
+                        v-for="picturext in picturexts"
+                        :display-bottom-panel="true"
+                        :picture="'/uploads/pictures/' + picturext.file"
+                        :location='{lat:picturext.location.lat, lng:picturext.location.lng}'
+                        :text="{id: picturext.text.id, title: picturext.text.title, author: {id: 1, fullname: 'Julio Cortazar'}, paragraph: { id: picturext.paragraph.id, paragraph: picturext.paragraph.paragraph}}"
+                        :user="{id: picturext.user.id, fullname: picturext.user.name , picture: '/uploads/users/' + picturext.user.profile.picture }"
+                        :tags="['mundos', 'barrio']"
+                        :likes="0"
+                ></memb-picturext>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!------------------------------------------------------------------------------------
+    --------------------------------------------------------------------------------------
+    --------------------------------------------------------------------------------------
+                                        MAP
+    --------------------------------------------------------------------------------------
+    --------------------------------------------------------------------------------------
+    ------------------------------------------------------------------------------------->
+
+    <div class="" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh" v-if="mode == 'map'">
+
+        <header class="header small-header mb-0 mt-60 bg-gray header-upload">
+            <div class="header-info text-center">
+                <div class="pull-left">
+                    <h1 v-if="searchParagraph" class="center-v">'Este es el párrafo'</h1>
+                </div>
+                <div class="pull-right">
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-dark" :class="{'active': mode == 'map'}" @click="setMode('map')">
+                            <input type="radio" name="options" id="option1" autocomplete="off"><i class="fa fa-map-marker"></i>
+                        </label>
+                        <label class="btn btn-dark" :class="{'active': mode == 'list'}" @click="setMode('list')">
+                            <input type="radio" name="options" id="option2" autocomplete="off"><i class="fa fa-th-list"></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="row">
+            <div class="col-12">
+
+                <gmap-map
+                        :center="{lat:-34.6074682, lng:-58.4398236}"
+                        :zoom="13"
+                        map-type-id="roadmap"
+                        style="width: 100%; height: 100vh"
+                        :options="mapOptions"
+                >
+                    <gmap-marker
+                            :key="picturext.id"
+                            v-for="picturext in picturexts"
+                            :position="picturext.location"
+                            :clickable="true"
+                            :draggable="false"
+                            :icon="'/img/pinicon.svg'"
+                            @click="showPreview(picturext.id)"
+                    />
+                </gmap-map>
+
+            </div>
+        </div>
+
+
+        <!-- Empty -->
+        <div id="qv-empty" class="quickview quickview-lg" :class="{'reveal':showQuickView}">
+            <header class="quickview-header">
+                <p class="quickview-title lead"></p>
+                <span class="close" @click="showQuickView=false"><i class="ti-close"></i></span>
+            </header>
+
+            <div class="quickview-body">
+                <memb-picturext
+                        v-if="selectedPicturext"
+                        :display-bottom-panel="true"
+                        :picture="'/uploads/pictures/' + selectedPicturext.file"
+                        :location='{lat:selectedPicturext.location.lat, lng:selectedPicturext.location.lng}'
+                        :text="{id: selectedPicturext.text.id, title: selectedPicturext.text.title, author: {id: 1, fullname: 'Julio Cortazar'}, paragraph: { id: selectedPicturext.paragraph.id, paragraph: selectedPicturext.paragraph.paragraph}}"
+                        :user="{id: selectedPicturext.user.id, fullname: selectedPicturext.user.name , picture: '/uploads/users/' + selectedPicturext.user.profile.picture }"
+                        :tags="['mundos', 'barrio']"
+                        :likes="0"
+                        :quickview="true"
+                ></memb-picturext>
+            </div>
+        </div>
+
+    </div>
+
+</div>

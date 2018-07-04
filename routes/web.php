@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('test');
-});
-
+Route::get('/', 'FeedController@home')->name('home');
 Route::get('/authors', 'AuthorController@index')->name('authors');
 Route::get('/feed', 'FeedController@index')->name('feed');
 Route::get('/upload/picture', 'UploadController@picture')->name('upload.picture.show');

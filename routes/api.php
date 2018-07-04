@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/text/{id}/paragraphs', 'API\TextController@paragraphs');
 Route::get('/texts', 'API\TextController@texts');
 Route::get('/authors', 'API\TextController@authors');
+Route::get('/picturexts', 'API\PicturextController@picturexts');

@@ -10664,3 +10664,12 @@ a.tag {
   font-weight: 300 !important;
 }
 
+.fab-fixed-center {
+  left: 50%;
+  margin-left: -28px;
+}
+
+.fab-fixed-big i {
+  font-size: 2em;
+}
+

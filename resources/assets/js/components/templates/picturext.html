@@ -2,7 +2,61 @@
 
     <div class="card card-transparent picturext">
 
-        <div class="card-content" v-if="!loading">
+        <div class="card-content" v-if="!loading && quickview">
+
+            <div class="card-body form-type-fill">
+
+                <div class="row">
+
+                    <div class="col-sm-12 col-xs-12 col-md-12">
+                        <img :src="picture" class="img-fluid w-100" alt="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12 col-md-12 text-left">
+
+                        <div class="panel-user row mb-30 mt-20">
+                            <div class="col-3"><img :src="user.picture" class="rounded-circle w-50px h-50px" alt=""></div>
+                            <div class="col-9 h-50px">
+                                <span class="center-v">
+                                    <a href="" class="fs-15">{{ user.fullname }}</a>
+                                    <small>Subida el 13 de Junio 14:44</small>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="panel-paragraph">
+                            <p class="">{{ text.paragraph.paragraph.substr(0, 50) + '...' }}</p>
+                        </div>
+
+
+                        <div class="panel-text"><h3>{{ text.title }} <small>{{ text.author.fullname }}</small></h3></div>
+
+                    </div>
+
+                </div>
+
+                <div class="row my-10 bt-1 bb-1 py-10" v-if="displayPanel">
+
+                    <div class="col-6">
+                        <div class="panel-tags">
+                            <a href="#" v-for="tag in tags">#{{ tag }}</a>
+                        </div>
+                    </div>
+                    <div class="col-6 text-right">
+                        <div class="panel-likes">
+                            {{ likes }} <i class="ti-heart"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="card-content" v-if="!loading && !quickview">
 
             <div class="card-body form-type-fill">
 
@@ -15,6 +69,7 @@
                                 :zoom="14"
                                 map-type-id="roadmap"
                                 style="width: 100%; height: 200px"
+                                :options="mapOptions"
                         >
                             <gmap-marker
                                     :key="1"
@@ -23,6 +78,7 @@
                                     :clickable="true"
                                     :draggable="true"
                                     @click="center=location"
+                                    :icon="'/img/pinicon.svg'"
                             />
                         </gmap-map>
                     </div>
@@ -43,7 +99,7 @@
                             <div class="fade-long-text">
                                 <p class="">{{ text.paragraph.paragraph }}</p>
                                 <p class="read-more">
-                                    <a href="#" class="btn btn-default"><i class="pe-7s-more fs-30"></i></a>
+                                    <a href="#" class="btn btn-default"><i class="fa fa-ellipsis-h fs-30"></i></a>
                                 </p>
                             </div>
                         </div>

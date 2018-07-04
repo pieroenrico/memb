@@ -13890,10 +13890,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_PictureUploaderComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_PictureUploaderComponent_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_LocationSelectorComponent_vue__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_LocationSelectorComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_LocationSelectorComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Picturext_vue__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Picturext_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_Picturext_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_vue2_google_maps__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_vue2_google_maps___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_vue2_google_maps__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_ListerComponent_vue__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_ListerComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_ListerComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Picturext_vue__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Picturext_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_Picturext_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_vue2_google_maps__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_vue2_google_maps___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_vue2_google_maps__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -13916,7 +13918,8 @@ window.$ = window.jQuery = __webpack_require__(4);
 
 
 
-Vue.use(__WEBPACK_IMPORTED_MODULE_8_vue2_google_maps__, {
+
+Vue.use(__WEBPACK_IMPORTED_MODULE_9_vue2_google_maps__, {
     load: {
         key: 'AIzaSyDVM_vacbr7Ct4ntmIgwFrMnllYHb6Ss5w',
         libraries: 'places' // This is required if you use the Autocomplete plugin
@@ -13950,9 +13953,10 @@ var app = new Vue({
         'memb-paragraph-selector': __WEBPACK_IMPORTED_MODULE_3__components_ParagraphSelectorComponent_vue___default.a,
         'memb-picture-uploader': __WEBPACK_IMPORTED_MODULE_5__components_PictureUploaderComponent_vue___default.a,
         'memb-location-selector': __WEBPACK_IMPORTED_MODULE_6__components_LocationSelectorComponent_vue___default.a,
-        'memb-picturext': __WEBPACK_IMPORTED_MODULE_7__components_Picturext_vue___default.a,
-        'gmap-map': __WEBPACK_IMPORTED_MODULE_8_vue2_google_maps__["Map"],
-        'gmap-marker': __WEBPACK_IMPORTED_MODULE_8_vue2_google_maps__["Marker"]
+        'memb-picturext': __WEBPACK_IMPORTED_MODULE_8__components_Picturext_vue___default.a,
+        'memb-lister': __WEBPACK_IMPORTED_MODULE_7__components_ListerComponent_vue___default.a,
+        'gmap-map': __WEBPACK_IMPORTED_MODULE_9_vue2_google_maps__["Map"],
+        'gmap-marker': __WEBPACK_IMPORTED_MODULE_9_vue2_google_maps__["Marker"]
     }
 });
 
@@ -13968,7 +13972,7 @@ $(document).ready(function () {
         }
     });
 
-    $(".fade-long-text .btn").click(function () {
+    $(document).on('click', ".fade-long-text .btn", function () {
 
         totalHeight = 0;
 
@@ -50515,7 +50519,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 97 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"memb-location-selector\">\n    <div class=\"form-group\">\n        <gmap-map\n                :center=\"{lat:-34.6066663, lng:-58.4336508}\"\n                :zoom=\"14\"\n                map-type-id=\"roadmap\"\n                style=\"width: 100%; height: 400px\"\n        >\n            <gmap-marker\n                    :key=\"1\"\n                    :position=\"marker\"\n                    :clickable=\"true\"\n                    :draggable=\"true\"\n                    @click=\"center=marker\"\n                    @dragend=\"getMarkerPosition($event.latLng)\"\n            />\n        </gmap-map>\n    </div>\n\n    <input type=\"hidden\" name=\"lat\" v-model=\"marker.lat\">\n    <input type=\"hidden\" name=\"lng\" v-model=\"marker.lng\">\n\n    <div class=\"fab fab-fixed\">\n        <button type=\"submit\" class=\"btn btn-float btn-danger btn-submit\">\n            <i class=\"fab-icon-default ti-arrow-right\"></i>\n        </button>\n    </div>\n</div>";
+module.exports = "<div class=\"memb-location-selector\">\n    <div class=\"form-group\">\n        <gmap-map\n                :center=\"marker\"\n                :zoom=\"14\"\n                map-type-id=\"roadmap\"\n                style=\"width: 100%; height: 400px\"\n        >\n            <gmap-marker\n                    :key=\"1\"\n                    :position=\"marker\"\n                    :clickable=\"true\"\n                    :draggable=\"true\"\n                    @click=\"center=marker\"\n                    @dragend=\"getMarkerPosition($event.latLng)\"\n            />\n        </gmap-map>\n    </div>\n\n    <input type=\"hidden\" name=\"lat\" v-model=\"marker.lat\">\n    <input type=\"hidden\" name=\"lng\" v-model=\"marker.lng\">\n\n    <div class=\"fab fab-fixed\">\n        <button type=\"submit\" class=\"btn btn-float btn-danger btn-submit\">\n            <i class=\"fab-icon-default ti-arrow-right\"></i>\n        </button>\n    </div>\n</div>";
 
 /***/ }),
 /* 98 */
@@ -50923,10 +50927,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             loading: false,
-            displayPanel: true
+            displayPanel: true,
+            mapOptions: {
+                fullscreenControl: false,
+                streetViewControl: false,
+                mapTypeControl: false
+
+            }
         };
     },
-    props: ['display-bottom-panel', 'picture', 'location', 'user', 'tags', 'likes', 'text'],
+    props: ['display-bottom-panel', 'picture', 'location', 'user', 'tags', 'likes', 'text', 'quickview'],
     computed: {},
     methods: {}
 });
@@ -50935,7 +50945,132 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 109 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"memb-picturext\">\n\n    <div class=\"card card-transparent picturext\">\n\n        <div class=\"card-content\" v-if=\"!loading\">\n\n            <div class=\"card-body form-type-fill\">\n\n                <div class=\"row row-eq-height\">\n\n                    <div class=\"col-sm-12 col-xs-12 col-md-7\">\n                        <img :src=\"picture\" class=\"img-fluid w-100\" alt=\"\">\n                        <gmap-map\n                                :center=\"location\"\n                                :zoom=\"14\"\n                                map-type-id=\"roadmap\"\n                                style=\"width: 100%; height: 200px\"\n                        >\n                            <gmap-marker\n                                    :key=\"1\"\n                                    {{--v-for=\"(m, index) in markers\"--}}\n                                    :position=\"location\"\n                                    :clickable=\"true\"\n                                    :draggable=\"true\"\n                                    @click=\"center=location\"\n                            />\n                        </gmap-map>\n                    </div>\n\n                    <div class=\"col-sm-12 col-xs-12 col-md-5 text-left\">\n\n                        <div class=\"panel-user row mb-30\">\n                            <div class=\"col-4\"><img :src=\"user.picture\" class=\"rounded-circle w-100px h-100px\" alt=\"\"></div>\n                            <div class=\"col-8 h-100px\">\n                                        <span class=\"center-v\">\n                                            <a href=\"\">{{ user.fullname }}</a>\n                                            <small>Subida el 13 de Junio 14:44</small>\n                                        </span>\n                            </div>\n                        </div>\n\n                        <div class=\"panel-paragraph\">\n                            <div class=\"fade-long-text\">\n                                <p class=\"\">{{ text.paragraph.paragraph }}</p>\n                                <p class=\"read-more\">\n                                    <a href=\"#\" class=\"btn btn-default\"><i class=\"pe-7s-more fs-30\"></i></a>\n                                </p>\n                            </div>\n                        </div>\n\n\n                        <div class=\"panel-text align-to-bottom\"><h3>{{ text.title }} <small>{{ text.author.fullname }}</small></h3></div>\n\n                    </div>\n\n                </div>\n\n                <div class=\"row my-10 bt-1 bb-1 py-10\" v-if=\"displayPanel\">\n\n                    <div class=\"col-6\">\n                        <div class=\"panel-tags\">\n                            <a href=\"#\" v-for=\"tag in tags\">#{{ tag }}</a>\n                        </div>\n                    </div>\n                    <div class=\"col-6 text-right\">\n                        <div class=\"panel-likes\">\n                            {{ likes }} <i class=\"ti-heart\"></i>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n        </div>\n\n        <div class=\"card-loading reveal\" v-if=\"loading\">\n            <div class=\"spinner-dots\">\n                <span class=\"dot1\"></span>\n                <span class=\"dot2\"></span>\n                <span class=\"dot3\"></span>\n            </div>\n        </div>\n\n    </div>\n\n\n\n\n\n</div>\n\n";
+module.exports = "<div class=\"memb-picturext\">\n\n    <div class=\"card card-transparent picturext\">\n\n        <div class=\"card-content\" v-if=\"!loading && quickview\">\n\n            <div class=\"card-body form-type-fill\">\n\n                <div class=\"row\">\n\n                    <div class=\"col-sm-12 col-xs-12 col-md-12\">\n                        <img :src=\"picture\" class=\"img-fluid w-100\" alt=\"\">\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12 col-xs-12 col-md-12 text-left\">\n\n                        <div class=\"panel-user row mb-30 mt-20\">\n                            <div class=\"col-3\"><img :src=\"user.picture\" class=\"rounded-circle w-50px h-50px\" alt=\"\"></div>\n                            <div class=\"col-9 h-50px\">\n                                <span class=\"center-v\">\n                                    <a href=\"\" class=\"fs-15\">{{ user.fullname }}</a>\n                                    <small>Subida el 13 de Junio 14:44</small>\n                                </span>\n                            </div>\n                        </div>\n\n                        <div class=\"panel-paragraph\">\n                            <p class=\"\">{{ text.paragraph.paragraph.substr(0, 50) + '...' }}</p>\n                        </div>\n\n\n                        <div class=\"panel-text\"><h3>{{ text.title }} <small>{{ text.author.fullname }}</small></h3></div>\n\n                    </div>\n\n                </div>\n\n                <div class=\"row my-10 bt-1 bb-1 py-10\" v-if=\"displayPanel\">\n\n                    <div class=\"col-6\">\n                        <div class=\"panel-tags\">\n                            <a href=\"#\" v-for=\"tag in tags\">#{{ tag }}</a>\n                        </div>\n                    </div>\n                    <div class=\"col-6 text-right\">\n                        <div class=\"panel-likes\">\n                            {{ likes }} <i class=\"ti-heart\"></i>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n        </div>\n\n\n\n        <div class=\"card-content\" v-if=\"!loading && !quickview\">\n\n            <div class=\"card-body form-type-fill\">\n\n                <div class=\"row row-eq-height\">\n\n                    <div class=\"col-sm-12 col-xs-12 col-md-7\">\n                        <img :src=\"picture\" class=\"img-fluid w-100\" alt=\"\">\n                        <gmap-map\n                                :center=\"location\"\n                                :zoom=\"14\"\n                                map-type-id=\"roadmap\"\n                                style=\"width: 100%; height: 200px\"\n                                :options=\"mapOptions\"\n                        >\n                            <gmap-marker\n                                    :key=\"1\"\n                                    {{--v-for=\"(m, index) in markers\"--}}\n                                    :position=\"location\"\n                                    :clickable=\"true\"\n                                    :draggable=\"true\"\n                                    @click=\"center=location\"\n                                    :icon=\"'/img/pinicon.svg'\"\n                            />\n                        </gmap-map>\n                    </div>\n\n                    <div class=\"col-sm-12 col-xs-12 col-md-5 text-left\">\n\n                        <div class=\"panel-user row mb-30\">\n                            <div class=\"col-4\"><img :src=\"user.picture\" class=\"rounded-circle w-100px h-100px\" alt=\"\"></div>\n                            <div class=\"col-8 h-100px\">\n                                        <span class=\"center-v\">\n                                            <a href=\"\">{{ user.fullname }}</a>\n                                            <small>Subida el 13 de Junio 14:44</small>\n                                        </span>\n                            </div>\n                        </div>\n\n                        <div class=\"panel-paragraph\">\n                            <div class=\"fade-long-text\">\n                                <p class=\"\">{{ text.paragraph.paragraph }}</p>\n                                <p class=\"read-more\">\n                                    <a href=\"#\" class=\"btn btn-default\"><i class=\"fa fa-ellipsis-h fs-30\"></i></a>\n                                </p>\n                            </div>\n                        </div>\n\n\n                        <div class=\"panel-text align-to-bottom\"><h3>{{ text.title }} <small>{{ text.author.fullname }}</small></h3></div>\n\n                    </div>\n\n                </div>\n\n                <div class=\"row my-10 bt-1 bb-1 py-10\" v-if=\"displayPanel\">\n\n                    <div class=\"col-6\">\n                        <div class=\"panel-tags\">\n                            <a href=\"#\" v-for=\"tag in tags\">#{{ tag }}</a>\n                        </div>\n                    </div>\n                    <div class=\"col-6 text-right\">\n                        <div class=\"panel-likes\">\n                            {{ likes }} <i class=\"ti-heart\"></i>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n        </div>\n\n        <div class=\"card-loading reveal\" v-if=\"loading\">\n            <div class=\"spinner-dots\">\n                <span class=\"dot1\"></span>\n                <span class=\"dot2\"></span>\n                <span class=\"dot3\"></span>\n            </div>\n        </div>\n\n    </div>\n\n\n\n\n\n</div>\n\n";
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(40)
+/* script */
+var __vue_script__ = __webpack_require__(111)
+/* template */
+var __vue_template__ = null
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/ListerComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3611858b", Component.options)
+  } else {
+    hotAPI.reload("data-v-3611858b", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 111 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Picturext_vue__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Picturext_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Picturext_vue__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    template: __webpack_require__(112),
+    mounted: function mounted() {
+        this.loadPicturexts();
+        this.correctHeights();
+    },
+
+    data: function data() {
+        return {
+            loading: false,
+            mode: 'map',
+            picturexts: [],
+            showQuickView: false,
+            selectedPicturext: null,
+            mapOptions: {
+                fullscreenControl: false,
+                streetViewControl: false,
+                mapTypeControl: false
+
+            }
+        };
+    },
+    props: ['endpoint', 'search-paragraph'],
+    components: {
+        'memb-picturext': __WEBPACK_IMPORTED_MODULE_0__Picturext_vue___default.a
+    },
+    computed: {},
+    methods: {
+        correctHeights: function correctHeights() {
+            var height = $(document).outerHeight() - $('header.topbar').outerHeight() - $('header.header-upload').outerHeight() - 145;
+            $('.vue-map-container').css({
+                height: height + 'px'
+            });
+        },
+        loadPicturexts: function loadPicturexts() {
+            var _this = this;
+
+            this.loading = true;
+            axios.get('/api/picturexts').then(function (response) {
+                _this.picturexts = response.data;
+                _this.loading = false;
+            }).catch(function (e) {
+                _this.loading = false;
+                console.log(e);
+            });
+        },
+        showPreview: function showPreview(id) {
+            this.showQuickView = true;
+            for (var i = 0; i < this.picturexts.length; i++) {
+                if (this.picturexts[i].id == id) {
+                    this.selectedPicturext = this.picturexts[i];
+                    break;
+                }
+            }
+        },
+
+        setMode: function setMode(mode) {
+            this.mode = mode;
+        }
+    }
+});
+
+/***/ }),
+/* 112 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"memb-lister\">\n\n    <!------------------------------------------------------------------------------------\n    --------------------------------------------------------------------------------------\n    --------------------------------------------------------------------------------------\n                                        FEED\n    --------------------------------------------------------------------------------------\n    --------------------------------------------------------------------------------------\n    ------------------------------------------------------------------------------------->\n\n    <div v-if=\"mode == 'list'\">\n\n        <header class=\"header small-header mb-0 mt-60 bg-gray header-upload\" style=\"position: absolute; top: 0; left: 0; width: 100vw;\">\n            <div class=\"header-info text-center\">\n                <div class=\"pull-left\">\n                    <h1 v-if=\"searchParagraph\" class=\"center-v\">'Este es el párrafo'</h1>\n                </div>\n                <div class=\"pull-right\">\n                    <div class=\"btn-group\" data-toggle=\"buttons\">\n                        <label class=\"btn btn-dark\" :class=\"{'active': mode == 'map'}\" @click=\"setMode('map')\">\n                            <input type=\"radio\" name=\"options\" id=\"option1\" autocomplete=\"off\"><i class=\"fa fa-map-marker\"></i>\n                        </label>\n                        <label class=\"btn btn-dark\" :class=\"{'active': mode == 'list'}\" @click=\"setMode('list')\">\n                            <input type=\"radio\" name=\"options\" id=\"option2\" autocomplete=\"off\"><i class=\"fa fa-th-list\"></i>\n                        </label>\n                    </div>\n                </div>\n            </div>\n        </header>\n\n        <div class=\"row justify-content-center mt-60\" >\n\n            <div class=\"col-sm-12 col-xs-12 col-md-8 no-padding\">\n\n                <memb-picturext\n                        v-for=\"picturext in picturexts\"\n                        :display-bottom-panel=\"true\"\n                        :picture=\"'/uploads/pictures/' + picturext.file\"\n                        :location='{lat:picturext.location.lat, lng:picturext.location.lng}'\n                        :text=\"{id: picturext.text.id, title: picturext.text.title, author: {id: 1, fullname: 'Julio Cortazar'}, paragraph: { id: picturext.paragraph.id, paragraph: picturext.paragraph.paragraph}}\"\n                        :user=\"{id: picturext.user.id, fullname: picturext.user.name , picture: '/uploads/users/' + picturext.user.profile.picture }\"\n                        :tags=\"['mundos', 'barrio']\"\n                        :likes=\"0\"\n                ></memb-picturext>\n\n\n            </div>\n\n        </div>\n    </div>\n\n\n    <!------------------------------------------------------------------------------------\n    --------------------------------------------------------------------------------------\n    --------------------------------------------------------------------------------------\n                                        MAP\n    --------------------------------------------------------------------------------------\n    --------------------------------------------------------------------------------------\n    ------------------------------------------------------------------------------------->\n\n    <div class=\"\" style=\"position: absolute; top: 0; left: 0; width: 100vw; height: 100vh\" v-if=\"mode == 'map'\">\n\n        <header class=\"header small-header mb-0 mt-60 bg-gray header-upload\">\n            <div class=\"header-info text-center\">\n                <div class=\"pull-left\">\n                    <h1 v-if=\"searchParagraph\" class=\"center-v\">'Este es el párrafo'</h1>\n                </div>\n                <div class=\"pull-right\">\n                    <div class=\"btn-group\" data-toggle=\"buttons\">\n                        <label class=\"btn btn-dark\" :class=\"{'active': mode == 'map'}\" @click=\"setMode('map')\">\n                            <input type=\"radio\" name=\"options\" id=\"option1\" autocomplete=\"off\"><i class=\"fa fa-map-marker\"></i>\n                        </label>\n                        <label class=\"btn btn-dark\" :class=\"{'active': mode == 'list'}\" @click=\"setMode('list')\">\n                            <input type=\"radio\" name=\"options\" id=\"option2\" autocomplete=\"off\"><i class=\"fa fa-th-list\"></i>\n                        </label>\n                    </div>\n                </div>\n            </div>\n        </header>\n\n        <div class=\"row\">\n            <div class=\"col-12\">\n\n                <gmap-map\n                        :center=\"{lat:-34.6074682, lng:-58.4398236}\"\n                        :zoom=\"13\"\n                        map-type-id=\"roadmap\"\n                        style=\"width: 100%; height: 100vh\"\n                        :options=\"mapOptions\"\n                >\n                    <gmap-marker\n                            :key=\"picturext.id\"\n                            v-for=\"picturext in picturexts\"\n                            :position=\"picturext.location\"\n                            :clickable=\"true\"\n                            :draggable=\"false\"\n                            :icon=\"'/img/pinicon.svg'\"\n                            @click=\"showPreview(picturext.id)\"\n                    />\n                </gmap-map>\n\n            </div>\n        </div>\n\n\n        <!-- Empty -->\n        <div id=\"qv-empty\" class=\"quickview quickview-lg\" :class=\"{'reveal':showQuickView}\">\n            <header class=\"quickview-header\">\n                <p class=\"quickview-title lead\"></p>\n                <span class=\"close\" @click=\"showQuickView=false\"><i class=\"ti-close\"></i></span>\n            </header>\n\n            <div class=\"quickview-body\">\n                <memb-picturext\n                        v-if=\"selectedPicturext\"\n                        :display-bottom-panel=\"true\"\n                        :picture=\"'/uploads/pictures/' + selectedPicturext.file\"\n                        :location='{lat:selectedPicturext.location.lat, lng:selectedPicturext.location.lng}'\n                        :text=\"{id: selectedPicturext.text.id, title: selectedPicturext.text.title, author: {id: 1, fullname: 'Julio Cortazar'}, paragraph: { id: selectedPicturext.paragraph.id, paragraph: selectedPicturext.paragraph.paragraph}}\"\n                        :user=\"{id: selectedPicturext.user.id, fullname: selectedPicturext.user.name , picture: '/uploads/users/' + selectedPicturext.user.profile.picture }\"\n                        :tags=\"['mundos', 'barrio']\"\n                        :likes=\"0\"\n                        :quickview=\"true\"\n                ></memb-picturext>\n            </div>\n        </div>\n\n    </div>\n\n</div>";
 
 /***/ })
 /******/ ]);

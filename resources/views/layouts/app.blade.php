@@ -41,7 +41,7 @@
     <div class="topbar-left">
         <span class="topbar-btn topbar-menu-toggler"><i>&#9776;</i></span>
         <span class="topbar-brand">
-            <img src="/img/logo.svg" alt="" style="width: 50px;">
+            <a href="{{ route('home') }}"><img src="/img/logo.svg" alt="" style="width: 50px;"></a>
         </span>
 
         <div class="topbar-divider d-none d-xl-block"></div>

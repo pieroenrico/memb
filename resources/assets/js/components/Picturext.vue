@@ -8,9 +8,15 @@
             return {
                 loading: false,
                 displayPanel: true,
+                mapOptions: {
+                    fullscreenControl: false,
+                    streetViewControl: false,
+                    mapTypeControl: false,
+
+                }
             }
         },
-        props: ['display-bottom-panel', 'picture', 'location', 'user', 'tags', 'likes', 'text'],
+        props: ['display-bottom-panel', 'picture', 'location', 'user', 'tags', 'likes', 'text', 'quickview'],
         computed: {
 
         },
